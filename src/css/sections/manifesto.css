@@ -1,0 +1,69 @@
+/* ===== MANIFESTO ===== */
+#manifesto {
+  background: var(--ink-soft);
+  text-align: center;
+  padding: clamp(100px, 14vw, 180px) var(--pad-x);
+  overflow: hidden;
+}
+
+.manifesto-heading {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 9vw, 120px);
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sand);
+  line-height: 1.05;
+  /* SplitType превратит в spans — убираем overflow */
+  overflow: hidden;
+}
+
+/* Каждое слово-span (SplitType .word) */
+.manifesto-heading .word {
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 0.1em; /* под нижние выносные элементы */
+}
+
+.manifesto-sub {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 4vw, 48px);
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 16px;
+  overflow: hidden;
+}
+
+/* Декоративная линия между */
+.manifesto-line {
+  width: 60px;
+  height: 0.5px;
+  background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+  margin: 40px auto;
+  transform: scaleX(0);
+}
+
+/* Цитата */
+.manifesto-quote {
+  font-family: var(--font-display);
+  font-size: clamp(11px, 1.4vw, 14px);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  opacity: 0.5;
+  margin-top: 40px;
+  opacity: 0;
+}
+
+@media (max-width: 767px) {
+  #manifesto {
+    padding: clamp(80px, 12vw, 120px) clamp(20px, 5vw, 40px);
+  }
+
+  .manifesto-heading {
+    letter-spacing: 0.04em;
+  }
+}

@@ -1,0 +1,130 @@
+/* ===== БАЗОВЫЕ СТИЛИ ===== */
+body {
+  font-family: var(--font-display);
+  font-weight: 300;
+  color: var(--gold);
+  background: var(--ink);
+  overflow-x: hidden;
+}
+
+/* Скрываем #site до конца preloader */
+#site {
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* Плавный скролл к якорям */
+html {
+  scroll-padding-top: 80px;
+}
+
+/* Типографика заголовков */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+}
+
+/* Арабские элементы */
+.arabic {
+  font-family: var(--font-arabic);
+  direction: ltr; /* каллиграфия всегда LTR — декор */
+}
+
+/* Золотая тонкая линия-разделитель */
+.divider {
+  width: 60px;
+  height: 0.5px;
+  background: var(--gold-light);
+  margin: 32px auto;
+  transform-origin: left;
+}
+
+/* Тег-бейдж */
+.tag {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 0.5px solid var(--line-solid);
+  padding: 5px 12px;
+  border-radius: 0;
+}
+
+/* Золотая кнопка-рамка */
+.btn-outline {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: clamp(12px, 1.5vw, 16px);
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 0.5px solid var(--gold);
+  padding: 14px 36px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.4s var(--ease-gold);
+}
+
+.btn-outline::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease-gold);
+}
+
+.btn-outline:hover::before {
+  transform: scaleX(1);
+}
+
+.btn-outline:hover {
+  color: var(--ink);
+}
+
+.btn-outline span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Секции — базовый padding */
+section {
+  padding: clamp(80px, 10vw, 160px) var(--pad-x);
+  position: relative;
+}
+
+/* Зерно-оверлей (grain) */
+.grain-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 300px 300px;
+}
+
+/* prefers-reduced-motion — упрощаем все анимации */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* --- Мобиль базовые правки --- */
+@media (max-width: 767px) {
+  section {
+    padding: clamp(60px, 8vw, 100px) clamp(20px, 5vw, 40px);
+  }
+}

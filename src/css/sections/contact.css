@@ -1,0 +1,209 @@
+/* ===== CONTACT ===== */
+#contact {
+  background: var(--ink);
+  text-align: center;
+}
+
+.contact-label {
+  font-family: var(--font-display);
+  font-size: 9px;
+  letter-spacing: 0.55em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.4;
+  margin-bottom: 20px;
+}
+
+.contact-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 6vw, 72px);
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sand);
+  margin-bottom: 48px;
+}
+
+/* PRIMARY WhatsApp кнопка */
+.contact-wa-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-size: clamp(12px, 1.5vw, 15px);
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: #25D366;
+  padding: 18px 48px;
+  margin-bottom: 56px;
+  text-decoration: none;
+  transition: opacity 0.3s;
+  min-height: 56px;
+  display: inline-flex;
+}
+
+.contact-wa-primary:hover { opacity: 0.85; }
+
+.contact-wa-primary svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--ink);
+  flex-shrink: 0;
+}
+
+/* Разделитель «или» */
+.contact-or {
+  font-family: var(--font-display);
+  font-size: 9px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.3;
+  margin-bottom: 40px;
+}
+
+/* Форма */
+.contact-form {
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-family: var(--font-display);
+  font-size: 9px;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.5;
+}
+
+.form-input,
+.form-textarea {
+  font-family: var(--font-display);
+  font-size: 16px; /* 16px — не вызывает zoom на iOS */
+  font-weight: 300;
+  color: var(--sand);
+  background: transparent;
+  border: none;
+  border-bottom: 0.5px solid var(--line-solid);
+  padding: 12px 0;
+  transition: border-color 0.3s;
+  width: 100%;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--gold);
+  opacity: 0.2;
+  font-style: italic;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-bottom-color: var(--gold);
+}
+
+.form-textarea {
+  resize: none;
+  rows: 3;
+  height: 80px;
+}
+
+/* Submit кнопка */
+.form-submit {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 0.5px solid var(--gold);
+  padding: 16px 40px;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.4s var(--ease-gold), color 0.4s;
+  margin-top: 8px;
+  align-self: flex-start;
+  min-height: 44px;
+}
+
+.form-submit:hover {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+/* Статус отправки */
+.form-status {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--gold-light);
+  opacity: 0;
+  margin-top: 12px;
+  transition: opacity 0.4s;
+  min-height: 20px;
+}
+
+.form-status.is-visible { opacity: 1; }
+.form-status.is-error   { color: #e07070; }
+
+/* Ссылки соцсетей */
+.contact-socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 64px;
+  padding-top: 48px;
+  border-top: 0.5px solid var(--line);
+}
+
+.social-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+  min-width: 48px;
+  min-height: 44px;
+  justify-content: center;
+}
+
+.social-link:hover { opacity: 1; }
+
+.social-link svg {
+  width: 22px;
+  height: 22px;
+  fill: var(--gold);
+}
+
+.social-link-name {
+  font-family: var(--font-display);
+  font-size: 8px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+@media (max-width: 767px) {
+  .contact-form {
+    max-width: 100%;
+  }
+
+  .contact-socials {
+    gap: 20px;
+  }
+}

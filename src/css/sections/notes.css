@@ -1,0 +1,111 @@
+/* ===== NOTES — ПИРАМИДА АРОМАТА ===== */
+#notes {
+  background: linear-gradient(180deg, var(--ink) 0%, var(--ink-amber) 100%);
+  text-align: center;
+  overflow: hidden;
+}
+
+.notes-heading {
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 0.55em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.6;
+  margin-bottom: 60px;
+}
+
+/* Пирамида */
+.notes-pyramid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Декоративное число 55 — абсолютное, фон */
+.notes-bg-number {
+  position: absolute;
+  right: -10%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: clamp(120px, 20vw, 280px);
+  font-weight: 300;
+  color: var(--gold);
+  opacity: 0.03;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Уровень пирамиды */
+.notes-tier {
+  padding: 32px 0;
+  border-bottom: 0.5px solid var(--line);
+  opacity: 0;
+  transform: translateY(16px);
+  position: relative;
+}
+
+.notes-tier:last-child {
+  border-bottom: none;
+}
+
+/* Линия анимируемая */
+.notes-tier::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 0.5px;
+  background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+  transition: width 0.8s var(--ease-reveal);
+}
+
+.notes-tier.is-revealed::after {
+  width: 100%;
+}
+
+.notes-tier-label {
+  font-family: var(--font-display);
+  font-size: 9px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.4;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.notes-tier-scents {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 3vw, 32px);
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: var(--sand);
+  line-height: 1.3;
+}
+
+/* Точки-разделители между нотами */
+.notes-tier-scents span {
+  color: var(--gold);
+  opacity: 0.5;
+  margin: 0 8px;
+  font-size: 0.6em;
+}
+
+@media (max-width: 767px) {
+  .notes-bg-number {
+    right: -5%;
+    opacity: 0.02;
+  }
+
+  .notes-tier-scents {
+    font-size: clamp(18px, 5vw, 26px);
+  }
+}

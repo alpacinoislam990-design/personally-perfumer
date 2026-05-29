@@ -1,0 +1,36 @@
+/* ===== ДИЗАЙН-СИСТЕМА SHUKRAN UAE ===== */
+:root {
+  /* --- Фоны --- */
+  --ink:        #0D0B09;
+  --ink-soft:   #1C1108;
+  --ink-amber:  #2A1A0A;
+  --sand:       #F5EFE4;
+  --sand-deep:  #E8D5B0;
+
+  /* --- Золото --- */
+  --gold:       #C9A254;
+  --gold-light: #E8C97A;
+  --gold-deep:  #8B5E2A;
+
+  /* --- Текст --- */
+  --brown-deep: #5C3A0E;
+  --line:       rgba(201, 162, 84, 0.2);
+  --line-solid: rgba(201, 162, 84, 0.5);
+
+  /* --- Типографика --- */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-arabic:  'Amiri', serif;
+
+  /* --- Сетка --- */
+  --gap:   clamp(24px, 4vw, 80px);
+  --max-w: 1440px;
+  --pad-x: clamp(20px, 5vw, 100px);
+
+  /* --- Переходы --- */
+  --ease-gold:    cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-reveal:  cubic-bezier(0.05, 0, 0.1, 1);
+
+  /* --- Брейкпоинты (только для JS) --- */
+  --bp-mobile:  767;
+  --bp-tablet:  1023;
+}

@@ -1,0 +1,124 @@
+/* ===== FOOTER ===== */
+#footer {
+  background: var(--ink-soft);
+  border-top: 0.5px solid var(--line);
+  padding: clamp(48px, 6vw, 80px) var(--pad-x);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding-bottom: max(clamp(48px, 6vw, 80px), env(safe-area-inset-bottom));
+}
+
+/* Лого */
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+}
+
+.footer-logo-arabic {
+  font-family: var(--font-arabic);
+  font-size: 28px;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.footer-logo-latin {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.7;
+}
+
+/* Навигация */
+.footer-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3vw, 40px);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-nav-link {
+  font-family: var(--font-display);
+  font-size: 9px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.4;
+  text-decoration: none;
+  transition: opacity 0.3s;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.footer-nav-link:hover { opacity: 0.9; }
+
+/* Соцсети */
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  opacity: 0.4;
+  transition: opacity 0.3s;
+  text-decoration: none;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.footer-social:hover { opacity: 1; }
+.footer-social svg { width: 18px; height: 18px; fill: var(--gold); }
+
+/* Переключатель языка */
+.footer-lang {
+  font-family: var(--font-display);
+  font-size: 9px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.4;
+  cursor: pointer;
+  background: none;
+  border: none;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  transition: opacity 0.3s;
+}
+
+.footer-lang:hover { opacity: 0.9; }
+
+/* Копирайт */
+.footer-copy {
+  font-family: var(--font-display);
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.25;
+  line-height: 1.8;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .footer-nav {
+    gap: 16px;
+  }
+}

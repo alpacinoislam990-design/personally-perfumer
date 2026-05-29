@@ -1,0 +1,186 @@
+/* ===== CATALOG ===== */
+#catalog {
+  background: var(--ink);
+  padding-top: clamp(80px, 10vw, 140px);
+  padding-bottom: clamp(80px, 10vw, 140px);
+  overflow: hidden;
+}
+
+.catalog-header {
+  padding: 0 var(--pad-x);
+  margin-bottom: 48px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.catalog-title {
+  font-family: var(--font-display);
+  font-size: clamp(11px, 1.4vw, 14px);
+  font-weight: 400;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.6;
+}
+
+.catalog-hint {
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.3;
+}
+
+/* Десктоп: горизонтальный скролл-трек */
+.catalog-section {
+  /* GSAP pin будет здесь */
+}
+
+.catalog-track {
+  display: flex;
+  align-items: stretch;
+  padding: 0 var(--pad-x);
+  gap: clamp(24px, 3vw, 48px);
+  /* Ширина = количество карточек × (ширина + gap) */
+}
+
+/* Карточка товара */
+.catalog-card {
+  flex-shrink: 0;
+  width: clamp(280px, 28vw, 420px);
+  background: var(--ink-soft);
+  border: 0.5px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: border-color 0.4s var(--ease-gold);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.catalog-card:hover {
+  border-color: var(--gold);
+}
+
+.catalog-card-img-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background: var(--ink-amber);
+}
+
+.catalog-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s var(--ease-gold);
+}
+
+.catalog-card:hover .catalog-card-img {
+  transform: scale(1.04);
+}
+
+.catalog-card-body {
+  padding: 24px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.catalog-card-name {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2.2vw, 26px);
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: var(--sand);
+  line-height: 1.2;
+}
+
+.catalog-card-sub {
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.5;
+}
+
+.catalog-card-action {
+  margin-top: auto;
+  padding-top: 16px;
+  font-family: var(--font-display);
+  font-size: 9px;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+
+.catalog-card:hover .catalog-card-action {
+  opacity: 1;
+}
+
+.catalog-card-action::after {
+  content: '→';
+  font-size: 1.2em;
+  transition: transform 0.3s;
+}
+
+.catalog-card:hover .catalog-card-action::after {
+  transform: translateX(4px);
+}
+
+/* Карточка-заглушка (coming soon) */
+.catalog-card--soon {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.catalog-card--soon .catalog-card-img-wrap {
+  background: var(--ink-soft);
+}
+
+/* --- Swiper (мобиль/планшет) --- */
+.catalog-swiper {
+  display: none;
+  padding: 0 var(--pad-x);
+}
+
+.catalog-swiper .swiper-slide {
+  width: 85vw;
+  max-width: 340px;
+}
+
+/* --- Мобиль (≤767px) --- */
+@media (max-width: 767px) {
+  .catalog-track   { display: none; }
+  .catalog-swiper  { display: block; }
+  .catalog-hint    { display: none; }
+
+  #catalog {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .catalog-header {
+    padding: 0 clamp(20px, 5vw, 40px);
+  }
+}
+
+/* --- Планшет (768–1023px) --- */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .catalog-track  { display: none; }
+  .catalog-swiper { display: block; }
+
+  .catalog-swiper .swiper-slide {
+    width: 45vw;
+  }
+}

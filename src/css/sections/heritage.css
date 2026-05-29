@@ -1,0 +1,122 @@
+/* ===== HERITAGE ===== */
+#heritage {
+  background: var(--sand);
+  padding: 0;
+  overflow: hidden;
+}
+
+.heritage-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 80dvh;
+  align-items: stretch;
+}
+
+/* Текстовая часть */
+.heritage-text {
+  padding: clamp(80px, 10vw, 140px) clamp(40px, 5vw, 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+  border-top: 0.5px solid var(--line-solid);
+  border-bottom: 0.5px solid var(--line-solid);
+}
+
+.heritage-label {
+  font-family: var(--font-display);
+  font-size: 9px;
+  letter-spacing: 0.55em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  opacity: 0.5;
+}
+
+.heritage-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brown-deep);
+  line-height: 1.15;
+}
+
+.heritage-body {
+  font-family: var(--font-display);
+  font-size: clamp(14px, 1.6vw, 17px);
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--brown-deep);
+  opacity: 0.75;
+  max-width: 460px;
+}
+
+.heritage-sig {
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  opacity: 0.5;
+  padding-top: 8px;
+  border-top: 0.5px solid var(--line);
+}
+
+/* Визуальная часть — фото */
+.heritage-visual {
+  position: relative;
+  overflow: hidden;
+  background: var(--sand-deep);
+}
+
+.heritage-img-wrap {
+  position: absolute;
+  inset: 0;
+  will-change: transform; /* GSAP parallax */
+}
+
+.heritage-img {
+  width: 100%;
+  height: 110%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Grain поверх фото */
+.heritage-visual .grain-overlay {
+  opacity: 0.06;
+}
+
+/* --- Мобиль --- */
+@media (max-width: 767px) {
+  .heritage-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .heritage-visual {
+    height: 50dvh;
+    position: relative;
+  }
+
+  .heritage-img-wrap {
+    position: relative;
+    height: 100%;
+  }
+
+  .heritage-img {
+    height: 100%;
+  }
+
+  .heritage-text {
+    padding: clamp(48px, 8vw, 80px) clamp(20px, 5vw, 40px);
+    border-top: none;
+  }
+}
+
+/* --- Планшет --- */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .heritage-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}

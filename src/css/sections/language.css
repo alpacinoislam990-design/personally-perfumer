@@ -1,0 +1,102 @@
+/* ===== LANGUAGE SELECT ===== */
+#language-select {
+  position: fixed;
+  inset: 0;
+  height: 100dvh;
+  background: var(--sand);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  gap: 40px;
+  padding: var(--pad-x);
+}
+
+.lang-arabic {
+  font-family: var(--font-arabic);
+  font-size: clamp(56px, 10vw, 96px);
+  color: var(--gold-deep);
+  line-height: 1;
+  text-align: center;
+}
+
+.lang-subtitle {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--brown-deep);
+  opacity: 0.6;
+  text-align: center;
+}
+
+.lang-buttons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.lang-btn {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  border: 0.5px solid var(--gold-deep);
+  padding: 14px 40px;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.4s var(--ease-gold);
+  /* Тап-цель мобиль */
+  min-height: 44px;
+  min-width: 100px;
+}
+
+.lang-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold-deep);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease-gold);
+}
+
+.lang-btn:hover::before,
+.lang-btn:focus::before {
+  transform: scaleX(1);
+}
+
+.lang-btn:hover,
+.lang-btn:focus {
+  color: var(--sand);
+}
+
+.lang-btn span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Разделитель между кнопками */
+.lang-divider {
+  width: 0.5px;
+  height: 20px;
+  background: var(--gold-deep);
+  opacity: 0.3;
+}
+
+@media (max-width: 767px) {
+  .lang-buttons {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .lang-divider {
+    width: 40px;
+    height: 0.5px;
+  }
+}

@@ -1,0 +1,224 @@
+/* ===== НАВИГАЦИЯ ===== */
+#nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  padding: 24px var(--pad-x);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: padding 0.4s var(--ease-gold);
+  /* Безопасная зона iOS */
+  padding-top: max(24px, env(safe-area-inset-top));
+}
+
+/* Лого */
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  text-decoration: none;
+}
+
+.nav-logo-arabic {
+  font-family: var(--font-arabic);
+  font-size: 22px;
+  color: var(--gold);
+  line-height: 1;
+  display: block;
+}
+
+.nav-logo-latin {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+}
+
+/* Центральные ссылки */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 3vw, 48px);
+}
+
+.nav-link {
+  font-family: var(--font-display);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.7;
+  position: relative;
+  padding-bottom: 3px;
+  transition: opacity 0.3s;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0.5px;
+  background: var(--gold);
+  transition: width 0.3s var(--ease-gold);
+}
+
+.nav-link:hover {
+  opacity: 1;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Правая часть */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Переключатель языка */
+.lang-toggle {
+  font-family: var(--font-display);
+  font-size: 9px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.6;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  padding: 8px 4px; /* тап-цель */
+  background: none;
+  border: none;
+}
+
+.lang-toggle:hover {
+  opacity: 1;
+}
+
+.lang-toggle .lang-current {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* WA иконка */
+.nav-wa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.nav-wa:hover { opacity: 1; }
+.nav-wa svg { width: 18px; height: 18px; fill: var(--gold); }
+
+/* Гамбургер (мобиль) */
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 10px;
+  background: none;
+  border: none;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-burger-line {
+  width: 22px;
+  height: 0.5px;
+  background: var(--gold);
+  transition: transform 0.35s var(--ease-gold), opacity 0.35s;
+  transform-origin: center;
+}
+
+/* Гамбургер активен */
+.nav-burger.is-open .nav-burger-line:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 4px);
+}
+.nav-burger.is-open .nav-burger-line:nth-child(2) {
+  opacity: 0;
+}
+.nav-burger.is-open .nav-burger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(4px, -4px);
+}
+
+/* Мобильный оверлей-меню */
+#nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--ink);
+  z-index: 850;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease-gold);
+  padding: var(--pad-x);
+  padding-top: 100px;
+}
+
+#nav-overlay.is-open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.nav-overlay-link {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 6vw, 40px);
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+#nav-overlay.is-open .nav-overlay-link {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger для overlay-ссылок */
+#nav-overlay.is-open .nav-overlay-link:nth-child(1) { transition-delay: 0.1s; }
+#nav-overlay.is-open .nav-overlay-link:nth-child(2) { transition-delay: 0.15s; }
+#nav-overlay.is-open .nav-overlay-link:nth-child(3) { transition-delay: 0.2s; }
+#nav-overlay.is-open .nav-overlay-link:nth-child(4) { transition-delay: 0.25s; }
+
+/* --- Мобиль --- */
+@media (max-width: 767px) {
+  .nav-links { display: none; }
+  .nav-right  { display: none; }
+  .nav-burger { display: flex; }
+
+  #nav {
+    padding: 20px clamp(20px, 5vw, 40px);
+    padding-top: max(20px, env(safe-area-inset-top));
+  }
+}
+
+/* --- Планшет --- */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .nav-links { gap: 24px; }
+}
