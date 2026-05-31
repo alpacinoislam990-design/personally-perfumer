@@ -8,6 +8,14 @@ export function initHeroFlip() {
   let current   = 0;
   let animating = false;
 
+  /* Blurred background fill — та же картина размытая заполняет бока */
+  slides.forEach(slide => {
+    const img = slide.querySelector('.hero-slide-img');
+    if (!img) return;
+    const src = img.currentSrc || img.src;
+    if (src) slide.style.backgroundImage = `url(${src})`;
+  });
+
   /* Начальное состояние: первый слайд видим, остальные прозрачны */
   slides.forEach((s, i) => gsap.set(s, { opacity: i === 0 ? 1 : 0 }));
   _updateDots(0, dots);
