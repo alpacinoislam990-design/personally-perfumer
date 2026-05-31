@@ -24,8 +24,9 @@
 .hero-slide-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* полное изображение, без обрезки */
   object-position: center;
+  background: var(--ink); /* тёмный фон по бокам */
 }
 
 /* --- Оверлей: тёмный + плавный переход в белый снизу --- */

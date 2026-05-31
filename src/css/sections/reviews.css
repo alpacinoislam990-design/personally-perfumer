@@ -12,10 +12,10 @@
 
 .reviews-label {
   font-family: var(--font-display);
-  font-size: 9px;
-  letter-spacing: 0.5em;
+  font-size: 13px;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: var(--gold-readable); /* WCAG AA ~5:1 на белом */
+  color: var(--text-mid);
   margin-bottom: 16px;
 }
 
@@ -49,10 +49,9 @@
 .review-quote {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: clamp(14px, 1.5vw, 17px);
+  font-size: clamp(16px, 1.7vw, 20px);
   color: var(--text);
   line-height: 1.75;
-  opacity: 0.9;
   flex: 1;
 }
 
@@ -89,11 +88,10 @@
 
 .review-meta {
   font-family: var(--font-display);
-  font-size: 10px;
-  letter-spacing: 0.3em;
+  font-size: 13px;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0.55;
+  color: var(--text-mid);
   margin-top: 3px;
 }
 

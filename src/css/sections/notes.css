@@ -7,11 +7,10 @@
 
 .notes-heading {
   font-family: var(--font-display);
-  font-size: 10px;
-  letter-spacing: 0.55em;
+  font-size: 13px;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0.6;
+  color: var(--text-mid);
   margin-bottom: 60px;
 }
 
@@ -73,11 +72,10 @@
 
 .notes-tier-label {
   font-family: var(--font-display);
-  font-size: 9px;
-  letter-spacing: 0.5em;
+  font-size: 13px;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0.4;
+  color: var(--text-mid);
   margin-bottom: 12px;
   display: block;
 }

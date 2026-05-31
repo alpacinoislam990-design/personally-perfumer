@@ -12,11 +12,11 @@
 
 .services-label {
   font-family: var(--font-display);
-  font-size: 9px;
+  font-size: 13px;
   font-weight: 400;
-  letter-spacing: 0.5em;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: var(--gold-readable); /* WCAG AA ~5:1 на белом */
+  color: var(--text-mid);
   margin-bottom: 16px;
 }
 
@@ -79,10 +79,9 @@
 
 .services-card-num {
   font-family: var(--font-display);
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.4em;
-  color: var(--gold);
-  opacity: 0.5;
+  color: var(--text-muted);
 }
 
 .services-card-title {
@@ -96,9 +95,8 @@
 
 .services-card-body {
   font-family: var(--font-display);
-  font-size: clamp(13px, 1.4vw, 16px);
-  color: var(--text-mid);
-  opacity: 0.9;
+  font-size: clamp(16px, 1.6vw, 18px);
+  color: var(--text);
   line-height: 1.65;
 }
 
@@ -112,11 +110,11 @@
 .services-cta-btn {
   display: inline-block;
   font-family: var(--font-display);
-  font-size: 10px;
-  letter-spacing: 0.45em;
+  font-size: 13px;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: var(--gold);
-  border: 0.5px solid var(--line-solid);
+  color: var(--text);
+  border: 1px solid var(--line-light-solid);
   padding: 18px 40px;
   transition: background 0.3s var(--ease-gold), color 0.3s, border-color 0.3s;
 }

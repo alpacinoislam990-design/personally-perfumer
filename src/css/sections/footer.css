@@ -43,11 +43,11 @@
 
 .footer-nav-link {
   font-family: var(--font-display);
-  font-size: 9px;
-  letter-spacing: 0.4em;
+  font-size: 13px;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0.4;
+  color: var(--text-mid);
+  opacity: 0.75;
   text-decoration: none;
   transition: opacity 0.3s;
   min-height: 44px;
