@@ -17,7 +17,7 @@
 
 .contact-title {
   font-family: var(--font-display);
-  font-size: clamp(48px, 8vw, 96px);
+  font-size: clamp(48px, 8vw, 96px); /* impeccable ceiling: 6rem */
   font-weight: 300;
   font-style: italic; /* italic + no-uppercase = утончённее для luxury */
   letter-spacing: -0.02em;
@@ -25,6 +25,7 @@
   color: var(--text);
   margin-bottom: 56px;
   line-height: 1.1;
+  text-wrap: balance;
 }
 
 /* Иконки мессенджеров после успешной отправки */
@@ -175,6 +176,10 @@
 .form-submit:hover {
   background: var(--gold);
   color: var(--ink);
+}
+
+.form-submit:active {
+  transform: scale(0.98);
 }
 
 /* Статус отправки */

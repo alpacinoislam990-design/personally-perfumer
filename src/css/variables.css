@@ -52,7 +52,7 @@
   --bg-card:          #FFFFFF;
   --text:             #111111;
   --text-mid:         #5C4A36;
-  --text-muted:       rgba(17, 17, 17, 0.45);
+  --text-muted:       rgba(17, 17, 17, 0.65); /* ≥4.5:1 на белом: ~#5F5F5F */
   --on-dark:          #FFFFFF;
   --on-dark-mid:      rgba(255, 255, 255, 0.75);
   --on-dark-dim:      rgba(255, 255, 255, 0.45);
