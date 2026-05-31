@@ -19,18 +19,14 @@
 .hero-slide {
   position: absolute;
   inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-/* Картины полностью видны — viewport-единицы гарантируют fit */
+/* cover — заполняет экран, обрезка минимальная по центру */
 .hero-slide-img {
-  max-width: 100vw;
-  max-height: 100dvh;
-  width: auto;
-  height: auto;
-  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
 }
 
 /* --- Оверлей: только для читаемости текста поверх фото --- */
