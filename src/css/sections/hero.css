@@ -28,13 +28,18 @@
   object-position: center;
 }
 
-/* --- Оверлей: тёмный + горизонтальный градиент снизу --- */
+/* --- Оверлей: тёмный + плавный переход в белый снизу --- */
 .hero-overlay {
   position: absolute;
   inset: 0;
   z-index: 2;
   background:
-    linear-gradient(to top, var(--ink-hero) 0%, var(--ink-soft-overlay) 45%, var(--ink-mid) 100%);
+    linear-gradient(to top,
+      var(--bg) 0%,
+      var(--ink-hero) 8%,
+      var(--ink-soft-overlay) 50%,
+      var(--ink-mid) 100%
+    );
 }
 
 /* Grain поверх всего */
