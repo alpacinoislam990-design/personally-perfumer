@@ -1,7 +1,7 @@
 /* ===== FOOTER ===== */
 #footer {
   background: var(--bg-soft);
-  border-top: 0.5px solid var(--line-light);
+  border-top: 1px solid var(--line-light-solid);
   padding: clamp(48px, 6vw, 80px) var(--pad-x);
   text-align: center;
   display: flex;
@@ -23,13 +23,12 @@
 
 .footer-logo-latin {
   font-family: var(--font-display);
-  font-size: 13px;
+  font-size: 20px;
   font-weight: 300;
   font-style: italic;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: none;
-  color: var(--gold);
-  opacity: 0.7;
+  color: var(--text);
 }
 
 /* Навигация */
@@ -43,11 +42,11 @@
 
 .footer-nav-link {
   font-family: var(--font-display);
-  font-size: 13px;
-  letter-spacing: 0.3em;
+  font-size: 15px;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--text-mid);
-  opacity: 0.75;
+  color: var(--text);
+  opacity: 0.9;
   text-decoration: none;
   transition: opacity 0.3s;
   min-height: 44px;
@@ -78,16 +77,15 @@
 }
 
 .footer-social:hover { opacity: 1; }
-.footer-social svg { width: 18px; height: 18px; fill: var(--gold); }
+.footer-social svg { width: 24px; height: 24px; fill: var(--text); }
 
 /* Переключатель языка */
 .footer-lang {
   font-family: var(--font-display);
-  font-size: 9px;
-  letter-spacing: 0.4em;
+  font-size: 14px;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0.4;
+  color: var(--text-mid);
   cursor: pointer;
   background: none;
   border: none;
@@ -95,18 +93,18 @@
   display: flex;
   align-items: center;
   padding: 0 4px;
-  transition: opacity 0.3s;
+  transition: color 0.3s;
 }
 
-.footer-lang:hover { opacity: 0.9; }
+.footer-lang:hover { color: var(--text); }
 
 /* Копирайт */
 .footer-copy {
   font-family: var(--font-display);
-  font-size: 9px;
-  letter-spacing: 0.3em;
+  font-size: 13px;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-mid);
   line-height: 1.8;
   text-align: center;
 }

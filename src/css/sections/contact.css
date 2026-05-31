@@ -72,12 +72,12 @@
 /* Выпадающий список услуг */
 .form-select {
   font-family: var(--font-display);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 300;
   color: var(--text);
   background: transparent;
   border: none;
-  border-bottom: 0.5px solid var(--line-light-solid);
+  border-bottom: 1px solid var(--line-light-solid);
   padding: 12px 0;
   width: 100%;
   cursor: pointer;
@@ -117,30 +117,32 @@
 
 .form-label {
   font-family: var(--font-display);
-  font-size: 13px;
-  letter-spacing: 0.3em;
+  font-size: 16px;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--text-mid);
+  color: var(--text);
+  font-weight: 400;
 }
 
 .form-input,
 .form-textarea {
   font-family: var(--font-display);
-  font-size: 16px; /* 16px — не вызывает zoom на iOS */
+  font-size: 18px;
   font-weight: 300;
   color: var(--text);
   background: transparent;
   border: none;
-  border-bottom: 0.5px solid var(--line-light-solid);
-  padding: 12px 0;
+  border-bottom: 1px solid var(--line-light-solid);
+  padding: 14px 0;
   transition: border-color 0.3s;
   width: 100%;
 }
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-  color: var(--text-muted);
+  color: var(--text-mid);
   font-style: italic;
+  opacity: 0.7;
 }
 
 .form-input:focus,
@@ -156,24 +158,26 @@
 /* Submit кнопка */
 .form-submit {
   font-family: var(--font-display);
-  font-size: 10px;
-  letter-spacing: 0.55em;
+  font-size: 15px;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--gold);
-  border: 0.5px solid var(--gold);
-  padding: 18px 40px;
+  color: var(--text);
+  border: 2px solid var(--text);
+  padding: 20px 40px;
   background: transparent;
   cursor: pointer;
-  transition: background 0.4s var(--ease-gold), color 0.4s;
+  transition: background 0.4s var(--ease-gold), color 0.4s, border-color 0.4s, transform 0.15s ease-out;
   margin-top: 16px;
-  align-self: stretch; /* full width */
+  align-self: stretch;
   width: 100%;
-  min-height: 52px;
+  min-height: 56px;
+  font-weight: 400;
 }
 
 .form-submit:hover {
-  background: var(--gold);
-  color: var(--ink);
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
 }
 
 .form-submit:active {
@@ -219,10 +223,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 32px;
+  gap: 40px;
   margin-top: 64px;
   padding-top: 48px;
-  border-top: 0.5px solid var(--line-light);
+  border-top: 1px solid var(--line-light-solid);
 }
 
 .social-link {
@@ -231,7 +235,7 @@
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  opacity: 0.5;
+  opacity: 0.85;
   transition: opacity 0.3s;
   min-width: 48px;
   min-height: 44px;
@@ -241,17 +245,17 @@
 .social-link:hover { opacity: 1; }
 
 .social-link svg {
-  width: 22px;
-  height: 22px;
-  fill: var(--gold);
+  width: 26px;
+  height: 26px;
+  fill: var(--text);
 }
 
 .social-link-name {
   font-family: var(--font-display);
-  font-size: 8px;
-  letter-spacing: 0.4em;
+  font-size: 13px;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--text-mid);
 }
 
 @media (max-width: 767px) {

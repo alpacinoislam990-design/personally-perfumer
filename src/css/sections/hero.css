@@ -29,18 +29,12 @@
   background: var(--ink); /* тёмный фон по бокам */
 }
 
-/* --- Оверлей: тёмный + плавный переход в белый снизу --- */
+/* --- Оверлей: только для читаемости текста поверх фото --- */
 .hero-overlay {
   position: absolute;
   inset: 0;
   z-index: 2;
-  background:
-    linear-gradient(to top,
-      var(--bg) 0%,
-      var(--ink-hero) 8%,
-      var(--ink-soft-overlay) 50%,
-      var(--ink-mid) 100%
-    );
+  background: rgba(0, 0, 0, 0.35); /* единый полупрозрачный — картины видны целиком */
 }
 
 /* Grain поверх всего */
