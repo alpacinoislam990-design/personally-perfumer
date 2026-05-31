@@ -6,13 +6,19 @@ export function initCatalog() {
 
   if (isDesktop) {
     _initPinScroll();
-  } else {
-    _initSwiper(isTablet ? 2.1 : 1.2);
+    return;
   }
 
-  /* Swiper для отзывов на мобиле */
-  if (!isDesktop && !isTablet) {
-    _initReviewsSwiper();
+  /* Ждём load — Swiper CDN грузится defer, может быть ещё не готов */
+  const doSwiper = () => {
+    _initSwiper(isTablet ? 2.1 : 1.2);
+    if (!isTablet) _initReviewsSwiper();
+  };
+
+  if (document.readyState === 'complete') {
+    doSwiper();
+  } else {
+    window.addEventListener('load', doSwiper, { once: true });
   }
 }
 

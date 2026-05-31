@@ -113,6 +113,38 @@ section {
   background-size: 300px 300px;
 }
 
+/* Focus-visible — keyboard accessibility (WCAG 2.4.7) */
+:focus-visible {
+  outline: 1.5px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* Отключаем outline для mouse-кликов, сохраняем для клавиатуры */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Skip link для keyboard-навигации (WCAG 2.4.1) */
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: 16px;
+  z-index: 9999;
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--gold);
+  padding: 12px 20px;
+  text-decoration: none;
+  transition: top 0s;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
 /* prefers-reduced-motion — упрощаем все анимации */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -128,3 +160,14 @@ section {
     padding: clamp(60px, 8vw, 100px) clamp(20px, 5vw, 40px);
   }
 }
+
+/* View Transitions API — плавный fade при смене языка */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) { animation: fade-out 0.3s ease; }
+::view-transition-new(root) { animation: fade-in  0.3s ease; }
+
+@keyframes fade-out { from { opacity: 1 } to { opacity: 0 } }
+@keyframes fade-in  { from { opacity: 0 } to { opacity: 1 } }

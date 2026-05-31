@@ -33,10 +33,11 @@
 
 .nav-logo-latin {
   font-family: var(--font-display);
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 300;
+  font-style: italic; /* Cormorant italic — luxury logo treatment */
+  letter-spacing: 0.12em;
+  text-transform: none;
   color: var(--gold);
   display: block;
 }
@@ -232,6 +233,16 @@
   padding: 12px 32px;
   margin-top: 16px;
   letter-spacing: 0.15em;
+}
+
+/* Nav scrolled: полупрозрачный фон + backdrop-blur */
+#nav.is-scrolled {
+  background: var(--ink-nav);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding-top: max(16px, env(safe-area-inset-top));
+  padding-bottom: 16px;
+  border-bottom: 0.5px solid var(--line);
 }
 
 /* --- Мобиль --- */

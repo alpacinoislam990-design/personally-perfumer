@@ -82,15 +82,16 @@
 
 .about-heading {
   font-family: var(--font-display);
-  font-size: clamp(24px, 3.5vw, 44px);
+  font-size: clamp(26px, 4vw, 52px);
   font-weight: 300;
+  font-style: italic;
   color: var(--sand);
-  line-height: 1.25;
-  letter-spacing: -0.01em;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
 .about-quote {
-  border-left: 1px solid var(--gold);
+  border-left: 0.5px solid var(--gold);
   padding-left: clamp(16px, 2vw, 24px);
   font-family: var(--font-display);
   font-style: italic;
@@ -114,8 +115,9 @@
 
 .about-stat-num {
   font-family: var(--font-display);
-  font-size: clamp(28px, 3.5vw, 44px);
+  font-size: clamp(36px, 4.5vw, 56px);
   font-weight: 300;
+  font-style: italic; /* display numerals italic = классический luxury */
   color: var(--gold);
   line-height: 1;
 }
@@ -137,7 +139,8 @@
   }
 
   .about-photo-placeholder {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 3 / 4;
+    max-height: 60dvh;
   }
 
   .about-stats {

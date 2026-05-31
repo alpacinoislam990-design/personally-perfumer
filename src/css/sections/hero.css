@@ -34,7 +34,7 @@
   inset: 0;
   z-index: 2;
   background:
-    linear-gradient(to top, rgba(13,11,9,0.75) 0%, rgba(13,11,9,0.2) 50%, rgba(13,11,9,0.4) 100%);
+    linear-gradient(to top, var(--ink-hero) 0%, var(--ink-soft-overlay) 45%, var(--ink-mid) 100%);
 }
 
 /* Grain поверх всего */
@@ -57,11 +57,12 @@
 
 .hero-heading {
   font-family: var(--font-display);
-  font-size: clamp(40px, 7vw, 88px);
+  font-size: clamp(48px, 8vw, 100px);
   font-weight: 300;
+  font-style: italic; /* Cormorant italic — ключевой luxury-сигнал */
   color: var(--sand);
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
 }
 
 /* --- Кнопки --- */
@@ -168,11 +169,23 @@
 .hero-dot {
   width: 8px;
   height: 1px;
-  background: rgba(201, 162, 84, 0.3);
+  background: var(--line-dim);
   transition: width 0.4s var(--ease-gold), background 0.4s;
   cursor: pointer;
   border: none;
   padding: 0;
+  position: relative;
+}
+
+/* pseudo-element расширяет tap-зону до 44×44pt без изменения visual (WCAG 2.5.5) */
+.hero-dot::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
 }
 
 .hero-dot.is-active {
@@ -183,7 +196,7 @@
 /* --- Мобиль --- */
 @media (max-width: 767px) {
   .hero-heading {
-    font-size: clamp(36px, 10vw, 56px);
+    font-size: clamp(40px, 11vw, 64px);
   }
 
   .hero-btn-primary {
@@ -192,8 +205,8 @@
   }
 
   .hero-indicators {
-    bottom: calc(20px + env(safe-area-inset-bottom));
-    right: clamp(20px, 5vw, 40px);
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    right: clamp(16px, 4vw, 28px);
   }
 
   .hero-actions {

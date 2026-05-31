@@ -20,19 +20,14 @@
   text-decoration: none;
 }
 
-.footer-logo-arabic {
-  font-family: var(--font-arabic);
-  font-size: 28px;
-  color: var(--gold);
-  line-height: 1;
-}
 
 .footer-logo-latin {
   font-family: var(--font-display);
-  font-size: 10px;
-  font-weight: 400;
-  letter-spacing: 0.5em;
-  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.12em;
+  text-transform: none;
   color: var(--gold);
   opacity: 0.7;
 }
@@ -121,4 +116,50 @@
   .footer-nav {
     gap: 16px;
   }
+}
+
+/* ===== FLOATING WHATSAPP BUTTON ===== */
+#wa-float {
+  position: fixed;
+  bottom: calc(24px + env(safe-area-inset-bottom));
+  right: 24px;
+  z-index: 999;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--ink-amber);
+  border: 0.5px solid var(--line-solid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 24px var(--shadow-float);
+  text-decoration: none;
+  transition: border-color 0.3s var(--ease-gold), background 0.3s;
+}
+
+#wa-float:hover {
+  background: var(--ink-soft);
+  border-color: var(--gold);
+}
+
+#wa-float svg {
+  fill: var(--gold);
+  width: 20px;
+  height: 20px;
+}
+
+/* Тонкая пульсация — менее агрессивная для luxury */
+#wa-float::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 0.5px solid var(--gold);
+  animation: wa-pulse 3s ease-out infinite;
+  opacity: 0;
+}
+
+@keyframes wa-pulse {
+  0%   { transform: scale(1);   opacity: 0.5; }
+  100% { transform: scale(1.6); opacity: 0; }
 }

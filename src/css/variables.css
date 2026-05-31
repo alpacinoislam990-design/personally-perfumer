@@ -16,6 +16,22 @@
   --brown-deep: #5C3A0E;
   --line:       rgba(201, 162, 84, 0.2);
   --line-solid: rgba(201, 162, 84, 0.5);
+  --line-dim:   rgba(201, 162, 84, 0.3);  /* между --line и --line-solid */
+  --line-subtle: rgba(201, 162, 84, 0.05); /* едва заметная золотая тень */
+
+  /* --- Оверлеи ink --- */
+  --ink-nav:    rgba(13, 11, 9, 0.85);    /* nav backdrop-blur фон */
+  --ink-hero:   rgba(13, 11, 9, 0.92);    /* hero overlay низ */
+  --ink-mid:    rgba(13, 11, 9, 0.50);    /* hero overlay верх */
+  --ink-soft-overlay: rgba(13, 11, 9, 0.35); /* hero overlay середина */
+
+  /* --- Свечения и тени --- */
+  --gold-glow:  rgba(232, 201, 122, 0.5); /* свечение preloader line */
+  --brown-line: rgba(92, 58, 14, 0.15);   /* фон прогресс-полосы preloader */
+  --shadow-float: rgba(0, 0, 0, 0.4);     /* тень floating button */
+
+  /* --- Состояния --- */
+  --error:      #e07070;                  /* цвет ошибки формы */
 
   /* --- Типографика --- */
   --font-display: 'Cormorant Garamond', Georgia, serif;
