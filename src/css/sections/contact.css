@@ -1,60 +1,30 @@
 /* ===== CONTACT ===== */
 #contact {
-  background: var(--ink);
+  background: var(--bg);
   text-align: center;
   padding: clamp(80px, 12vw, 160px) var(--pad-x);
 }
 
 .contact-label {
   font-family: var(--font-display);
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 0.55em;
   text-transform: uppercase;
   color: var(--gold);
-  opacity: 0.4;
+  opacity: 0.5;
   margin-bottom: 20px;
 }
 
 .contact-title {
   font-family: var(--font-display);
-  font-size: clamp(36px, 7vw, 80px);
+  font-size: clamp(48px, 8vw, 96px);
   font-weight: 300;
   font-style: italic; /* italic + no-uppercase = утончённее для luxury */
   letter-spacing: -0.02em;
   text-transform: none;
-  color: var(--sand);
+  color: var(--text);
   margin-bottom: 56px;
   line-height: 1.1;
-}
-
-/* Выпадающий список услуг */
-.form-select {
-  font-family: var(--font-display);
-  font-size: 16px;
-  font-weight: 300;
-  color: var(--sand);
-  background: transparent;
-  border: none;
-  border-bottom: 0.5px solid var(--line-solid);
-  padding: 12px 0;
-  width: 100%;
-  cursor: pointer;
-  appearance: none;
-  -webkit-appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23C9A254' opacity='.4'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 4px center;
-  transition: border-color 0.3s;
-}
-
-.form-select:focus {
-  border-bottom-color: var(--gold);
-  outline: none;
-}
-
-.form-select option {
-  background: var(--ink-amber);
-  color: var(--sand);
 }
 
 /* Иконки мессенджеров после успешной отправки */
@@ -65,8 +35,8 @@
   gap: 24px;
   margin-top: 24px;
   padding: 20px 24px;
-  border: 0.5px solid var(--line);
-  background: var(--ink-amber);
+  border: 0.5px solid var(--line-light);
+  background: var(--bg-soft);
   opacity: 0;
   transform: translateY(8px);
   transition: opacity 0.5s var(--ease-gold), transform 0.5s var(--ease-gold);
@@ -99,6 +69,36 @@
   flex-shrink: 0;
 }
 
+/* Выпадающий список услуг */
+.form-select {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--text);
+  background: transparent;
+  border: none;
+  border-bottom: 0.5px solid var(--line-light-solid);
+  padding: 12px 0;
+  width: 100%;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23C9A254' opacity='.4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 4px center;
+  transition: border-color 0.3s;
+}
+
+.form-select:focus {
+  border-bottom-color: var(--gold);
+  outline: none;
+}
+
+.form-select option {
+  background: var(--bg-soft);
+  color: var(--text);
+}
+
 /* Форма */
 .contact-form {
   max-width: 480px;
@@ -129,10 +129,10 @@
   font-family: var(--font-display);
   font-size: 16px; /* 16px — не вызывает zoom на iOS */
   font-weight: 300;
-  color: var(--sand);
+  color: var(--text);
   background: transparent;
   border: none;
-  border-bottom: 0.5px solid var(--line-solid);
+  border-bottom: 0.5px solid var(--line-light-solid);
   padding: 12px 0;
   transition: border-color 0.3s;
   width: 100%;
@@ -140,8 +140,7 @@
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-  color: var(--gold);
-  opacity: 0.2;
+  color: var(--text-muted);
   font-style: italic;
 }
 
@@ -201,7 +200,7 @@
   gap: 32px;
   margin-top: 64px;
   padding-top: 48px;
-  border-top: 0.5px solid var(--line);
+  border-top: 0.5px solid var(--line-light);
 }
 
 .social-link {
@@ -245,5 +244,13 @@
 
   .contact-socials {
     gap: 20px;
+  }
+}
+
+/* --- 320px --- */
+@media (max-width: 374px) {
+  .contact-title {
+    font-size: clamp(36px, 12vw, 52px);
+    margin-bottom: 40px;
   }
 }

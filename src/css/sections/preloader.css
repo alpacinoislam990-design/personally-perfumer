@@ -3,7 +3,7 @@
   position: fixed;
   inset: 0;
   z-index: 1900;
-  background: var(--sand);
+  background: #0D0B09;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,7 +19,7 @@
   left: 0;
   right: 0;
   height: 50%;
-  background: var(--sand);
+  background: #0D0B09;
   z-index: 1;
 }
 
@@ -36,33 +36,32 @@
   gap: 16px;
 }
 
-/* Арабское шукран */
+/* Арабское шукран — крупное белое */
 .preloader-arabic {
   font-family: var(--font-arabic);
-  font-size: clamp(40px, 7vw, 72px);
-  color: var(--gold-deep);
+  font-size: clamp(120px, 18vw, 200px);
+  color: #FFFFFF;
   line-height: 1;
   opacity: 0;
   transform: translateY(-20px);
 }
 
-
 /* UAE подпись */
 .preloader-uae {
   font-family: var(--font-display);
-  font-size: 11px;
-  letter-spacing: 0.55em;
+  font-size: clamp(22px, 3vw, 32px);
+  letter-spacing: 0.45em;
   text-transform: uppercase;
-  color: var(--brown-deep);
+  color: rgba(255, 255, 255, 0.7);
   opacity: 0;
 }
 
-/* Прогресс-линия */
+/* Прогресс-линия — 3px широкая */
 .preloader-line-wrap {
   margin-top: 32px;
-  width: clamp(160px, 25vw, 280px);
-  height: 1px;
-  background: var(--brown-line);
+  width: clamp(280px, 42vw, 520px);
+  height: 3px;
+  background: rgba(255, 255, 255, 0.12);
   overflow: hidden;
   opacity: 0;
 }
@@ -71,5 +70,5 @@
   height: 100%;
   width: 0%;
   background: linear-gradient(90deg, var(--gold-deep), var(--gold-light), var(--gold-deep));
-  box-shadow: 0 0 8px var(--gold-glow);
+  box-shadow: 0 0 12px var(--gold-glow);
 }

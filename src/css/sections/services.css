@@ -1,7 +1,7 @@
 /* ===== СЕРВИСЫ ===== */
 #services {
   padding: clamp(80px, 12vw, 160px) var(--pad-x);
-  background: var(--ink-soft);
+  background: var(--bg-soft);
 }
 
 .services-header {
@@ -26,7 +26,7 @@
   font-size: clamp(28px, 4vw, 52px);
   font-weight: 300;
   font-style: italic;
-  color: var(--sand);
+  color: var(--text);
   letter-spacing: -0.02em;
 }
 
@@ -37,22 +37,43 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
+  background: var(--line-light);
+  border: 1px solid var(--line-light);
 }
 
 .services-card {
-  background: var(--ink-soft);
+  background: var(--bg-card);
   padding: clamp(32px, 4vw, 56px) clamp(24px, 3vw, 40px);
   display: flex;
   flex-direction: column;
   gap: 20px;
-  transition: background 0.35s var(--ease-gold);
+  transition: background 0.35s var(--ease-gold), transform 0.3s var(--ease-gold);
   cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Золотая линия сверху при ховере */
+.services-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease-gold);
 }
 
 .services-card:hover {
-  background: var(--ink-amber);
+  background: var(--bg-soft);
+  transform: translateY(-4px);
+}
+
+.services-card:hover::before {
+  transform: scaleX(1);
 }
 
 .services-card-num {
@@ -68,15 +89,15 @@
   font-size: clamp(22px, 2.5vw, 32px);
   font-weight: 300;
   font-style: italic; /* luxury italic — Cormorant Garamond */
-  color: var(--sand);
+  color: var(--text);
   line-height: 1.2;
 }
 
 .services-card-body {
   font-family: var(--font-display);
   font-size: clamp(13px, 1.4vw, 16px);
-  color: var(--sand-deep);
-  opacity: 0.65;
+  color: var(--text-mid);
+  opacity: 0.9;
   line-height: 1.65;
 }
 
@@ -120,6 +141,13 @@
     width: 100%;
     max-width: 100%;
     text-align: center;
+  }
+}
+
+/* --- 320px --- */
+@media (max-width: 374px) {
+  .services-card {
+    padding: 24px 16px;
   }
 }
 

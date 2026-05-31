@@ -2,8 +2,8 @@
 body {
   font-family: var(--font-display);
   font-weight: 300;
-  color: var(--gold);
-  background: var(--ink);
+  color: var(--text);
+  background: var(--bg);
   overflow-x: hidden;
 }
 
@@ -158,6 +158,18 @@ section {
 @media (max-width: 767px) {
   section {
     padding: clamp(60px, 8vw, 100px) clamp(20px, 5vw, 40px);
+  }
+}
+
+/* --- 320px — самые маленькие экраны --- */
+@media (max-width: 374px) {
+  section {
+    padding: 48px 16px;
+  }
+
+  .btn-outline {
+    padding: 12px 20px;
+    font-size: 11px;
   }
 }
 

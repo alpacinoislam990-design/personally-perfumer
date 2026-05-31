@@ -22,7 +22,7 @@ export function initCatalog() {
   }
 }
 
-/* Горизонтальный pin-scroll (десктоп ≥1024px) */
+/* Горизонтальный pin-scroll + drag мышью (десктоп ≥1024px) */
 function _initPinScroll() {
   gsap.registerPlugin(ScrollTrigger);
 
@@ -32,19 +32,48 @@ function _initPinScroll() {
 
   /* Показываем track, скрываем swiper */
   track.style.display = 'flex';
-  const swiper = document.querySelector('.catalog-swiper');
-  if (swiper) swiper.style.display = 'none';
+  const swiperEl = document.querySelector('.catalog-swiper');
+  if (swiperEl) swiperEl.style.display = 'none';
+
+  const totalDrag = () => track.scrollWidth - window.innerWidth + 200;
 
   gsap.to(track, {
-    x: () => -(track.scrollWidth - window.innerWidth + 200),
+    x: () => -totalDrag(),
     ease: 'none',
     scrollTrigger: {
       trigger: section,
       pin: true,
       scrub: 1,
-      end: () => '+=' + (track.scrollWidth - window.innerWidth + 200),
+      end: () => '+=' + totalDrag(),
       invalidateOnRefresh: true
     }
+  });
+
+  /* Drag мышью — конвертирует горизонтальный drag в вертикальный скролл */
+  let dragStartX = null;
+  let dragStartScrollY = 0;
+
+  section.style.cursor = 'grab';
+
+  section.addEventListener('mousedown', e => {
+    if (e.button !== 0) return;
+    dragStartX     = e.clientX;
+    dragStartScrollY = window.scrollY;
+    section.style.cursor = 'grabbing';
+    e.preventDefault();
+  });
+
+  window.addEventListener('mousemove', e => {
+    if (dragStartX === null) return;
+    const dx    = dragStartX - e.clientX;
+    const ratio = totalDrag() / window.innerWidth;
+    window.scrollTo({ top: dragStartScrollY + dx * ratio * 0.9, behavior: 'instant' });
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (dragStartX === null) return;
+    dragStartX = null;
+    section.style.cursor = 'grab';
   });
 }
 

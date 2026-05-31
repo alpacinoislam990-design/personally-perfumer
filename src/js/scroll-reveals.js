@@ -4,27 +4,57 @@ export function initScrollReveals() {
   const isMobile = window.matchMedia('(pointer: coarse)').matches;
   gsap.registerPlugin(ScrollTrigger);
 
-  /* About — heading split по словам */
+  /* --- Clip-path reveal для заголовков секций --- */
+  document.querySelectorAll(
+    '.services-heading, .process-heading, .reviews-heading, .contact-title'
+  ).forEach(el => {
+    gsap.from(el, {
+      clipPath: 'inset(100% 0 0 0)',
+      duration:  0.9,
+      ease:      'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 82%', once: true }
+    });
+  });
+
+  /* --- About — heading split по словам --- */
   const aboutH = document.querySelector('.about-heading');
   if (aboutH && typeof SplitType !== 'undefined') {
     const split = new SplitType(aboutH, { types: 'words' });
     gsap.from(split.words, {
-      opacity: 0, y: isMobile ? 15 : 30,
-      duration: 0.7, ease: 'power3.out',
-      stagger: 0.06,
+      opacity: 0, y: isMobile ? 15 : 40,
+      clipPath: 'inset(100% 0 0 0)',
+      duration: 0.8, ease: 'power3.out',
+      stagger: 0.07,
       scrollTrigger: { trigger: '#about', start: 'top 75%', once: true }
     });
   }
 
-  /* About — цитата и статистика */
+  /* --- About — цитата и статистика --- */
   gsap.from(['.about-quote', '.about-stats'], {
-    opacity: 0, y: 20,
+    opacity: 0, y: 24,
     duration: 0.6, ease: 'power2.out',
     stagger: 0.15,
     scrollTrigger: { trigger: '#about', start: 'top 65%', once: true }
   });
 
-  /* Notes — тиры */
+  /* --- About stats — counter 0→N --- */
+  document.querySelectorAll('.about-stat-num').forEach(el => {
+    const raw    = el.textContent.trim();
+    const target = parseFloat(raw);
+    const suffix = raw.replace(/[\d.]/g, ''); /* '+', '' и т.д. */
+    if (isNaN(target)) return;
+
+    const proxy = { val: 0 };
+    gsap.to(proxy, {
+      val:      target,
+      duration: 1.6,
+      ease:     'power2.out',
+      onUpdate: () => { el.textContent = Math.round(proxy.val) + suffix; },
+      scrollTrigger: { trigger: '#about', start: 'top 65%', once: true }
+    });
+  });
+
+  /* --- Notes — тиры --- */
   document.querySelectorAll('.notes-tier').forEach((tier, i) => {
     gsap.to(tier, {
       opacity: 1, y: 0,
@@ -37,7 +67,7 @@ export function initScrollReveals() {
     });
   });
 
-  /* Featured — контент */
+  /* --- Featured — контент --- */
   const featuredContent = document.querySelector('.featured-content');
   if (featuredContent) {
     gsap.from(featuredContent.children, {
@@ -48,40 +78,44 @@ export function initScrollReveals() {
     });
   }
 
-  /* Services — карточки */
+  /* --- Services — карточки с выраженным stagger --- */
   gsap.from('.services-card', {
-    opacity: 0, y: 30,
-    duration: 0.6, ease: 'power2.out',
-    stagger: 0.1,
-    scrollTrigger: { trigger: '#services', start: 'top 70%', once: true }
+    opacity: 0, y: 50,
+    duration: 0.7, ease: 'power3.out',
+    stagger: 0.12,
+    scrollTrigger: { trigger: '#services', start: 'top 72%', once: true }
   });
 
-  /* Process — шаги */
+  /* --- Process — коннекторы scaleX 0→1 --- */
+  gsap.from('.process-connector', {
+    scaleX: 0,
+    transformOrigin: 'left center',
+    duration: 0.8, ease: 'power2.out',
+    stagger: 0.3,
+    scrollTrigger: { trigger: '#process', start: 'top 70%', once: true }
+  });
+
+  /* --- Process — шаги --- */
   gsap.from('.process-step', {
-    opacity: 0, y: 30,
+    opacity: 0, y: 40,
     duration: 0.7, ease: 'power2.out',
     stagger: 0.2,
     scrollTrigger: { trigger: '#process', start: 'top 70%', once: true }
   });
 
-  /* Reviews — карточки (только десктоп, Swiper сам анимирует на мобиле) */
+  /* --- Reviews — карточки (только десктоп) --- */
   if (!isMobile) {
     gsap.from('.reviews-grid .review-card', {
-      opacity: 0, y: 20,
+      opacity: 0, y: 24,
       duration: 0.6, ease: 'power2.out',
       stagger: 0.08,
       scrollTrigger: { trigger: '#reviews', start: 'top 70%', once: true }
     });
   }
 
-  /* Contact — заголовок */
-  gsap.from('.contact-title', {
-    opacity: 0, y: 30,
-    duration: 0.7, ease: 'power2.out',
-    scrollTrigger: { trigger: '#contact', start: 'top 70%', once: true }
-  });
+  /* --- Contact — заголовок через clip-path (уже обработан выше) --- */
 
-  /* Параллакс — только десктоп */
+  /* --- Параллакс — только десктоп --- */
   if (!isMobile) {
     _initParallax();
   }

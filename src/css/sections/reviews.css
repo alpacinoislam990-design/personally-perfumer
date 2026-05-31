@@ -1,7 +1,7 @@
 /* ===== ОТЗЫВЫ ===== */
 #reviews {
   padding: clamp(80px, 12vw, 160px) var(--pad-x);
-  background: var(--ink-soft);
+  background: var(--bg-soft);
 }
 
 .reviews-header {
@@ -25,14 +25,14 @@
   font-size: clamp(28px, 4vw, 52px);
   font-weight: 300;
   font-style: italic;
-  color: var(--sand);
+  color: var(--text);
   letter-spacing: -0.02em;
 }
 
 /* --- Карточка отзыва --- */
 .review-card {
-  background: var(--ink-amber);
-  border: 1px solid var(--line);
+  background: var(--bg-card);
+  border: 1px solid var(--line-light);
   padding: clamp(24px, 3vw, 40px);
   display: flex;
   flex-direction: column;
@@ -45,7 +45,7 @@
   font-family: var(--font-display);
   font-style: italic;
   font-size: clamp(14px, 1.5vw, 17px);
-  color: var(--sand);
+  color: var(--text);
   line-height: 1.75;
   opacity: 0.9;
   flex: 1;
@@ -78,7 +78,7 @@
 .review-name {
   font-family: var(--font-display);
   font-size: 13px;
-  color: var(--sand);
+  color: var(--text);
   letter-spacing: 0.05em;
 }
 
@@ -99,8 +99,8 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
-  background: var(--line);
-  border: 0.5px solid var(--line);
+  background: var(--line-light);
+  border: 0.5px solid var(--line-light);
 }
 
 /* Мобильный Swiper — скрыт на десктопе */
@@ -121,12 +121,20 @@
   }
 
   .swiper-pagination-bullet {
-    background: var(--line-solid);
+    background: var(--line-light-solid);
     opacity: 1;
   }
 
   .swiper-pagination-bullet-active {
     background: var(--gold);
+  }
+}
+
+/* --- 320px: 1.05 slide width --- */
+@media (max-width: 374px) {
+  .reviews-swiper .review-card {
+    padding: 20px 16px;
+    min-height: 200px;
   }
 }
 

@@ -5,6 +5,7 @@ import { initHeroFlip }       from './hero-flip.js';
 import { initScrollReveals }  from './scroll-reveals.js';
 import { initCatalog }        from './catalog-scroll.js';
 import { initContact }        from './contact.js';
+import { initNavSmart }       from './nav-smart.js';
 
 const isMobile  = window.matchMedia('(pointer: coarse)').matches;
 const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -51,14 +52,6 @@ if (burger && overlay) {
   });
 }
 
-/* --- Nav: фон при прокрутке --- */
-function initNavScroll() {
-  const nav = document.getElementById('nav');
-  if (!nav) return;
-  const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 60);
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-}
 
 /* --- Старт сайта после preloader --- */
 function startSite() {
@@ -76,7 +69,7 @@ function startSite() {
 
   gsap.registerPlugin(ScrollTrigger);
 
-  initNavScroll();
+  initNavSmart();
   initHeroFlip();
   initScrollReveals();
   initCatalog();

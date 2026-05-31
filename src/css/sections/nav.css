@@ -9,9 +9,25 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: padding 0.4s var(--ease-gold);
+  background: transparent;
+  transition: padding 0.4s var(--ease-gold), background 0.3s, backdrop-filter 0.3s;
   /* Безопасная зона iOS */
   padding-top: max(24px, env(safe-area-inset-top));
+}
+
+/* Nav при hover в hero — тёмный фон */
+#nav:not(.is-past-hero):hover {
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Nav за пределами hero — всегда тёмный */
+#nav.is-past-hero {
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Лого */
@@ -33,12 +49,12 @@
 
 .nav-logo-latin {
   font-family: var(--font-display);
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 300;
   font-style: italic; /* Cormorant italic — luxury logo treatment */
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: none;
-  color: var(--gold);
+  color: var(--on-dark);
   display: block;
 }
 
@@ -51,12 +67,12 @@
 
 .nav-link {
   font-family: var(--font-display);
-  font-size: 9px;
+  font-size: 13px;
   font-weight: 400;
-  letter-spacing: 0.45em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0.7;
+  color: var(--on-dark);
+  opacity: 0.75;
   position: relative;
   padding-bottom: 3px;
   transition: opacity 0.3s;
@@ -69,7 +85,7 @@
   left: 0;
   width: 0;
   height: 0.5px;
-  background: var(--gold);
+  background: var(--on-dark);
   transition: width 0.3s var(--ease-gold);
 }
 
@@ -91,11 +107,11 @@
 /* Переключатель языка */
 .lang-toggle {
   font-family: var(--font-display);
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 0.4em;
   text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0.6;
+  color: var(--on-dark);
+  opacity: 0.65;
   cursor: pointer;
   transition: opacity 0.3s;
   padding: 8px 4px; /* тап-цель */
@@ -116,11 +132,11 @@
 /* CTA кнопка "Записаться" */
 .nav-cta {
   font-family: var(--font-display);
-  font-size: 9px;
-  letter-spacing: 0.4em;
+  font-size: 11px;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--ink);
-  background: var(--gold);
+  background: var(--on-dark);
   padding: 10px 20px;
   transition: background 0.3s var(--ease-gold);
   white-space: nowrap;
@@ -128,6 +144,7 @@
 
 .nav-cta:hover {
   background: var(--gold-light);
+  color: var(--ink);
 }
 
 /* WA иконка */
@@ -235,14 +252,10 @@
   letter-spacing: 0.15em;
 }
 
-/* Nav scrolled: полупрозрачный фон + backdrop-blur */
+/* Nav scrolled — компактнее */
 #nav.is-scrolled {
-  background: var(--ink-nav);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   padding-top: max(16px, env(safe-area-inset-top));
   padding-bottom: 16px;
-  border-bottom: 0.5px solid var(--line);
 }
 
 /* --- Мобиль --- */
@@ -252,8 +265,16 @@
   .nav-burger { display: flex; }
 
   #nav {
-    padding: 20px clamp(20px, 5vw, 40px);
+    padding: 20px clamp(16px, 4vw, 32px);
     padding-top: max(20px, env(safe-area-inset-top));
+  }
+}
+
+/* --- 320px --- */
+@media (max-width: 374px) {
+  #nav {
+    padding: 16px 16px;
+    padding-top: max(16px, env(safe-area-inset-top));
   }
 }
 

@@ -1,6 +1,6 @@
 /* ===== NOTES — ПИРАМИДА АРОМАТА ===== */
 #notes {
-  background: linear-gradient(180deg, var(--ink) 0%, var(--ink-amber) 100%);
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
   text-align: center;
   overflow: hidden;
 }
@@ -44,7 +44,7 @@
 /* Уровень пирамиды */
 .notes-tier {
   padding: 32px 0;
-  border-bottom: 0.5px solid var(--line);
+  border-bottom: 0.5px solid var(--line-light);
   opacity: 0;
   transform: translateY(16px);
   position: relative;
@@ -87,7 +87,7 @@
   font-size: clamp(20px, 3vw, 32px);
   font-weight: 300;
   letter-spacing: 0.1em;
-  color: var(--sand);
+  color: var(--text);
   line-height: 1.3;
 }
 
@@ -107,5 +107,9 @@
 
   .notes-tier-scents {
     font-size: clamp(18px, 5vw, 26px);
+  }
+
+  .notes-tier {
+    border-bottom-color: var(--line-light);
   }
 }

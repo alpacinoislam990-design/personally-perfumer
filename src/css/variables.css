@@ -46,6 +46,19 @@
   --ease-gold:    cubic-bezier(0.4, 0, 0.2, 1);
   --ease-reveal:  cubic-bezier(0.05, 0, 0.1, 1);
 
+  /* --- Светлая тема (контентные секции) --- */
+  --bg:               #FFFFFF;
+  --bg-soft:          #F7F4F0;
+  --bg-card:          #FFFFFF;
+  --text:             #111111;
+  --text-mid:         #5C4A36;
+  --text-muted:       rgba(17, 17, 17, 0.45);
+  --on-dark:          #FFFFFF;
+  --on-dark-mid:      rgba(255, 255, 255, 0.75);
+  --on-dark-dim:      rgba(255, 255, 255, 0.45);
+  --line-light:       rgba(17, 17, 17, 0.1);
+  --line-light-solid: rgba(17, 17, 17, 0.22);
+
   /* --- Брейкпоинты (только для JS) --- */
   --bp-mobile:  767;
   --bp-tablet:  1023;

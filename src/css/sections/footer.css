@@ -1,7 +1,7 @@
 /* ===== FOOTER ===== */
 #footer {
-  background: var(--ink-soft);
-  border-top: 0.5px solid var(--line);
+  background: var(--bg-soft);
+  border-top: 0.5px solid var(--line-light);
   padding: clamp(48px, 6vw, 80px) var(--pad-x);
   text-align: center;
   display: flex;
@@ -106,8 +106,7 @@
   font-size: 9px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0.25;
+  color: var(--text-muted);
   line-height: 1.8;
   text-align: center;
 }
@@ -127,18 +126,18 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: var(--ink-amber);
-  border: 0.5px solid var(--line-solid);
+  background: var(--bg-card);
+  border: 0.5px solid var(--line-light-solid);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 24px var(--shadow-float);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
   text-decoration: none;
   transition: border-color 0.3s var(--ease-gold), background 0.3s;
 }
 
 #wa-float:hover {
-  background: var(--ink-soft);
+  background: var(--bg-soft);
   border-color: var(--gold);
 }
 
