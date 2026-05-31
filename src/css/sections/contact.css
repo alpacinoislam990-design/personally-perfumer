@@ -2,6 +2,7 @@
 #contact {
   background: var(--ink);
   text-align: center;
+  padding: clamp(80px, 12vw, 160px) var(--pad-x);
 }
 
 .contact-label {
@@ -22,6 +23,69 @@
   text-transform: uppercase;
   color: var(--sand);
   margin-bottom: 48px;
+}
+
+/* Выпадающий список услуг */
+.form-select {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--sand);
+  background: transparent;
+  border: none;
+  border-bottom: 0.5px solid var(--line-solid);
+  padding: 12px 0;
+  width: 100%;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23C9A254' opacity='.4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 4px center;
+  transition: border-color 0.3s;
+}
+
+.form-select:focus {
+  border-bottom-color: var(--gold);
+  outline: none;
+}
+
+.form-select option {
+  background: var(--ink-amber);
+  color: var(--sand);
+}
+
+/* Иконки мессенджеров после успешной отправки */
+.form-messengers {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 16px;
+  padding: 16px;
+  border: 0.5px solid var(--line);
+  background: var(--ink-amber);
+}
+
+.form-messenger-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.form-messenger-link:hover { opacity: 1; }
+
+.form-messenger-link svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--gold);
+  flex-shrink: 0;
 }
 
 /* PRIMARY WhatsApp кнопка */
@@ -201,6 +265,11 @@
 @media (max-width: 767px) {
   .contact-form {
     max-width: 100%;
+  }
+
+  .form-submit {
+    align-self: stretch;
+    width: 100%;
   }
 
   .contact-socials {

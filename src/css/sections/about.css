@@ -1,0 +1,154 @@
+/* ===== О ПАРФЮМЕРЕ ===== */
+#about {
+  padding: clamp(80px, 12vw, 160px) var(--pad-x);
+  background: var(--ink);
+  overflow: hidden;
+}
+
+.about-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(48px, 6vw, 100px);
+  align-items: center;
+}
+
+/* --- Фото --- */
+.about-photo {
+  position: relative;
+}
+
+.about-photo-placeholder {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: var(--ink-amber);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Угловые декоры */
+.about-photo-placeholder::before,
+.about-photo-placeholder::after {
+  content: '';
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-color: var(--gold);
+  border-style: solid;
+  opacity: 0.4;
+}
+
+.about-photo-placeholder::before {
+  top: 16px;
+  left: 16px;
+  border-width: 1px 0 0 1px;
+}
+
+.about-photo-placeholder::after {
+  bottom: 16px;
+  right: 16px;
+  border-width: 0 1px 1px 0;
+}
+
+.about-photo-initial {
+  font-family: var(--font-display);
+  font-size: clamp(60px, 10vw, 120px);
+  font-weight: 300;
+  color: var(--line-solid);
+  user-select: none;
+}
+
+/* --- Текст --- */
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 3vw, 40px);
+}
+
+.about-label {
+  font-family: var(--font-display);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.6;
+}
+
+.about-heading {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3.5vw, 44px);
+  font-weight: 300;
+  color: var(--sand);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.about-quote {
+  border-left: 1px solid var(--gold);
+  padding-left: clamp(16px, 2vw, 24px);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(15px, 1.8vw, 19px);
+  color: var(--sand-deep);
+  line-height: 1.7;
+  opacity: 0.85;
+}
+
+/* --- Статистика --- */
+.about-stats {
+  display: flex;
+  gap: clamp(24px, 4vw, 48px);
+}
+
+.about-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.about-stat-num {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.about-stat-label {
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--sand-deep);
+  opacity: 0.6;
+}
+
+/* --- Мобиль --- */
+@media (max-width: 767px) {
+  .about-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-photo-placeholder {
+    aspect-ratio: 4 / 3;
+  }
+
+  .about-stats {
+    gap: 20px;
+  }
+}
+
+/* --- Планшет --- */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .about-inner {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+  }
+}

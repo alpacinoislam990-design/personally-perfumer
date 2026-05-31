@@ -1,0 +1,129 @@
+/* ===== СЕРВИСЫ ===== */
+#services {
+  padding: clamp(80px, 12vw, 160px) var(--pad-x);
+  background: var(--ink-soft);
+}
+
+.services-header {
+  max-width: var(--max-w);
+  margin: 0 auto clamp(48px, 6vw, 80px);
+  text-align: center;
+}
+
+.services-label {
+  font-family: var(--font-display);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.6;
+  margin-bottom: 16px;
+}
+
+.services-heading {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 300;
+  color: var(--sand);
+  letter-spacing: -0.01em;
+}
+
+/* --- Сетка карточек --- */
+.services-grid {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.services-card {
+  background: var(--ink-soft);
+  padding: clamp(32px, 4vw, 56px) clamp(24px, 3vw, 40px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: background 0.35s var(--ease-gold);
+  cursor: default;
+}
+
+.services-card:hover {
+  background: var(--ink-amber);
+}
+
+.services-card-num {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  opacity: 0.5;
+}
+
+.services-card-title {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 300;
+  color: var(--sand);
+  line-height: 1.25;
+}
+
+.services-card-body {
+  font-family: var(--font-display);
+  font-size: clamp(13px, 1.4vw, 16px);
+  color: var(--sand-deep);
+  opacity: 0.65;
+  line-height: 1.65;
+}
+
+/* --- CTA --- */
+.services-cta {
+  max-width: var(--max-w);
+  margin: clamp(40px, 5vw, 64px) auto 0;
+  text-align: center;
+}
+
+.services-cta-btn {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--line-solid);
+  padding: 18px 40px;
+  transition: background 0.3s var(--ease-gold), color 0.3s, border-color 0.3s;
+}
+
+.services-cta-btn:hover {
+  background: var(--gold);
+  color: var(--ink);
+  border-color: var(--gold);
+}
+
+/* --- Мобиль --- */
+@media (max-width: 767px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-card {
+    padding: 32px 24px;
+    gap: 14px;
+  }
+
+  .services-cta-btn {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+}
+
+/* --- Планшет --- */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -33,9 +33,9 @@
 
 .nav-logo-latin {
   font-family: var(--font-display);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 400;
-  letter-spacing: 0.5em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gold);
   display: block;
@@ -110,6 +110,23 @@
   opacity: 1;
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+/* CTA кнопка "Записаться" */
+.nav-cta {
+  font-family: var(--font-display);
+  font-size: 9px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--gold);
+  padding: 10px 20px;
+  transition: background 0.3s var(--ease-gold);
+  white-space: nowrap;
+}
+
+.nav-cta:hover {
+  background: var(--gold-light);
 }
 
 /* WA иконка */
@@ -205,6 +222,17 @@
 #nav-overlay.is-open .nav-overlay-link:nth-child(2) { transition-delay: 0.15s; }
 #nav-overlay.is-open .nav-overlay-link:nth-child(3) { transition-delay: 0.2s; }
 #nav-overlay.is-open .nav-overlay-link:nth-child(4) { transition-delay: 0.25s; }
+#nav-overlay.is-open .nav-overlay-link:nth-child(5) { transition-delay: 0.3s; }
+
+/* CTA в мобильном меню */
+.nav-overlay-cta {
+  font-size: clamp(18px, 4vw, 24px);
+  color: var(--gold);
+  border: 0.5px solid var(--line-solid);
+  padding: 12px 32px;
+  margin-top: 16px;
+  letter-spacing: 0.15em;
+}
 
 /* --- Мобиль --- */
 @media (max-width: 767px) {

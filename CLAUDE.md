@@ -20,7 +20,21 @@
 - src/css/sections/ — стили по секциям
 - src/js/*.js — один модуль = одна функция
 - src/js/main.js — оркестратор, инициализирует всё
-- src/js/i18n.js — EN/RU переключение через data-en/data-ru атрибуты
+- src/js/i18n.js — EN/RU переключение через data-i18n атрибуты, ключ localStorage: `pp_lang`
+
+## Секции (порядок в DOM)
+1. #preloader — P·P монограмма + прогресс
+2. #nav — фиксированная шапка + .nav-cta
+3. #hero — cross-fade slideshow, 2 кнопки, TG+WA иконки
+4. #about — фото Мухаммада (заглушка) + цитата + 3 цифры
+5. #notes — пирамида аромата (оставлена)
+6. #featured — N°55 (оставлена)
+7. #catalog — Pheromones коллекция + Swiper мобиль
+8. #services — 4 карточки услуг
+9. #process — 3 шага процесса
+10. #reviews — 6 отзывов, Swiper мобиль / сетка десктоп
+11. #contact — форма с дропдауном
+12. #footer
 
 ## Адаптив
 - Cursor и магнитные кнопки: отключены на touch-устройствах

@@ -1,81 +1,45 @@
 /* ===== PRELOADER — GSAP Timeline ===== */
 
 export function runPreloader(onComplete) {
-  const el         = document.getElementById('preloader');
-  const arabic     = el.querySelector('.preloader-arabic');
-  const letters    = el.querySelectorAll('.preloader-letter');
-  const uae        = el.querySelector('.preloader-uae');
-  const lineWrap   = el.querySelector('.preloader-line-wrap');
-  const lineFill   = el.querySelector('.preloader-line-fill');
-  const topHalf    = document.getElementById('preloader-top');
-  const botHalf    = document.getElementById('preloader-bottom');
+  const el       = document.getElementById('preloader');
+  const monogram = el.querySelector('.preloader-arabic'); /* P·P */
+  const name     = el.querySelector('.preloader-uae');    /* Personally Perfumer */
+  const lineWrap = el.querySelector('.preloader-line-wrap');
+  const lineFill = el.querySelector('.preloader-line-fill');
+  const topHalf  = document.getElementById('preloader-top');
+  const botHalf  = document.getElementById('preloader-bottom');
 
   const isMobile = window.matchMedia('(pointer: coarse)').matches;
 
-  /* CustomEase для split-exit */
   gsap.registerPlugin(CustomEase);
   CustomEase.create('splitExit', 'M0,0 C0.22,0 0.1,1 1,1');
 
   const tl = gsap.timeline({ onComplete });
 
-  /* 1. Арабское шукран */
-  tl.to(arabic, {
-    opacity: 1, y: 0,
-    duration: 0.5, ease: 'power2.out'
-  }, 0.1);
+  /* 1. Монограмма P·P */
+  tl.to(monogram, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, 0.1);
 
-  /* 2. Буквы SHUKRAN stagger */
-  tl.to(letters, {
-    opacity: 1, y: 0,
-    duration: 0.5, ease: 'power2.out',
-    stagger: 0.07
-  }, 0.4);
+  /* 2. Название */
+  tl.to(name, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 0.7);
 
-  /* 3. UAE */
-  tl.to(uae, {
-    opacity: 1,
-    duration: 0.3, ease: 'power2.out'
-  }, 1.15);
+  /* 3. Линия появляется */
+  tl.to(lineWrap, { opacity: 1, duration: 0.2 }, 1.2);
 
-  /* 4. Линия появляется */
-  tl.to(lineWrap, {
-    opacity: 1,
-    duration: 0.2
-  }, 1.45);
+  /* 4. Линия заполняется */
+  tl.to(lineFill, { width: '100%', duration: 1.0, ease: 'none' }, 1.3);
 
-  /* 5. Линия заполняется */
-  tl.to(lineFill, {
-    width: '100%',
-    duration: 1.2, ease: 'none'
-  }, 1.5);
+  /* 5. Fade out контента */
+  tl.to(el.querySelector('.preloader-content'), { opacity: 0, duration: 0.3 }, 2.6);
 
-  /* 6. Fade out контента */
-  tl.to(el.querySelector('.preloader-content'), {
-    opacity: 0,
-    duration: 0.3
-  }, 3.0);
-
-  /* 7. Split exit — десктоп: верх/низ уезжают */
+  /* 6. Split exit — десктоп: верх/низ уезжают */
   if (!isMobile) {
-    tl.to(topHalf, {
-      y: '-100%',
-      duration: 0.8, ease: 'splitExit'
-    }, 3.2);
-    tl.to(botHalf, {
-      y: '100%',
-      duration: 0.8, ease: 'splitExit'
-    }, 3.2);
+    tl.to(topHalf, { y: '-100%', duration: 0.8, ease: 'splitExit' }, 2.8);
+    tl.to(botHalf, { y: '100%',  duration: 0.8, ease: 'splitExit' }, 2.8);
   } else {
-    /* Мобиль: просто fade up */
-    tl.to(el, {
-      y: '-100%',
-      opacity: 0,
-      duration: 0.6, ease: 'power3.in'
-    }, 3.2);
+    /* Мобиль: slide up */
+    tl.to(el, { y: '-100%', opacity: 0, duration: 0.6, ease: 'power3.in' }, 2.8);
   }
 
-  /* 8. Скрыть preloader */
-  tl.call(() => {
-    el.style.display = 'none';
-  }, null, 4.1);
+  /* 7. Скрыть */
+  tl.call(() => { el.style.display = 'none'; }, null, 3.7);
 }

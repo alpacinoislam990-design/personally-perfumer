@@ -3,12 +3,16 @@
 export function initCatalog() {
   const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
   const isTablet  = window.matchMedia('(min-width: 768px) and (max-width: 1023px)').matches;
-  const isMobile  = window.matchMedia('(max-width: 767px)').matches;
 
   if (isDesktop) {
     _initPinScroll();
   } else {
     _initSwiper(isTablet ? 2.1 : 1.2);
+  }
+
+  /* Swiper для отзывов на мобиле */
+  if (!isDesktop && !isTablet) {
+    _initReviewsSwiper();
   }
 }
 
@@ -35,6 +39,20 @@ function _initPinScroll() {
       end: () => '+=' + (track.scrollWidth - window.innerWidth + 200),
       invalidateOnRefresh: true
     }
+  });
+}
+
+/* Swiper для отзывов (только мобиль) */
+function _initReviewsSwiper() {
+  const el = document.querySelector('.reviews-swiper');
+  if (!el || typeof Swiper === 'undefined') return;
+
+  new Swiper(el, {
+    slidesPerView: 1.1,
+    spaceBetween: 16,
+    grabCursor: true,
+    pagination: { el: '.reviews-swiper .swiper-pagination', clickable: true },
+    a11y: { enabled: true }
   });
 }
 

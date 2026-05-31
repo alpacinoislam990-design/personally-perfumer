@@ -1,0 +1,137 @@
+/* ===== ОТЗЫВЫ ===== */
+#reviews {
+  padding: clamp(80px, 12vw, 160px) var(--pad-x);
+  background: var(--ink-soft);
+}
+
+.reviews-header {
+  max-width: var(--max-w);
+  margin: 0 auto clamp(48px, 6vw, 72px);
+  text-align: center;
+}
+
+.reviews-label {
+  font-family: var(--font-display);
+  font-size: 9px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.6;
+  margin-bottom: 16px;
+}
+
+.reviews-heading {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 300;
+  color: var(--sand);
+  letter-spacing: -0.01em;
+}
+
+/* --- Карточка отзыва --- */
+.review-card {
+  background: var(--ink-amber);
+  border: 1px solid var(--line);
+  padding: clamp(24px, 3vw, 40px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  height: 100%;
+}
+
+.review-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(14px, 1.5vw, 17px);
+  color: var(--sand);
+  line-height: 1.75;
+  opacity: 0.9;
+  flex: 1;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.review-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--gold-deep);
+  border: 1px solid var(--line-solid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: var(--sand);
+  flex-shrink: 0;
+}
+
+.review-name {
+  font-family: var(--font-display);
+  font-size: 13px;
+  color: var(--sand);
+  letter-spacing: 0.05em;
+}
+
+.review-meta {
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.55;
+  margin-top: 3px;
+}
+
+/* --- Десктоп: сетка 3 в ряд --- */
+.reviews-grid {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+/* Мобильный Swiper — скрыт на десктопе */
+.reviews-swiper { display: none; }
+
+/* --- Мобиль --- */
+@media (max-width: 767px) {
+  .reviews-grid   { display: none; }
+  .reviews-swiper { display: block; }
+
+  .reviews-swiper .review-card {
+    min-height: 280px;
+  }
+
+  .swiper-pagination {
+    margin-top: 24px;
+    position: static;
+  }
+
+  .swiper-pagination-bullet {
+    background: var(--line-solid);
+    opacity: 1;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: var(--gold);
+  }
+}
+
+/* --- Планшет: 2 колонки --- */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .reviews-swiper { display: none; }
+}

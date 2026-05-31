@@ -1,0 +1,147 @@
+/* ===== КАК ЭТО РАБОТАЕТ ===== */
+#process {
+  padding: clamp(80px, 12vw, 160px) var(--pad-x);
+  background: var(--ink);
+}
+
+.process-header {
+  max-width: var(--max-w);
+  margin: 0 auto clamp(56px, 7vw, 96px);
+  text-align: center;
+}
+
+.process-label {
+  font-family: var(--font-display);
+  font-size: 9px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.6;
+  margin-bottom: 16px;
+}
+
+.process-heading {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 300;
+  color: var(--sand);
+  letter-spacing: -0.01em;
+}
+
+/* --- Шаги --- */
+.process-steps {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+}
+
+/* Коннектор между шагами */
+.process-connector {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line-solid), transparent);
+  margin-top: clamp(60px, 8vw, 100px); /* выравниваем с серединой фото */
+  min-width: 24px;
+}
+
+.process-step {
+  flex: 0 0 auto;
+  width: clamp(200px, 28vw, 320px);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Фото-заглушка */
+.process-step-photo {
+  width: 100%;
+}
+
+.process-photo-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: var(--ink-amber);
+  border: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+
+.process-photo-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 60%, rgba(201,162,84,0.05) 100%);
+}
+
+/* Контент шага */
+.process-step-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.process-step-num {
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  opacity: 0.5;
+}
+
+.process-step-title {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 300;
+  color: var(--sand);
+  line-height: 1.3;
+}
+
+.process-step-body {
+  font-family: var(--font-display);
+  font-size: clamp(13px, 1.3vw, 15px);
+  color: var(--sand-deep);
+  opacity: 0.6;
+  line-height: 1.65;
+}
+
+/* --- Мобиль: вертикальный стек --- */
+@media (max-width: 767px) {
+  .process-steps {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .process-connector {
+    width: 1px;
+    height: 40px;
+    min-width: unset;
+    margin-top: 0;
+    background: linear-gradient(180deg, transparent, var(--line-solid), transparent);
+  }
+
+  .process-step {
+    width: 100%;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .process-step-photo {
+    width: clamp(80px, 25vw, 120px);
+    flex-shrink: 0;
+  }
+
+  .process-photo-placeholder {
+    aspect-ratio: 3 / 4;
+  }
+}
+
+/* --- Планшет --- */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .process-step {
+    width: clamp(160px, 22vw, 240px);
+  }
+}
