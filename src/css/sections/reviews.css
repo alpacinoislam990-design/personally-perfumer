@@ -15,8 +15,7 @@
   font-size: 9px;
   letter-spacing: 0.5em;
   text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0.6;
+  color: var(--gold-readable); /* WCAG AA ~5:1 на белом */
   margin-bottom: 16px;
 }
 
@@ -39,6 +38,12 @@
   justify-content: space-between;
   gap: 24px;
   height: 100%;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04); /* frontend-design: perceived depth */
+  transition: box-shadow 0.35s var(--ease-gold);
+}
+
+.review-card:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
 }
 
 .review-quote {

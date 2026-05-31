@@ -34,7 +34,9 @@
   <!-- Шрифты -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Amiri&display=swap" rel="stylesheet">
+  <!-- preload CSS — убираем render-blocking задержку шрифтов -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Amiri&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Amiri&display=swap" rel="stylesheet"></noscript>
 
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css"
@@ -676,7 +678,7 @@
 
       <div class="form-field">
         <label class="form-label" for="f-phone" data-i18n="form_phone">Телефон или Telegram</label>
-        <input class="form-input" type="text" id="f-phone" name="phone"
+        <input class="form-input" type="tel" id="f-phone" name="phone"
                required autocomplete="tel"
                data-i18n-ph="form_phone_ph" placeholder="+971... или @username">
       </div>
@@ -701,7 +703,8 @@
       <!-- Honeypot anti-spam -->
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 
-      <button type="submit" class="form-submit" data-i18n="form_submit">Отправить</button>
+      <button type="submit" class="form-submit" data-i18n="form_submit"
+              aria-describedby="form-status">Отправить</button>
 
       <!-- Мессенджеры после успешной отправки (скрыты до отправки) -->
       <div id="form-messengers" class="form-messengers" hidden>

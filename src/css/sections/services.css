@@ -16,8 +16,7 @@
   font-weight: 400;
   letter-spacing: 0.5em;
   text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0.6;
+  color: var(--gold-readable); /* WCAG AA ~5:1 на белом */
   margin-bottom: 16px;
 }
 
@@ -47,10 +46,11 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  transition: background 0.35s var(--ease-gold), transform 0.3s var(--ease-gold);
+  transition: background 0.35s var(--ease-gold), transform 0.3s var(--ease-gold), box-shadow 0.35s var(--ease-gold);
   cursor: default;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.03); /* subtle lift */
 }
 
 /* Золотая линия сверху при ховере */
@@ -70,6 +70,7 @@
 .services-card:hover {
   background: var(--bg-soft);
   transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
 }
 
 .services-card:hover::before {

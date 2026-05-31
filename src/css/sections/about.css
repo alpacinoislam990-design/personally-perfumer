@@ -76,8 +76,7 @@
   font-weight: 400;
   letter-spacing: 0.5em;
   text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0.6;
+  color: var(--gold-readable); /* WCAG AA ~5:1 на белом */
 }
 
 .about-heading {

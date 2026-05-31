@@ -74,7 +74,8 @@ export function initContact() {
 
     const btn = form.querySelector('.form-submit');
     btn.disabled = true;
-    btn.textContent = '...';
+    btn.classList.add('is-loading');
+    btn.setAttribute('aria-busy', 'true');
 
     try {
       const res = await fetch(FORMSPREE_URL, {
@@ -95,11 +96,8 @@ export function initContact() {
       _showStatus(status, form.dataset.err || 'Ошибка. Напишите в WhatsApp или Telegram.', true);
     } finally {
       btn.disabled = false;
-      const key = btn.dataset.i18n;
-      if (key) {
-        const { getLang, STRINGS } = await import('./i18n.js');
-        btn.textContent = STRINGS[getLang()]?.[key] || btn.textContent;
-      }
+      btn.classList.remove('is-loading');
+      btn.setAttribute('aria-busy', 'false');
     }
   });
 }

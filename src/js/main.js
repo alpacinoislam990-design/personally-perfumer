@@ -79,12 +79,20 @@ function startSite() {
   /* Nav появляется */
   gsap.from('#nav', { y: -20, opacity: 0, duration: 0.6, ease: 'power2.out', delay: 0.1 });
 
-  /* Hero контент появляется */
-  gsap.from(['.hero-heading', '.hero-actions', '.hero-messengers'], {
-    opacity: 0, y: 20,
+  /* Hero heading — clip-path reveal сверху вниз (frontend-design: высокий impact) */
+  gsap.from('.hero-heading', {
+    clipPath: 'inset(0 0 100% 0)',
+    opacity: 0,
+    duration: 1.1, ease: 'power3.out',
+    delay: 0.2
+  });
+
+  /* Hero кнопки и мессенджеры — stagger после заголовка */
+  gsap.from(['.hero-actions', '.hero-messengers'], {
+    opacity: 0, y: 16,
     duration: 0.7, ease: 'power2.out',
     stagger: 0.15,
-    delay: 0.3
+    delay: 0.8
   });
 
   /* Floating WA появляется */

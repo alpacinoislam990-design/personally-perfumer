@@ -8,9 +8,10 @@
   --sand-deep:  #E8D5B0;
 
   /* --- Золото --- */
-  --gold:       #C9A254;
-  --gold-light: #E8C97A;
-  --gold-deep:  #8B5E2A;
+  --gold:           #C9A254;
+  --gold-light:     #E8C97A;
+  --gold-deep:      #8B5E2A;
+  --gold-readable:  #8B6A2E; /* WCAG AA на белом: ~5:1 — для мелких лейблов */
 
   /* --- Текст --- */
   --brown-deep: #5C3A0E;

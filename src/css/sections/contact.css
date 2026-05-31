@@ -182,6 +182,25 @@
   transform: scale(0.98);
 }
 
+/* Loading state — пульсирующий opacity вместо spinner */
+.form-submit.is-loading {
+  opacity: 0.6;
+  cursor: not-allowed;
+  animation: btn-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes btn-pulse {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 0.35; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .form-submit.is-loading {
+    animation: none;
+    opacity: 0.5;
+  }
+}
+
 /* Статус отправки */
 .form-status {
   font-family: var(--font-display);
