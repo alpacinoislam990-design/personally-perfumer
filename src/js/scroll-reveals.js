@@ -122,6 +122,17 @@ export function initScrollReveals() {
 }
 
 function _initParallax() {
+  /* Hero — изображение скроллится медленнее страницы (классический parallax) */
+  const heroSlides = document.querySelector('.hero-slides');
+  if (heroSlides) {
+    gsap.to(heroSlides, {
+      y: '25%', ease: 'none',
+      scrollTrigger: {
+        trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true
+      }
+    });
+  }
+
   /* About — фото параллакс */
   const aboutPhoto = document.querySelector('.about-photo-placeholder');
   if (aboutPhoto) {
@@ -137,7 +148,7 @@ function _initParallax() {
   const featImg = document.querySelector('.featured-img-wrap');
   if (featImg) {
     gsap.to(featImg, {
-      y: 60, ease: 'none',
+      y: 40, ease: 'none',
       scrollTrigger: {
         trigger: '#featured', start: 'top bottom', end: 'bottom top', scrub: 1.5
       }

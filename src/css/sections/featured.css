@@ -1,37 +1,37 @@
 /* ===== FEATURED — SHUKRAN UAE 55 ===== */
 #featured {
-  background: var(--ink-amber);
-  padding: 0;
-  min-height: 100dvh;
+  background: var(--bg);
+  padding: clamp(80px, 10vw, 140px) var(--pad-x);
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: clamp(48px, 6vw, 100px);
   align-items: center;
   overflow: hidden;
 }
 
-/* Левая колонка — фото */
+/* Левая колонка — фото без рамки */
 .featured-visual {
   position: relative;
-  height: 100dvh;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .featured-img-wrap {
-  position: absolute;
-  inset: 0;
+  width: 100%;
   will-change: transform; /* GSAP parallax */
 }
 
 .featured-img {
   width: 100%;
-  height: 110%; /* запас для параллакс-сдвига */
-  object-fit: cover;
-  object-position: center top;
+  height: auto;
+  object-fit: contain; /* полное изображение, без обрезки */
+  display: block;
+  /* без border, без background — белый фон секции виден */
 }
 
 /* Правая колонка — текст */
 .featured-text {
-  padding: clamp(60px, 8vw, 120px) clamp(40px, 5vw, 100px);
   position: relative;
 }
 
@@ -44,7 +44,7 @@
   font-family: var(--font-arabic);
   font-size: clamp(80px, 12vw, 160px);
   color: var(--gold);
-  opacity: 0.06;
+  opacity: 0.04;
   pointer-events: none;
   user-select: none;
   line-height: 1;
@@ -58,8 +58,8 @@
   font-family: var(--font-display);
   font-size: clamp(120px, 18vw, 240px);
   font-weight: 300;
-  color: var(--gold-light);
-  opacity: 0.05;
+  color: var(--gold);
+  opacity: 0.04;
   pointer-events: none;
   user-select: none;
   line-height: 1;
@@ -70,37 +70,36 @@
   z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
 }
 
 .featured-brand {
   font-family: var(--font-display);
-  font-size: clamp(28px, 4vw, 52px);
+  font-size: clamp(22px, 3vw, 40px);
   font-weight: 300;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--text);
   line-height: 1.1;
 }
 
 .featured-name {
   font-family: var(--font-display);
-  font-size: clamp(14px, 1.8vw, 18px);
+  font-size: clamp(36px, 5vw, 64px);
   font-weight: 300;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: var(--gold-light);
-  opacity: 0.8;
+  font-style: italic;
+  color: var(--gold);
+  letter-spacing: -0.02em;
+  line-height: 1;
 }
 
 .featured-notes {
   font-family: var(--font-display);
-  font-size: clamp(13px, 1.5vw, 16px);
+  font-size: clamp(15px, 1.5vw, 18px);
   font-style: italic;
   font-weight: 300;
   letter-spacing: 0.15em;
-  color: var(--sand);
-  opacity: 0.7;
+  color: var(--text-mid);
   margin: 4px 0;
 }
 
@@ -112,9 +111,18 @@
   margin: 8px 0;
 }
 
+.featured-tags .tag {
+  border-color: var(--line-light-solid);
+  color: var(--text-mid);
+}
+
 /* CTA кнопка WhatsApp */
 .featured-cta {
-  margin-top: 8px;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
 }
 
 .btn-wa {
@@ -122,22 +130,26 @@
   align-items: center;
   gap: 10px;
   font-family: var(--font-display);
-  font-size: clamp(11px, 1.3vw, 14px);
+  font-size: clamp(12px, 1.2vw, 14px);
   font-weight: 400;
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: var(--gold);
-  border: 0.5px solid var(--gold);
+  color: var(--ink);
+  background: var(--gold);
+  border: none;
   padding: 16px 36px;
-  transition: background 0.4s var(--ease-gold), color 0.4s var(--ease-gold);
+  transition: background 0.3s var(--ease-gold), transform 0.15s ease-out;
   cursor: pointer;
   text-decoration: none;
   min-height: 44px;
 }
 
 .btn-wa:hover {
-  background: var(--gold);
-  color: var(--ink);
+  background: var(--gold-light);
+}
+
+.btn-wa:active {
+  transform: scale(0.97);
 }
 
 .btn-wa svg {
@@ -148,14 +160,12 @@
 }
 
 .featured-tg-link {
-  display: block;
   font-family: var(--font-display);
-  font-size: 10px;
-  letter-spacing: 0.35em;
+  font-size: 13px;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0.45;
-  margin-top: 14px;
+  color: var(--text-mid);
+  opacity: 0.7;
   transition: opacity 0.3s;
   text-decoration: none;
   min-height: 44px;
@@ -163,27 +173,32 @@
   align-items: center;
 }
 
-.featured-tg-link:hover { opacity: 0.8; }
+.featured-tg-link:hover { opacity: 1; }
 
 /* --- Мобиль --- */
 @media (max-width: 767px) {
   #featured {
     grid-template-columns: 1fr;
-    grid-template-rows: 60dvh auto;
-    min-height: auto;
+    gap: clamp(32px, 6vw, 56px);
+    padding: clamp(60px, 8vw, 100px) clamp(20px, 5vw, 40px);
   }
 
-  .featured-visual {
-    height: 60dvh;
-  }
-
-  .featured-text {
-    padding: clamp(40px, 8vw, 80px) clamp(20px, 5vw, 40px);
+  .featured-img-wrap {
+    max-width: 80vw;
+    margin: 0 auto;
   }
 
   .featured-arabic-bg,
   .featured-number-bg {
     display: none;
+  }
+
+  .featured-cta {
+    align-items: stretch;
+  }
+
+  .btn-wa {
+    justify-content: center;
   }
 }
 
@@ -191,7 +206,6 @@
 @media (min-width: 768px) and (max-width: 1023px) {
   #featured {
     grid-template-columns: 1fr 1fr;
+    gap: 40px;
   }
-
-  .featured-visual { height: 100dvh; }
 }
