@@ -45,7 +45,7 @@ export function initContact() {
 
     const name     = sanitize(form.querySelector('#f-name').value.trim());
     const phone    = sanitize(form.querySelector('#f-phone').value.trim());
-    const interest = form.querySelector('#f-interest')?.value || '';
+    const interest = sanitize(form.querySelector('#f-interest')?.value || '');
     const msg      = sanitize(form.querySelector('#f-message').value.trim());
 
     /* Валидация длины */
@@ -109,9 +109,7 @@ function _showStatus(el, msg, isError) {
   setTimeout(() => el.classList.remove('is-visible'), 6000);
 }
 
-/* Экранирует HTML для защиты от XSS */
+/* Убирает HTML-теги — данные идут в API как plain text, не в DOM */
 function sanitize(str) {
-  const d = document.createElement('div');
-  d.appendChild(document.createTextNode(str));
-  return d.innerHTML;
+  return str.replace(/<[^>]*>/g, '').trim();
 }

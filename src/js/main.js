@@ -101,6 +101,10 @@ function startSite() {
 
 /* --- Точка входа --- */
 document.addEventListener('DOMContentLoaded', () => {
+  /* Всегда начинаем с верхушки страницы */
+  history.scrollRestoration = 'manual';
+  window.scrollTo(0, 0);
+
   /* Применить сохранённый язык (по умолчанию — RU) */
   applyLang(getLang());
 
