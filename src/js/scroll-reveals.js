@@ -142,7 +142,7 @@ function _initParallax() {
   }
 
   /* About — фото параллакс */
-  const aboutPhoto = document.querySelector('.about-photo-placeholder');
+  const aboutPhoto = document.querySelector('.about-photo-img');
   if (aboutPhoto) {
     gsap.to(aboutPhoto, {
       y: 40, ease: 'none',

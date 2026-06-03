@@ -1,74 +1,38 @@
 /* ===== О ПАРФЮМЕРЕ ===== */
 #about {
-  padding: clamp(100px, 14vw, 200px) var(--pad-x) clamp(80px, 12vw, 160px);
+  padding: clamp(80px, 10vw, 140px) var(--pad-x);
   background: var(--bg);
   overflow: hidden;
-}
-
-/* Слоган "Разбуди инстинкты" — крупный заголовок над фото */
-.about-tagline {
-  font-family: var(--font-display);
-  font-size: clamp(52px, 9vw, 128px);
-  font-weight: 300;
-  font-style: italic;
-  color: var(--text);
-  text-align: center;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  text-wrap: balance;
-  max-width: var(--max-w);
-  margin: 0 auto clamp(56px, 8vw, 100px);
-  overflow: hidden; /* буквы не вылезают при анимации */
 }
 
 .about-inner {
   max-width: var(--max-w);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.85fr 1fr;
   gap: clamp(48px, 6vw, 100px);
-  align-items: center;
+  align-items: stretch;
 }
 
 /* --- Фото --- */
 .about-photo {
   position: relative;
-}
-
-.about-photo-placeholder {
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  background: var(--bg-soft);
-  border: 1px solid var(--line-light-solid);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
   overflow: hidden;
+  aspect-ratio: 3 / 4;
+  align-self: center;
+  /* фон убран — изображение закрывает всё */
 }
 
-/* Угловые декоры */
-.about-photo-placeholder::before,
-.about-photo-placeholder::after {
-  content: '';
+.about-photo-img {
   position: absolute;
-  width: 32px;
-  height: 32px;
-  border-color: var(--gold);
-  border-style: solid;
-  opacity: 0.4;
-}
-
-.about-photo-placeholder::before {
-  top: 16px;
-  left: 16px;
-  border-width: 1px 0 0 1px;
-}
-
-.about-photo-placeholder::after {
-  bottom: 16px;
-  right: 16px;
-  border-width: 0 1px 1px 0;
+  /* oversize: зазоры закрыты, снизу срезается больше (прячет звёздочку) */
+  inset: -2px -2px -60px -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 62px);
+  object-fit: cover;
+  /* сдвиг: звёздочка снизу справа срезается */
+  object-position: center 5%;
+  display: block;
 }
 
 .about-photo-initial {
@@ -84,15 +48,17 @@
   display: flex;
   flex-direction: column;
   gap: clamp(24px, 3vw, 40px);
+  justify-content: center;
+  padding: clamp(60px, 8vw, 120px) 0;
 }
 
 .about-label {
   font-family: var(--font-display);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 400;
   letter-spacing: 0.4em;
   text-transform: uppercase;
-  color: var(--text-mid);
+  color: var(--text);
 }
 
 .about-heading {
@@ -147,14 +113,23 @@
 
 /* --- Мобиль --- */
 @media (max-width: 767px) {
-  .about-inner {
-    grid-template-columns: 1fr;
-    gap: 40px;
+  #about {
+    padding: 0;
   }
 
-  .about-photo-placeholder {
-    aspect-ratio: 3 / 4;
-    max-height: 60dvh;
+  .about-inner {
+    grid-template-columns: 1fr;
+    gap: 0;
+    min-height: auto;
+  }
+
+  .about-photo {
+    min-height: 70vw;
+    aspect-ratio: 4 / 3;
+  }
+
+  .about-text {
+    padding: 40px clamp(20px, 5vw, 40px);
   }
 
   .about-stats {
@@ -165,7 +140,7 @@
 /* --- Планшет --- */
 @media (min-width: 768px) and (max-width: 1023px) {
   .about-inner {
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1fr 1fr;
     gap: 40px;
   }
 }
