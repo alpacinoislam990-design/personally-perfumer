@@ -29,7 +29,7 @@
   <meta name="twitter:image" content="https://personallyperfumer.com/assets/images/shukran-bottle.jpg">
 
   <!-- Preload первого экрана -->
-  <link rel="preload" href="assets/images/shukran-bottle.webp" as="image" type="image/webp">
+  <link rel="preload" href="assets/images/hero-bg.jpg" as="image">
 
   <!-- Шрифты -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -87,6 +87,9 @@
     "address": { "@type": "PostalAddress", "addressLocality": "Dubai", "addressCountry": "AE" }
   }
   </script>
+
+  <!-- Скролл всегда с верхушки — до рендера страницы -->
+  <script src="src/js/scroll-top.js"></script>
 
 </head>
 
@@ -151,20 +154,11 @@
   <!-- ==================== HERO ==================== -->
   <section id="hero" aria-label="Personally Perfumer hero">
 
-    <!-- Слайды — cross-fade -->
+    <!-- Фоновое фото hero -->
     <div class="hero-slides" aria-hidden="true">
       <div class="hero-slide is-active">
-        <picture>
-          <source srcset="assets/images/shukran-bottle.webp" type="image/webp">
-          <img class="hero-slide-img" src="assets/images/shukran-bottle.jpg"
-               alt="" width="1920" height="1080" loading="eager" fetchpriority="high">
-        </picture>
-      </div>
-      <div class="hero-slide">
-        <picture>
-          <source srcset="assets/images/shukran-box.webp" type="image/webp">
-          <img class="hero-slide-img" src="assets/images/shukran-box.jpg" alt="" width="1920" height="1080" loading="lazy">
-        </picture>
+        <img class="hero-slide-img" src="assets/images/hero-bg.jpg"
+             alt="" width="2752" height="1536" loading="eager" fetchpriority="high">
       </div>
     </div>
 
@@ -197,11 +191,6 @@
       </div>
     </div>
 
-    <!-- Индикаторы слайдов -->
-    <div class="hero-indicators" aria-label="Slide indicators">
-      <button class="hero-dot is-active" aria-label="Slide 1"></button>
-      <button class="hero-dot" aria-label="Slide 2"></button>
-    </div>
   </section>
 
   <!-- ==================== ABOUT ==================== -->

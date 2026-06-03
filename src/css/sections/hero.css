@@ -37,14 +37,15 @@
   z-index: 0;
 }
 
-/* Чёткое изображение поверх — целиком, по центру */
+/* Изображение заполняет весь hero без чёрных полос */
 .hero-slide-img {
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 1;
-  max-width: 100vw;
-  max-height: 100dvh;
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   display: block;
 }
 
