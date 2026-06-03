@@ -52,7 +52,6 @@
   <link rel="stylesheet" href="src/css/sections/nav.css">
   <link rel="stylesheet" href="src/css/sections/hero.css">
   <link rel="stylesheet" href="src/css/sections/about.css">
-  <link rel="stylesheet" href="src/css/sections/notes.css">
   <link rel="stylesheet" href="src/css/sections/featured.css">
   <link rel="stylesheet" href="src/css/sections/catalog.css">
   <link rel="stylesheet" href="src/css/sections/services.css">
@@ -154,11 +153,23 @@
   <!-- ==================== HERO ==================== -->
   <section id="hero" aria-label="Personally Perfumer hero">
 
-    <!-- Фоновое фото hero -->
+    <!-- Фоновые фото hero — cross-fade каждые 4с -->
     <div class="hero-slides" aria-hidden="true">
       <div class="hero-slide is-active">
         <img class="hero-slide-img" src="assets/images/hero-bg.jpg"
              alt="" width="2752" height="1536" loading="eager" fetchpriority="high">
+      </div>
+      <div class="hero-slide">
+        <img class="hero-slide-img" src="assets/images/hero-bg2.jpg"
+             alt="" width="2752" height="1536" loading="lazy">
+      </div>
+      <div class="hero-slide">
+        <img class="hero-slide-img" src="assets/images/hero-bg3.jpg"
+             alt="" width="2752" height="1536" loading="lazy">
+      </div>
+      <div class="hero-slide">
+        <img class="hero-slide-img" src="assets/images/hero-bg4.jpg"
+             alt="" width="2752" height="1536" loading="lazy">
       </div>
     </div>
 
@@ -166,10 +177,8 @@
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="grain-overlay" aria-hidden="true"></div>
 
-    <!-- Контент -->
+    <!-- Контент — внизу hero -->
     <div class="hero-content">
-      <h1 class="hero-heading" data-i18n="hero_heading">Разбуди инстинкты</h1>
-
       <div class="hero-actions">
         <a href="#contact" class="hero-btn-primary" data-i18n="hero_btn_book">Записаться на консультацию</a>
         <a href="#catalog" class="hero-btn-secondary" data-i18n="hero_btn_catalog">Смотреть коллекцию</a>
@@ -195,6 +204,10 @@
 
   <!-- ==================== ABOUT ==================== -->
   <section id="about" aria-label="О парфюмере">
+
+    <!-- Слоган из hero — крупный заголовок над блоком -->
+    <h2 class="about-tagline" data-i18n="hero_heading">Разбуди инстинкты</h2>
+
     <div class="about-inner">
 
       <div class="about-photo">
@@ -226,30 +239,6 @@
         </div>
       </div>
 
-    </div>
-  </section>
-
-  <!-- ==================== NOTES ==================== -->
-  <section id="notes" aria-label="Fragrance notes">
-    <h2 class="notes-heading" data-i18n="notes_heading">The Scent Pyramid</h2>
-
-    <div class="notes-pyramid">
-      <span class="notes-bg-number" aria-hidden="true">55</span>
-
-      <div class="notes-tier">
-        <span class="notes-tier-label" data-i18n="notes_top_label">Top Notes</span>
-        <p class="notes-tier-scents" data-i18n="notes_top">Bergamot · Saffron</p>
-      </div>
-
-      <div class="notes-tier">
-        <span class="notes-tier-label" data-i18n="notes_heart_label">Heart Notes</span>
-        <p class="notes-tier-scents" data-i18n="notes_heart">Oud · Rose</p>
-      </div>
-
-      <div class="notes-tier">
-        <span class="notes-tier-label" data-i18n="notes_base_label">Base Notes</span>
-        <p class="notes-tier-scents" data-i18n="notes_base">Amber · Sandalwood · Musk</p>
-      </div>
     </div>
   </section>
 

@@ -61,11 +61,27 @@ function startSite() {
   gsap.to(site, { opacity: 1, duration: 0.4, ease: 'power2.out' });
 
   /* Lenis smooth scroll — только десктоп */
+  let lenis = null;
   if (!isMobile && !isReduced && typeof Lenis !== 'undefined') {
-    const lenis = new Lenis({ duration: 1.6, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+    lenis = new Lenis({ duration: 1.6, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
     gsap.ticker.add(time => lenis.raf(time * 1000));
     gsap.ticker.lagSmoothing(0);
   }
+
+  /* Плавный скролл по якорным ссылкам */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      const target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      if (lenis) {
+        lenis.scrollTo(target, { duration: 1.4 });
+      } else {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -101,10 +117,6 @@ function startSite() {
 
 /* --- Точка входа --- */
 document.addEventListener('DOMContentLoaded', () => {
-  /* Всегда начинаем с верхушки страницы */
-  history.scrollRestoration = 'manual';
-  window.scrollTo(0, 0);
-
   /* Применить сохранённый язык (по умолчанию — RU) */
   applyLang(getLang());
 

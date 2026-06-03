@@ -16,6 +16,27 @@ export function initScrollReveals() {
     });
   });
 
+  /* --- "Разбуди инстинкты" — драматичный reveal по буквам --- */
+  const tagline = document.querySelector('.about-tagline');
+  if (tagline && typeof SplitType !== 'undefined') {
+    const splitTag = new SplitType(tagline, { types: 'chars,words' });
+    gsap.set(splitTag.chars, { overflow: 'hidden' });
+    gsap.from(splitTag.chars, {
+      yPercent: 110,
+      opacity: 0,
+      duration: isMobile ? 0.7 : 1.1,
+      ease: 'power4.out',
+      stagger: { amount: 0.5, from: 'start' },
+      scrollTrigger: { trigger: tagline, start: 'top 88%', once: true }
+    });
+  }
+
+  /* --- About label — fade up --- */
+  gsap.from('.about-label', {
+    opacity: 0, y: 16, duration: 0.5, ease: 'power2.out',
+    scrollTrigger: { trigger: '#about', start: 'top 70%', once: true }
+  });
+
   /* --- About — heading split по словам --- */
   const aboutH = document.querySelector('.about-heading');
   if (aboutH && typeof SplitType !== 'undefined') {
@@ -25,7 +46,7 @@ export function initScrollReveals() {
       clipPath: 'inset(100% 0 0 0)',
       duration: 0.8, ease: 'power3.out',
       stagger: 0.07,
-      scrollTrigger: { trigger: '#about', start: 'top 75%', once: true }
+      scrollTrigger: { trigger: '#about', start: 'top 70%', once: true }
     });
   }
 
@@ -34,7 +55,7 @@ export function initScrollReveals() {
     opacity: 0, y: 24,
     duration: 0.6, ease: 'power2.out',
     stagger: 0.15,
-    scrollTrigger: { trigger: '#about', start: 'top 65%', once: true }
+    scrollTrigger: { trigger: '#about', start: 'top 60%', once: true }
   });
 
   /* --- About stats — counter 0→N --- */
@@ -51,19 +72,6 @@ export function initScrollReveals() {
       ease:     'power2.out',
       onUpdate: () => { el.textContent = Math.round(proxy.val) + suffix; },
       scrollTrigger: { trigger: '#about', start: 'top 65%', once: true }
-    });
-  });
-
-  /* --- Notes — тиры --- */
-  document.querySelectorAll('.notes-tier').forEach((tier, i) => {
-    gsap.to(tier, {
-      opacity: 1, y: 0,
-      duration: 0.7, ease: 'power2.out',
-      delay: i * 0.25,
-      scrollTrigger: {
-        trigger: '#notes', start: 'top 70%', once: true,
-        onEnter: () => tier.classList.add('is-revealed')
-      }
     });
   });
 
@@ -155,14 +163,4 @@ function _initParallax() {
     });
   }
 
-  /* Notes — число 55 медленно двигается */
-  const notesBg = document.querySelector('.notes-bg-number');
-  if (notesBg) {
-    gsap.to(notesBg, {
-      y: -40, ease: 'none',
-      scrollTrigger: {
-        trigger: '#notes', start: 'top bottom', end: 'bottom top', scrub: 2
-      }
-    });
-  }
 }

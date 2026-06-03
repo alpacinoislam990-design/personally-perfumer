@@ -50,29 +50,41 @@ function _initPinScroll() {
   });
 
   /* Drag мышью — конвертирует горизонтальный drag в вертикальный скролл */
-  let dragStartX = null;
+  let dragStartX    = null;
   let dragStartScrollY = 0;
+  let isDragging    = false;
 
   section.style.cursor = 'grab';
 
   section.addEventListener('mousedown', e => {
     if (e.button !== 0) return;
-    dragStartX     = e.clientX;
+    dragStartX       = e.clientX;
     dragStartScrollY = window.scrollY;
+    isDragging       = false;
     section.style.cursor = 'grabbing';
     e.preventDefault();
   });
 
   window.addEventListener('mousemove', e => {
     if (dragStartX === null) return;
+    /* Кнопка отпущена вне секции — сбрасываем */
+    if (e.buttons !== 1) {
+      dragStartX = null;
+      isDragging = false;
+      section.style.cursor = 'grab';
+      return;
+    }
+    /* Минимальный порог 6px чтобы случайное движение не триггерило */
+    if (!isDragging && Math.abs(e.clientX - dragStartX) < 6) return;
+    isDragging = true;
     const dx    = dragStartX - e.clientX;
     const ratio = totalDrag() / window.innerWidth;
     window.scrollTo({ top: dragStartScrollY + dx * ratio * 0.9, behavior: 'instant' });
   });
 
   window.addEventListener('mouseup', () => {
-    if (dragStartX === null) return;
     dragStartX = null;
+    isDragging = false;
     section.style.cursor = 'grab';
   });
 }

@@ -1,8 +1,24 @@
 /* ===== О ПАРФЮМЕРЕ ===== */
 #about {
-  padding: clamp(80px, 12vw, 160px) var(--pad-x);
+  padding: clamp(100px, 14vw, 200px) var(--pad-x) clamp(80px, 12vw, 160px);
   background: var(--bg);
   overflow: hidden;
+}
+
+/* Слоган "Разбуди инстинкты" — крупный заголовок над фото */
+.about-tagline {
+  font-family: var(--font-display);
+  font-size: clamp(52px, 9vw, 128px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text);
+  text-align: center;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  text-wrap: balance;
+  max-width: var(--max-w);
+  margin: 0 auto clamp(56px, 8vw, 100px);
+  overflow: hidden; /* буквы не вылезают при анимации */
 }
 
 .about-inner {

@@ -1,13 +1,10 @@
-/* ===== HERO — CROSS-FADE SLIDESHOW ===== */
+/* ===== HERO ===== */
 #hero {
   position: relative;
   width: 100%;
   height: 100dvh;
   overflow: hidden;
   background: var(--ink);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 /* --- Слайды --- */
@@ -62,17 +59,19 @@
   z-index: 3;
 }
 
-/* --- Контент по центру --- */
+/* --- Контент прибит к низу hero --- */
 .hero-content {
-  position: relative;
+  position: absolute;
+  bottom: clamp(20px, 3vw, 40px);
+  left: 0;
+  right: 0;
   z-index: 10;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(24px, 3vw, 40px);
+  gap: clamp(6px, 0.8vw, 10px);
   padding: 0 var(--pad-x);
-  max-width: 800px;
 }
 
 .hero-heading {
@@ -97,12 +96,13 @@
 .hero-btn-primary {
   display: inline-block;
   font-family: var(--font-display);
-  font-size: 13px;
-  letter-spacing: 0.35em;
+  font-size: clamp(11px, 1vw, 14px);
+  font-weight: 500;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--ink);
   background: var(--gold);
-  padding: 20px clamp(40px, 5vw, 64px);
+  padding: 15px clamp(28px, 3.5vw, 48px);
   transition: background 0.3s var(--ease-gold), color 0.3s, transform 0.15s ease-out;
   white-space: nowrap;
 }
@@ -118,11 +118,12 @@
 
 .hero-btn-secondary {
   font-family: var(--font-display);
-  font-size: 14px;
+  font-size: clamp(14px, 1.5vw, 20px);
+  font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--on-dark);
-  opacity: 0.65;
+  color: #ffffff;
+  opacity: 1;
   transition: opacity 0.3s;
   padding: 8px 4px;
   position: relative;
@@ -161,11 +162,12 @@
   align-items: center;
   gap: 8px;
   font-family: var(--font-display);
-  font-size: 13px;
-  letter-spacing: 0.35em;
+  font-size: clamp(13px, 1.2vw, 17px);
+  font-weight: 500;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--on-dark);
-  opacity: 0.5;
+  color: #ffffff;
+  opacity: 0.9;
   transition: opacity 0.3s;
 }
 
@@ -174,8 +176,8 @@
 }
 
 .hero-messenger svg {
-  width: 16px;
-  height: 16px;
+  width: 22px;
+  height: 22px;
   fill: var(--gold);
   flex-shrink: 0;
 }
