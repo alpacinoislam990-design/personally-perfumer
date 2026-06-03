@@ -35,7 +35,10 @@ function _initPinScroll() {
   const swiperEl = document.querySelector('.catalog-swiper');
   if (swiperEl) swiperEl.style.display = 'none';
 
-  const totalDrag = () => track.scrollWidth - window.innerWidth + 200;
+  const totalDrag = () => Math.max(0, track.scrollWidth - window.innerWidth + 40);
+
+  /* Если все карточки помещаются на экране — пин не нужен */
+  if (totalDrag() <= 0) return;
 
   gsap.to(track, {
     x: () => -totalDrag(),
