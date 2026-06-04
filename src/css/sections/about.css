@@ -124,8 +124,13 @@
   }
 
   .about-photo {
-    min-height: 70vw;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 3 / 4;
+    min-height: 90vw;
+    max-height: 500px;
+  }
+
+  .about-photo-img {
+    object-position: center 8%;
   }
 
   .about-text {
