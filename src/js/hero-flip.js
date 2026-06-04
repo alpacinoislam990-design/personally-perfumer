@@ -1,11 +1,25 @@
 /* ===== HERO SLIDER — clip-path reveal (Kurkdjian style) ===== */
 
-const SLIDE_DATA = [
-  { main: 'Разбуди инстинкты',      sub: 'Personally Perfumer' },
-  { main: 'Твой аромат',            sub: 'Personal Fragrance'  },
-  { main: 'Сделано для тебя',       sub: 'Made to Order'       },
-  { main: 'Дубай · Эксклюзив',      sub: 'Dubai Exclusive'     },
-];
+import { getLang } from './i18n.js';
+
+const SLIDE_DATA = {
+  ru: [
+    { main: 'Разбуди инстинкты',  sub: 'Personally Perfumer' },
+    { main: 'Твой аромат',        sub: 'Personal Fragrance'  },
+    { main: 'Сделано для тебя',   sub: 'Made to Order'       },
+    { main: 'Дубай · Эксклюзив',  sub: 'Dubai Exclusive'     },
+  ],
+  en: [
+    { main: 'Awaken Your Instincts', sub: 'Personally Perfumer' },
+    { main: 'Your Scent',            sub: 'Personal Fragrance'  },
+    { main: 'Made for You',          sub: 'Made to Order'       },
+    { main: 'Dubai · Exclusive',     sub: 'Dubai Exclusive'     },
+  ],
+};
+
+function getSlides() {
+  return SLIDE_DATA[getLang()] ?? SLIDE_DATA.ru;
+}
 
 export function initHeroFlip() {
   const slides      = document.querySelectorAll('.hero-slide');
@@ -89,7 +103,9 @@ export function initHeroFlip() {
 
   function _setTextImmediate(idx) {
     if (!textEl) return;
-    const data = SLIDE_DATA[idx] ?? SLIDE_DATA[0];
+    const slides = getSlides();
+    const data = slides[idx] ?? slides[0];
+    /* XSS-safe: данные берутся только из SLIDE_DATA, не из DOM/пользователя */
     textEl.innerHTML = `
       <span class="text-line main">${data.main}</span>
       <span class="text-line sub">${data.sub}</span>
@@ -111,4 +127,7 @@ export function initHeroFlip() {
   if (nextBtn) nextBtn.addEventListener('click', () => goTo((current + 1) % slides.length));
 
   resetTimer();
+
+  /* Обновляет текст текущего слайда при смене языка */
+  window._heroRefreshText = () => _setTextImmediate(current);
 }

@@ -115,6 +115,7 @@ const STRINGS = {
     form_submit:          'Send',
     form_ok:              'Thank you! I\'ll be in touch soon.',
     form_err:             'Error. Please write on WhatsApp or Telegram.',
+    form_err_required:    'Please fill in your name and phone / Telegram.',
 
     /* Footer */
     footer_nav_home: 'Home',
@@ -235,6 +236,7 @@ const STRINGS = {
     form_submit:          'Отправить',
     form_ok:              'Спасибо! Свяжусь в ближайшее время.',
     form_err:             'Ошибка. Напишите в WhatsApp или Telegram.',
+    form_err_required:    'Заполните имя и телефон / Telegram.',
 
     /* Footer */
     footer_nav_home: 'Главная',
@@ -266,6 +268,14 @@ export function applyLang(lang) {
     const key = el.dataset.i18nPh;
     if (strings[key] !== undefined) el.placeholder = strings[key];
   });
+
+  /* data-i18n-ok/err/err-required — data-атрибуты формы */
+  const form = document.getElementById('contact-form');
+  if (form) {
+    if (form.dataset.i18nOk)          form.dataset.ok          = strings[form.dataset.i18nOk]          ?? '';
+    if (form.dataset.i18nErr)         form.dataset.err         = strings[form.dataset.i18nErr]         ?? '';
+    if (form.dataset.i18nErrRequired) form.dataset.errRequired = strings[form.dataset.i18nErrRequired] ?? '';
+  }
 
   /* Обновляем индикатор активного языка */
   document.querySelectorAll('.lang-toggle').forEach(btn => {

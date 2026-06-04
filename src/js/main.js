@@ -15,18 +15,15 @@ const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 document.querySelectorAll('.lang-toggle').forEach(btn => {
   btn.addEventListener('click', () => {
     const next = getLang() === 'ru' ? 'en' : 'ru';
+    const apply = ({ setLang, applyLang }) => {
+      setLang(next);
+      applyLang(next);
+      window._heroRefreshText?.();
+    };
     if (document.startViewTransition) {
-      document.startViewTransition(() => {
-        import('./i18n.js').then(({ setLang, applyLang }) => {
-          setLang(next);
-          applyLang(next);
-        });
-      });
+      document.startViewTransition(() => import('./i18n.js').then(apply));
     } else {
-      import('./i18n.js').then(({ setLang, applyLang }) => {
-        setLang(next);
-        applyLang(next);
-      });
+      import('./i18n.js').then(apply);
     }
   });
 });

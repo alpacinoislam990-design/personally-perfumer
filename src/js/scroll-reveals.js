@@ -37,15 +37,12 @@ export function initScrollReveals() {
     scrollTrigger: { trigger: '#about', start: 'top 70%', once: true }
   });
 
-  /* --- About — heading split по словам --- */
+  /* --- About — heading fade+slide (без SplitType — сохраняет \n переносы) --- */
   const aboutH = document.querySelector('.about-heading');
-  if (aboutH && typeof SplitType !== 'undefined') {
-    const split = new SplitType(aboutH, { types: 'words' });
-    gsap.from(split.words, {
+  if (aboutH) {
+    gsap.from(aboutH, {
       opacity: 0, y: isMobile ? 15 : 40,
-      clipPath: 'inset(100% 0 0 0)',
       duration: 0.8, ease: 'power3.out',
-      stagger: 0.07,
       scrollTrigger: { trigger: '#about', start: 'top 70%', once: true }
     });
   }
