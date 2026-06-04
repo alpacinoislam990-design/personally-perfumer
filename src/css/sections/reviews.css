@@ -180,56 +180,77 @@
   border-color: var(--gold);
 }
 
-/* --- Мобиль (≤767px) --- */
-@media (max-width: 767px) {
+/* ========================================
+   МОБИЛЬ (≤768px) — ПК НЕ ТРОГАТЬ
+   ======================================== */
+@media (max-width: 768px) {
+
+  /* 1. Секция на весь экран телефона */
   #reviews {
+    min-height: 100svh;
     padding: 32px 0 28px;
-    min-height: 0; /* отменяем десктопный min-height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* 2. Заголовок */
+  .reviews-heading {
+    font-size: clamp(28px, 7vw, 36px);
+    margin-bottom: 0;
   }
 
   .reviews-header {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
   }
 
-  .reviews-heading {
-    font-size: clamp(24px, 7vw, 34px);
-  }
-
-  /* Карточка от края до края с минимальным отступом */
+  /* 3. Слайд — без боковых отступов, контент по центру */
   .review-slide {
     padding: 0 8px;
+    align-items: center;
   }
 
+  /* 4. Карточка */
   .review-card {
-    padding: 36px 24px 40px;
-    min-height: 320px;
+    padding: 40px 24px;
+    min-height: 60vh;
     max-width: 100%;
     gap: 24px;
+    justify-content: center;
   }
 
+  /* 5. Цитата */
   .review-quote {
-    font-size: 19px;
+    font-size: clamp(18px, 5vw, 22px);
     line-height: 1.65;
   }
 
+  /* 6. Стрелки — полностью скрыты на touch */
+  .rev-arrow {
+    display: none;
+  }
+
+  /* 7. Точки — крупнее, зона касания 44×44px */
   .reviews-dots {
     margin-top: 20px;
-    gap: 8px;
-  }
-}
-
-/* --- Маленький мобиль (≤374px) --- */
-@media (max-width: 374px) {
-  .review-slide {
-    padding: 0 6px;
+    gap: 12px;
   }
 
-  .review-card {
-    padding: 30px 18px 34px;
-    min-height: 280px;
+  .rev-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    /* зона касания через padding */
+    padding: 17px;
+    margin: -17px;
+    box-sizing: content-box;
+    background-clip: content-box;
+    border: 1px solid var(--line-light-solid);
+    background-color: transparent;
   }
 
-  .review-quote {
-    font-size: 17px;
+  .rev-dot.active {
+    background-color: var(--gold);
+    border-color: var(--gold);
   }
 }
