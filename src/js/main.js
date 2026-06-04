@@ -1,11 +1,12 @@
 /* ===== MAIN — оркестратор ===== */
-import { getLang, applyLang } from './i18n.js';
-import { runPreloader }       from './preloader.js';
-import { initHeroFlip }       from './hero-flip.js';
-import { initScrollReveals }  from './scroll-reveals.js';
-import { initCatalog }        from './catalog-scroll.js';
-import { initContact }        from './contact.js';
-import { initNavSmart }       from './nav-smart.js';
+import { getLang, applyLang }    from './i18n.js';
+import { runPreloader }           from './preloader.js';
+import { initHeroFlip }           from './hero-flip.js';
+import { initScrollReveals }      from './scroll-reveals.js';
+import { initCatalog }            from './catalog-scroll.js';
+import { initContact }            from './contact.js';
+import { initNavSmart }           from './nav-smart.js';
+import { initReviewsSlider }      from './reviews-slider.js';
 
 const isMobile  = window.matchMedia('(pointer: coarse)').matches;
 const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -90,6 +91,7 @@ function startSite() {
   initHeroFlip();
   initScrollReveals();
   initCatalog();
+  initReviewsSlider();
   /* initCursor() — отключено, используем стандартный курсор */
   initContact();
 

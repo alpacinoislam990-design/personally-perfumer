@@ -467,162 +467,117 @@
       <h2 class="reviews-heading" data-i18n="reviews_heading">Что говорят клиенты</h2>
     </div>
 
-    <!-- Десктоп: сетка 3 в ряд -->
-    <div class="reviews-grid">
+    <div class="reviews-slider" id="reviews-slider">
 
-      <div class="review-card">
-        <p class="review-quote" data-i18n="review_1_quote">«После работы с Мухаммадом я понял, что аромат — это не украшение. Это часть личности. Меня теперь запоминают.»</p>
-        <div class="review-author">
-          <div class="review-avatar" style="--avatar-color: var(--gold)">АМ</div>
-          <div>
-            <p class="review-name" data-i18n="review_1_name">Алексей М.</p>
-            <p class="review-meta" data-i18n="review_1_meta">Москва · Подбор</p>
+      <button class="rev-arrow rev-prev" aria-label="Предыдущий отзыв">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="28" y1="16" x2="4" y2="16" stroke="currentColor" stroke-width="0.75" stroke-linecap="round"/>
+          <polyline points="12 8 4 16 12 24" stroke="currentColor" stroke-width="0.75" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <div class="reviews-viewport">
+        <div class="reviews-track" id="reviews-track">
+
+          <div class="review-slide">
+            <div class="review-card">
+              <p class="review-quote" data-i18n="review_1_quote">«После работы с Мухаммадом я понял, что аромат — это не украшение. Это часть личности. Меня теперь запоминают.»</p>
+              <div class="review-author">
+                <div class="review-avatar" style="--avatar-color: var(--gold)">АМ</div>
+                <div>
+                  <p class="review-name" data-i18n="review_1_name">Алексей М.</p>
+                  <p class="review-meta" data-i18n="review_1_meta">Москва · Подбор</p>
+                </div>
+              </div>
+            </div>
           </div>
+
+          <div class="review-slide">
+            <div class="review-card">
+              <p class="review-quote" data-i18n="review_2_quote">«Создали аромат под мой характер. Я надеваю его и чувствую уверенность с первой минуты.»</p>
+              <div class="review-author">
+                <div class="review-avatar">СК</div>
+                <div>
+                  <p class="review-name" data-i18n="review_2_name">Сабина К.</p>
+                  <p class="review-meta" data-i18n="review_2_meta">Дубай · Создание</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-slide">
+            <div class="review-card">
+              <p class="review-quote" data-i18n="review_3_quote">«Мастер-класс для команды — лучший корпоратив за 5 лет. Все унесли домой что-то своё.»</p>
+              <div class="review-author">
+                <div class="review-avatar">ДВ</div>
+                <div>
+                  <p class="review-name" data-i18n="review_3_name">Дмитрий В.</p>
+                  <p class="review-meta" data-i18n="review_3_meta">Абу-Даби · Мастер-класс</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-slide">
+            <div class="review-card">
+              <p class="review-quote" data-i18n="review_4_quote">«Заказывала аромат для открытия бутика. Гости спрашивали, что так пахнет. Это был наш фирменный запах.»</p>
+              <div class="review-author">
+                <div class="review-avatar">НЛ</div>
+                <div>
+                  <p class="review-name" data-i18n="review_4_name">Надя Л.</p>
+                  <p class="review-meta" data-i18n="review_4_meta">Дубай · Для бизнеса</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-slide">
+            <div class="review-card">
+              <p class="review-quote" data-i18n="review_5_quote">«28 стран — и нигде не встречал такого подхода. Мухаммад слышит то, что ты не можешь сказать словами.»</p>
+              <div class="review-author">
+                <div class="review-avatar">РА</div>
+                <div>
+                  <p class="review-name" data-i18n="review_5_name">Рашид А.</p>
+                  <p class="review-meta" data-i18n="review_5_meta">Шарджа · Создание</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-slide">
+            <div class="review-card">
+              <p class="review-quote" data-i18n="review_6_quote">«Первый раз за жизнь получила именной аромат с карточкой. Это не просто подарок — это трансформация.»</p>
+              <div class="review-author">
+                <div class="review-avatar">МИ</div>
+                <div>
+                  <p class="review-name" data-i18n="review_6_name">Марина И.</p>
+                  <p class="review-meta" data-i18n="review_6_meta">Москва · Подбор</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <div class="review-card">
-        <p class="review-quote" data-i18n="review_2_quote">«Создали аромат под мой характер. Я надеваю его и чувствую уверенность с первой минуты.»</p>
-        <div class="review-author">
-          <div class="review-avatar">СК</div>
-          <div>
-            <p class="review-name" data-i18n="review_2_name">Сабина К.</p>
-            <p class="review-meta" data-i18n="review_2_meta">Дубай · Создание</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <p class="review-quote" data-i18n="review_3_quote">«Мастер-класс для команды — лучший корпоратив за 5 лет. Все унесли домой что-то своё.»</p>
-        <div class="review-author">
-          <div class="review-avatar">ДВ</div>
-          <div>
-            <p class="review-name" data-i18n="review_3_name">Дмитрий В.</p>
-            <p class="review-meta" data-i18n="review_3_meta">Абу-Даби · Мастер-класс</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <p class="review-quote" data-i18n="review_4_quote">«Заказывала аромат для открытия бутика. Гости спрашивали, что так пахнет. Это был наш фирменный запах.»</p>
-        <div class="review-author">
-          <div class="review-avatar">НЛ</div>
-          <div>
-            <p class="review-name" data-i18n="review_4_name">Надя Л.</p>
-            <p class="review-meta" data-i18n="review_4_meta">Дубай · Для бизнеса</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <p class="review-quote" data-i18n="review_5_quote">«28 стран — и нигде не встречал такого подхода. Мухаммад слышит то, что ты не можешь сказать словами.»</p>
-        <div class="review-author">
-          <div class="review-avatar">РА</div>
-          <div>
-            <p class="review-name" data-i18n="review_5_name">Рашид А.</p>
-            <p class="review-meta" data-i18n="review_5_meta">Шарджа · Создание</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <p class="review-quote" data-i18n="review_6_quote">«Первый раз за жизнь получила именной аромат с карточкой. Это не просто подарок — это трансформация.»</p>
-        <div class="review-author">
-          <div class="review-avatar">МИ</div>
-          <div>
-            <p class="review-name" data-i18n="review_6_name">Марина И.</p>
-            <p class="review-meta" data-i18n="review_6_meta">Москва · Подбор</p>
-          </div>
-        </div>
-      </div>
+      <button class="rev-arrow rev-next" aria-label="Следующий отзыв">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="4" y1="16" x2="28" y2="16" stroke="currentColor" stroke-width="0.75" stroke-linecap="round"/>
+          <polyline points="20 8 28 16 20 24" stroke="currentColor" stroke-width="0.75" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+        </svg>
+      </button>
 
     </div>
 
-    <!-- Мобиль: Swiper -->
-    <div class="reviews-swiper swiper">
-      <div class="swiper-wrapper">
-
-        <div class="swiper-slide">
-          <div class="review-card">
-            <p class="review-quote" data-i18n="review_1_quote">«После работы с Мухаммадом я понял, что аромат — это не украшение. Это часть личности. Меня теперь запоминают.»</p>
-            <div class="review-author">
-              <div class="review-avatar">АМ</div>
-              <div>
-                <p class="review-name" data-i18n="review_1_name">Алексей М.</p>
-                <p class="review-meta" data-i18n="review_1_meta">Москва · Подбор</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="review-card">
-            <p class="review-quote" data-i18n="review_2_quote">«Создали аромат под мой характер. Я надеваю его и чувствую уверенность с первой минуты.»</p>
-            <div class="review-author">
-              <div class="review-avatar">СК</div>
-              <div>
-                <p class="review-name" data-i18n="review_2_name">Сабина К.</p>
-                <p class="review-meta" data-i18n="review_2_meta">Дубай · Создание</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="review-card">
-            <p class="review-quote" data-i18n="review_3_quote">«Мастер-класс для команды — лучший корпоратив за 5 лет. Все унесли домой что-то своё.»</p>
-            <div class="review-author">
-              <div class="review-avatar">ДВ</div>
-              <div>
-                <p class="review-name" data-i18n="review_3_name">Дмитрий В.</p>
-                <p class="review-meta" data-i18n="review_3_meta">Абу-Даби · Мастер-класс</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="review-card">
-            <p class="review-quote" data-i18n="review_4_quote">«Заказывала аромат для открытия бутика. Гости спрашивали, что так пахнет. Это был наш фирменный запах.»</p>
-            <div class="review-author">
-              <div class="review-avatar">НЛ</div>
-              <div>
-                <p class="review-name" data-i18n="review_4_name">Надя Л.</p>
-                <p class="review-meta" data-i18n="review_4_meta">Дубай · Для бизнеса</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="review-card">
-            <p class="review-quote" data-i18n="review_5_quote">«28 стран — и нигде не встречал такого подхода. Мухаммад слышит то, что ты не можешь сказать словами.»</p>
-            <div class="review-author">
-              <div class="review-avatar">РА</div>
-              <div>
-                <p class="review-name" data-i18n="review_5_name">Рашид А.</p>
-                <p class="review-meta" data-i18n="review_5_meta">Шарджа · Создание</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="review-card">
-            <p class="review-quote" data-i18n="review_6_quote">«Первый раз за жизнь получила именной аромат с карточкой. Это не просто подарок — это трансформация.»</p>
-            <div class="review-author">
-              <div class="review-avatar">МИ</div>
-              <div>
-                <p class="review-name" data-i18n="review_6_name">Марина И.</p>
-                <p class="review-meta" data-i18n="review_6_meta">Москва · Подбор</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <div class="swiper-pagination"></div>
+    <div class="reviews-dots" id="reviews-dots">
+      <span class="rev-dot active"></span>
+      <span class="rev-dot"></span>
+      <span class="rev-dot"></span>
+      <span class="rev-dot"></span>
+      <span class="rev-dot"></span>
+      <span class="rev-dot"></span>
     </div>
+
   </section>
 
   <!-- ==================== CONTACT ==================== -->
