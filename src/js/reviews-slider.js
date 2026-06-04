@@ -26,8 +26,16 @@ export function initReviewsSlider() {
     const prevIndex = current;
     current = index;
 
-    /* Текст уходящего слайда: вверх + прозрачность */
     const oldCard = slides[prevIndex].querySelector('.review-card');
+    const newCard = slides[current].querySelector('.review-card');
+
+    /* Сразу скрыть текст входящего слайда — до начала движения трека */
+    gsap.set(
+      [newCard.querySelector('.review-quote'), newCard.querySelector('.review-author')],
+      { opacity: 0, y: 10 }
+    );
+
+    /* Текст уходящего слайда: вверх + прозрачность */
     gsap.to(
       [oldCard.querySelector('.review-quote'), oldCard.querySelector('.review-author')],
       { opacity: 0, y: -10, duration: 0.25, ease: 'power2.in' }
@@ -39,11 +47,9 @@ export function initReviewsSlider() {
       duration: 0.6,
       ease: 'power2.inOut',
       onComplete() {
-        /* Текст входящего слайда: снизу + прозрачность → нормальное состояние */
-        const newCard = slides[current].querySelector('.review-card');
-        gsap.fromTo(
+        /* Текст входящего слайда появляется только после остановки */
+        gsap.to(
           [newCard.querySelector('.review-quote'), newCard.querySelector('.review-author')],
-          { opacity: 0, y: 10 },
           { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }
         );
       }
@@ -110,6 +116,16 @@ export function initReviewsSlider() {
     gsap.set(track, { x: -slideW() * current });
   });
   ro.observe(viewport);
+
+  /* Скрыть текст всех слайдов кроме первого — убирает мигание при первом переходе */
+  slides.forEach((slide, i) => {
+    if (i === 0) return;
+    const card = slide.querySelector('.review-card');
+    gsap.set(
+      [card.querySelector('.review-quote'), card.querySelector('.review-author')],
+      { opacity: 0, y: 10 }
+    );
+  });
 
   /* Инициализация */
   updateUI();

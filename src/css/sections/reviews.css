@@ -50,18 +50,20 @@
   will-change: transform;
 }
 
-/* --- Слайд (базово) --- */
+/* --- Слайд (базово) — ВСЕГДА 100% трека, иначе соседние карточки лезут --- */
 .review-slide {
   min-width: 100%;
+  width: 100%;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 /* --- Карточка (базово) --- */
 .review-card {
   background: var(--bg-card);
-  border: 1px solid var(--line-light);
+  border: none;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -71,7 +73,7 @@
 }
 
 .review-card:hover {
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.22);
 }
 
 .review-quote {
@@ -79,6 +81,8 @@
   font-style: italic;
   color: var(--text);
   line-height: 1.7;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .review-author {
@@ -172,23 +176,29 @@
    ============================================== */
 @media (pointer: fine) and (min-width: 1024px) {
   .reviews-slider {
-    min-height: 400px;
+    min-height: 500px;
   }
 
   .review-slide {
     margin: 0 auto;
-    width: 60%;
-    max-width: 800px;
-    padding: 48px 0;
+    width: 82%;
+    max-width: 1100px;
+    padding: 24px 0; /* меньше отступ — карточка выше */
   }
 
   .review-card {
-    padding: clamp(40px, 5vw, 64px) clamp(36px, 5vw, 64px);
-    max-width: 800px;
+    padding: clamp(48px, 5vw, 72px) clamp(48px, 5vw, 80px);
+    max-width: 100%;
+    min-height: 55vh;
+    max-height: 72vh;
+    justify-content: space-between;
   }
 
   .review-quote {
     font-size: clamp(20px, 2.2vw, 28px);
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 4px;
   }
 
   .review-name {
@@ -202,30 +212,51 @@
 
 /* ==============================================
    СЦЕНАРИЙ 2: УЗКИЙ ПК (pointer: fine, < 1024px)
-   + все размеры на touch (переопределяется ниже)
    ============================================== */
 @media (pointer: fine) and (max-width: 1023px) {
+  #reviews {
+    min-height: 100svh;
+    padding: 32px 0 28px;
+  }
+
+  .reviews-slider {
+    flex: 1; /* растягивает слайдер на всю оставшуюся высоту секции */
+  }
+
+  .reviews-viewport {
+    align-self: stretch;
+  }
+
   .review-slide {
-    width: calc(100% - 48px);
-    margin: 0 24px;
-    padding: 32px 0;
+    padding: 0 8px;
+    align-items: stretch; /* карточка растягивается по высоте слайда */
   }
 
   .review-card {
-    padding: 32px 28px;
+    padding: 40px 28px;
     max-width: 100%;
+    min-height: 70vh;
+    max-height: 80vh;
+    justify-content: space-between;
+    box-shadow: none;
   }
 
   .review-quote {
-    font-size: clamp(16px, 4vw, 22px);
+    font-size: clamp(18px, 3.5vw, 24px);
+    overflow-wrap: break-word;
+    word-break: break-word;
+    flex: 1;            /* занимает всё место между паддингом и автором */
+    overflow-y: auto;   /* скролл только текста цитаты */
+    -webkit-overflow-scrolling: touch;
+    padding-right: 4px; /* небольшой отступ от скроллбара */
   }
 
   .review-name {
-    font-size: clamp(12px, 3vw, 14px);
+    font-size: clamp(13px, 2.5vw, 15px);
   }
 
   .review-meta {
-    font-size: clamp(10px, 2.5vw, 12px);
+    font-size: clamp(11px, 2vw, 13px);
   }
 }
 
@@ -243,6 +274,14 @@
     padding: 32px 0 28px;
   }
 
+  .reviews-slider {
+    flex: 1;
+  }
+
+  .reviews-viewport {
+    align-self: stretch;
+  }
+
   .reviews-heading {
     font-size: clamp(28px, 7vw, 36px);
   }
@@ -251,31 +290,38 @@
     margin-bottom: 24px;
   }
 
-  /* Карточка почти до краёв */
+  /* Карточка почти до краёв — 8px отступ с каждой стороны */
   .review-slide {
-    width: calc(100% - 32px);
-    margin: 0 16px;
-    padding: 0;
+    padding: 0 8px;
+    align-items: stretch;
   }
 
   .review-card {
-    padding: 28px 24px;
+    padding: 36px 24px;
     max-width: 100%;
-    gap: 20px;
+    gap: 24px;
+    min-height: 70vh;
+    max-height: 80vh;
+    justify-content: space-between;
+    box-shadow: none;
   }
 
-  /* Текст */
+  /* Текст крупнее для комфортного чтения */
   .review-quote {
-    font-size: clamp(16px, 4vw, 22px);
+    font-size: clamp(18px, 5vw, 22px);
     line-height: 1.65;
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-right: 4px;
   }
 
   .review-name {
-    font-size: clamp(12px, 3vw, 14px);
+    font-size: clamp(13px, 3.5vw, 15px);
   }
 
   .review-meta {
-    font-size: clamp(10px, 2.5vw, 12px);
+    font-size: clamp(11px, 2.5vw, 13px);
   }
 
   /* Точки — крупнее, зона касания 44×44px */
