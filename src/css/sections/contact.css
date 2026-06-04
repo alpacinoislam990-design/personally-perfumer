@@ -1,4 +1,9 @@
 /* ===== CONTACT ===== */
+
+/* intl-tel-input: скролл внутри дропдауна не уходит на страницу */
+.iti__country-list {
+  overscroll-behavior: contain;
+}
 #contact {
   background: var(--bg);
   text-align: center;

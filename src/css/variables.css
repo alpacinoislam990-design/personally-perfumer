@@ -7,18 +7,21 @@
   --sand:       #F5EFE4;
   --sand-deep:  #E8D5B0;
 
-  /* --- Золото --- */
-  --gold:           #C9A254;
-  --gold-light:     #E8C97A;
-  --gold-deep:      #8B5E2A;
-  --gold-readable:  #8B6A2E; /* WCAG AA на белом: ~5:1 — для мелких лейблов */
+  /* --- Акцент (бордо) --- */
+  --gold:           #890716;
+  --gold-light:     #a8091c;
+  --gold-deep:      #5c0510;
+  --gold-readable:  #890716;
+
+  /* --- Золотой с логотипа (PP монограм) --- */
+  --logo-gold:      #C9A254;
 
   /* --- Текст --- */
   --brown-deep: #5C3A0E;
-  --line:       rgba(201, 162, 84, 0.2);
-  --line-solid: rgba(201, 162, 84, 0.5);
-  --line-dim:   rgba(201, 162, 84, 0.3);  /* между --line и --line-solid */
-  --line-subtle: rgba(201, 162, 84, 0.05); /* едва заметная золотая тень */
+  --line:       rgba(137, 7, 22, 0.2);
+  --line-solid: rgba(137, 7, 22, 0.5);
+  --line-dim:   rgba(137, 7, 22, 0.3);
+  --line-subtle: rgba(137, 7, 22, 0.05);
 
   /* --- Оверлеи ink --- */
   --ink-nav:    rgba(13, 11, 9, 0.85);    /* nav backdrop-blur фон */
@@ -27,8 +30,8 @@
   --ink-soft-overlay: rgba(13, 11, 9, 0.35); /* hero overlay середина */
 
   /* --- Свечения и тени --- */
-  --gold-glow:  rgba(232, 201, 122, 0.5); /* свечение preloader line */
-  --brown-line: rgba(92, 58, 14, 0.15);   /* фон прогресс-полосы preloader */
+  --gold-glow:  rgba(137, 7, 22, 0.5);
+  --brown-line: rgba(137, 7, 22, 0.15);
   --shadow-float: rgba(0, 0, 0, 0.4);     /* тень floating button */
 
   /* --- Состояния --- */

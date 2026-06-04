@@ -24,7 +24,7 @@ h1, h2, h3 {
   font-weight: 300;
   letter-spacing: 0.05em;
   line-height: 1.1;
-  text-wrap: balance; /* равномерная разбивка строк — emilkowalski/impeccable */
+  text-wrap: balance;
 }
 
 /* Арабские элементы */

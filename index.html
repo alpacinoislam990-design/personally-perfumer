@@ -34,9 +34,11 @@
   <!-- Шрифты -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- preload CSS — убираем render-blocking задержку шрифтов -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Amiri&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Amiri&display=swap" rel="stylesheet"></noscript>
+
+  <!-- intl-tel-input CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.8.1/build/css/intlTelInput.min.css">
 
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css"
@@ -130,7 +132,6 @@
       <button class="lang-toggle" aria-label="Switch language">
         <span class="lang-current">RU</span>
       </button>
-      <a href="#contact" class="nav-cta" data-i18n="nav_cta">Записаться</a>
     </div>
 
     <!-- Гамбургер -->
@@ -147,7 +148,6 @@
     <a href="#catalog"  class="nav-overlay-link" data-i18n="nav_catalog">Коллекция</a>
     <a href="#services" class="nav-overlay-link" data-i18n="nav_services">Сервисы</a>
     <a href="#contact"  class="nav-overlay-link" data-i18n="nav_contact">Контакт</a>
-    <a href="#contact"  class="nav-overlay-link nav-overlay-cta" data-i18n="nav_cta">Записаться</a>
   </div>
 
   <!-- ==================== HERO ==================== -->
@@ -270,16 +270,7 @@
         </div>
 
         <div class="featured-cta">
-          <a href="https://wa.me/971000000000?text=Здравствуйте%2C%20хочу%20узнать%20подробности%20об%20аромате"
-             class="btn-wa" target="_blank" rel="noopener noreferrer" aria-label="Написать в WhatsApp">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
-            <span data-i18n="cta_wa">Написать в WhatsApp</span>
-          </a>
-          <a href="https://t.me/+971585521505" class="featured-tg-link" target="_blank" rel="noopener noreferrer" data-i18n="cta_tg">
-            или написать в Telegram
-          </a>
+          <a href="#contact" class="featured-order-btn" data-i18n="featured_order_btn">Заказать #55</a>
         </div>
       </div>
     </div>
@@ -376,7 +367,6 @@
   <!-- ==================== SERVICES ==================== -->
   <section id="services" aria-label="Сервисы">
     <div class="services-header">
-      <p class="services-label" data-i18n="services_label">Как я работаю</p>
       <h2 class="services-heading" data-i18n="services_heading">Сервисы</h2>
     </div>
 
@@ -416,29 +406,22 @@
   <!-- ==================== PROCESS ==================== -->
   <section id="process" aria-label="Как это работает">
     <div class="process-header">
-      <p class="process-label" data-i18n="process_label">Процесс</p>
-      <h2 class="process-heading" data-i18n="process_heading">Как это работает</h2>
+        <h2 class="process-heading" data-i18n="process_heading">Как это работает</h2>
     </div>
 
     <div class="process-steps">
 
       <div class="process-step">
-        <div class="process-step-photo">
-          <div class="process-photo-placeholder" aria-hidden="true"></div>
-        </div>
         <div class="process-step-content">
           <span class="process-step-num">01</span>
           <h3 class="process-step-title" data-i18n="process_1_title">Разговор о вас</h3>
-          <p class="process-step-body" data-i18n="process_1_body">Рассказ о задаче, заполнение Карты намерения</p>
+          <p class="process-step-body" data-i18n="process_1_body">Мы заполняем с вами «Карту намерения» — не анкету про предпочтения, а разговор о желаемом состоянии.</p>
         </div>
       </div>
 
       <div class="process-connector" aria-hidden="true"></div>
 
       <div class="process-step">
-        <div class="process-step-photo">
-          <div class="process-photo-placeholder" aria-hidden="true"></div>
-        </div>
         <div class="process-step-content">
           <span class="process-step-num">02</span>
           <h3 class="process-step-title" data-i18n="process_2_title">Создание</h3>
@@ -449,9 +432,6 @@
       <div class="process-connector" aria-hidden="true"></div>
 
       <div class="process-step">
-        <div class="process-step-photo">
-          <div class="process-photo-placeholder" aria-hidden="true"></div>
-        </div>
         <div class="process-step-content">
           <span class="process-step-num">03</span>
           <h3 class="process-step-title" data-i18n="process_3_title">Ритуал вручения</h3>
@@ -601,27 +581,10 @@
       </div>
 
       <div class="form-field">
-        <label class="form-label" for="f-phone" data-i18n="form_phone">Телефон или Telegram</label>
+        <label class="form-label" for="f-phone" data-i18n="form_phone">Телефон</label>
         <input class="form-input" type="tel" id="f-phone" name="phone"
                required autocomplete="tel"
-               data-i18n-ph="form_phone_ph" placeholder="+971... или @username">
-      </div>
-
-      <div class="form-field">
-        <label class="form-label" for="f-interest" data-i18n="form_interest_label">Что интересует</label>
-        <select class="form-select" id="f-interest" name="interest">
-          <option value="" disabled selected data-i18n="form_interest_ph">Выберите услугу</option>
-          <option value="selection" data-i18n="form_interest_1">Подбор</option>
-          <option value="creation"  data-i18n="form_interest_2">Создание</option>
-          <option value="masterclass" data-i18n="form_interest_3">Мастер-класс</option>
-          <option value="business"  data-i18n="form_interest_4">Для бизнеса</option>
-        </select>
-      </div>
-
-      <div class="form-field">
-        <label class="form-label" for="f-message" data-i18n="form_message">Ваш запрос (необязательно)</label>
-        <textarea class="form-textarea" id="f-message" name="message" rows="3"
-                  data-i18n-ph="form_message_ph" placeholder="Расскажите о задаче..."></textarea>
+               placeholder="+971...">
       </div>
 
       <!-- Honeypot anti-spam -->
@@ -676,6 +639,7 @@
 
   <!-- ==================== FOOTER ==================== -->
   <footer id="footer" role="contentinfo">
+
     <a href="#hero" class="footer-logo" aria-label="Personally Perfumer — наверх">
       <span class="footer-logo-latin">Personally Perfumer</span>
     </a>
@@ -741,6 +705,7 @@
         defer crossorigin="anonymous"
         integrity="sha384-2UI1PfnXFjVMQ7/ZDEF70CR943oH3v6uZrFQGGqJYlvhh4g6z6uVktxYbOlAczav"></script>
 <script src="src/js/main.js" type="module" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.8.1/build/js/intlTelInput.min.js" defer></script>
 
 </body>
 </html>

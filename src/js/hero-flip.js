@@ -74,7 +74,6 @@ export function initHeroFlip() {
       }
     });
 
-    _animateText(next);
     _updateDots(next);
     resetTimer();
   }

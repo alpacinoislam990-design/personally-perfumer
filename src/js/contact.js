@@ -1,9 +1,7 @@
 /* ===== КОНТАКТНАЯ ФОРМА ===== */
 
-/* Замените на реальный Formspree endpoint после получения от клиента */
 const FORMSPREE_URL = 'https://formspree.io/f/YOUR_FORM_ID';
 
-/* Rate limiting: не более 3 отправок за 10 минут */
 const RATE = { max: 3, window: 10 * 60 * 1000 };
 
 function checkRateLimit() {
@@ -11,62 +9,82 @@ function checkRateLimit() {
     const key  = 'pp_form_rl';
     const now  = Date.now();
     const data = JSON.parse(localStorage.getItem(key) || '{}');
-
     if (!data.reset || now > data.reset) {
       localStorage.setItem(key, JSON.stringify({ count: 1, reset: now + RATE.window }));
       return true;
     }
-
     if (data.count >= RATE.max) return false;
-
     data.count++;
     localStorage.setItem(key, JSON.stringify(data));
     return true;
   } catch {
-    return true; /* localStorage недоступен (приватный режим) — пропускаем лимит */
+    return true;
   }
 }
 
-/* Принимает телефон (+971...) или Telegram (@username / username) */
-function isValidContact(val) {
-  if (/^[\+\d\s\-\(\)]{6,20}$/.test(val)) return true;
-  if (/^@?[a-zA-Z][a-zA-Z0-9_]{3,31}$/.test(val)) return true;
-  return false;
-}
+let itiInstance = null;
 
 export function initContact() {
-  const form        = document.getElementById('contact-form');
-  const status      = document.getElementById('form-status');
-  const messengers  = document.getElementById('form-messengers');
+  const form       = document.getElementById('contact-form');
+  const status     = document.getElementById('form-status');
+  const messengers = document.getElementById('form-messengers');
   if (!form) return;
+
+  const phoneInput = document.getElementById('f-phone');
+
+  /* Инициализируем intl-tel-input после загрузки библиотеки */
+  function _initITI() {
+    if (!window.intlTelInput || !phoneInput || itiInstance) return;
+    itiInstance = window.intlTelInput(phoneInput, {
+      initialCountry: 'auto',
+      geoIpLookup: cb => fetch('https://ipapi.co/json/')
+        .then(r => r.json())
+        .then(d => cb(d.country_code))
+        .catch(() => cb('ae')),
+      utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@23.8.1/build/js/utils.js',
+      separateDialCode: true,
+    });
+  }
+
+  /* intl-tel-input грузится defer — ждём */
+  if (window.intlTelInput) {
+    _initITI();
+  } else {
+    window.addEventListener('load', _initITI, { once: true });
+  }
+
+  /* Блокируем scroll страницы когда курсор/палец внутри дропдауна стран */
+  document.addEventListener('wheel', e => {
+    if (e.target.closest('.iti__country-list')) e.stopPropagation();
+  }, { capture: true, passive: true });
+
+  document.addEventListener('touchmove', e => {
+    if (e.target.closest('.iti__country-list')) e.stopPropagation();
+  }, { capture: true, passive: false });
 
   form.addEventListener('submit', async e => {
     e.preventDefault();
 
-    const name     = sanitize(form.querySelector('#f-name').value.trim());
-    const phone    = sanitize(form.querySelector('#f-phone').value.trim());
-    const interest = sanitize(form.querySelector('#f-interest')?.value || '');
-    const msg      = sanitize(form.querySelector('#f-message').value.trim());
+    const name  = sanitize(form.querySelector('#f-name').value.trim());
+    const phone = sanitize(itiInstance
+      ? itiInstance.getNumber()
+      : phoneInput.value.trim());
 
-    /* Валидация длины */
-    if (name.length > 100 || phone.length > 60 || msg.length > 1000) {
+    if (name.length > 100 || phone.length > 60) {
       _showStatus(status, 'Слишком длинный ввод.', true);
       return;
     }
 
-    /* Обязательные поля */
     if (!name || !phone) {
-      _showStatus(status, form.dataset.errRequired || 'Заполните обязательные поля.', true);
+      _showStatus(status, form.dataset.errRequired || 'Заполните имя и телефон.', true);
       return;
     }
 
-    /* Формат контакта */
-    if (!isValidContact(phone)) {
-      _showStatus(status, 'Введите корректный телефон или Telegram.', true);
+    if (itiInstance && !itiInstance.isValidNumber()) {
+      _showStatus(status, 'Введите корректный номер телефона.', true);
       return;
     }
 
-    /* Rate limiting */
     if (!checkRateLimit()) {
       _showStatus(status, 'Слишком много заявок. Попробуйте через 10 минут.', true);
       return;
@@ -81,13 +99,13 @@ export function initContact() {
       const res = await fetch(FORMSPREE_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ name, phone, interest, message: msg })
+        body: JSON.stringify({ name, phone })
       });
 
       if (res.ok) {
         _showStatus(status, form.dataset.ok || 'Спасибо! Свяжусь в ближайшее время.', false);
         form.reset();
-        /* Показать иконки мессенджеров */
+        if (itiInstance) itiInstance.setCountry('ae');
         if (messengers) messengers.hidden = false;
       } else {
         throw new Error('server');
@@ -109,7 +127,6 @@ function _showStatus(el, msg, isError) {
   setTimeout(() => el.classList.remove('is-visible'), 6000);
 }
 
-/* Убирает HTML-теги — данные идут в API как plain text, не в DOM */
 function sanitize(str) {
   return str.replace(/<[^>]*>/g, '').trim();
 }

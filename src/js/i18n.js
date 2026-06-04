@@ -98,7 +98,8 @@ const STRINGS = {
 
     /* Contact form */
     contact_label:        'Get in touch',
-    contact_title:        'Let\'s discuss your fragrance',
+    contact_title:        'Let\'s create your fragrance',
+    featured_order_btn:   'Order #55',
     contact_or:           'or write directly',
     form_name:            'Name',
     form_name_ph:         'Your name',
@@ -189,7 +190,7 @@ const STRINGS = {
     process_label:   'Процесс',
     process_heading: 'Как это работает',
     process_1_title: 'Разговор о вас',
-    process_1_body:  'Рассказ о задаче, заполнение Карты намерения',
+    process_1_body:  'Мы заполняем с вами «Карту намерения» — не анкету про предпочтения, а разговор о желаемом состоянии.',
     process_2_title: 'Создание',
     process_2_body:  'Подбор или создание аромата с осознанным выбором нот',
     process_3_title: 'Ритуал вручения',
@@ -219,7 +220,8 @@ const STRINGS = {
 
     /* Contact form */
     contact_label:        'Связаться',
-    contact_title:        'Обсудим ваш аромат',
+    contact_title:        'Создадим ваш аромат',
+    featured_order_btn:   'Заказать #55',
     contact_or:           'или напишите напрямую',
     form_name:            'Имя',
     form_name_ph:         'Ваше имя',
