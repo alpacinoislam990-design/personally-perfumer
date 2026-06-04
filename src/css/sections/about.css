@@ -125,8 +125,12 @@
 
   .about-photo {
     aspect-ratio: 3 / 4;
-    min-height: 90vw;
-    max-height: 500px;
+    width: 100vw;
+    max-width: 100vw;
+    max-height: none;
+    /* full-bleed: вырываем из контейнера на всю ширину viewport */
+    margin-left: 50%;
+    transform: translateX(-50%);
   }
 
   .about-photo-img {
