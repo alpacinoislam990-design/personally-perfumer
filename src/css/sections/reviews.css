@@ -1,9 +1,9 @@
 /* ===== ОТЗЫВЫ ===== */
 #reviews {
-  padding: clamp(24px, 2.5vw, 36px) 0 clamp(16px, 1.5vw, 24px);
+  padding: clamp(24px, 2.5vw, 36px) 0;
   background: var(--bg-soft);
   overflow: hidden;
-  min-height: min(70vh, 640px); /* десктоп: секция высокая */
+  min-height: min(70vh, 640px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -51,29 +51,31 @@
   will-change: transform;
 }
 
-/* --- Слайд --- */
+/* -----------------------------------------------
+   СЦЕНАРИЙ 1: БАЗОВЫЕ СТИЛИ (все устройства)
+   Карточка растягивается по контенту, без фиксированной высоты
+   ----------------------------------------------- */
 .review-slide {
   min-width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  padding: 0 var(--pad-x);
+  padding: 48px 60px;
   box-sizing: border-box;
 }
 
-/* --- Карточка --- */
 .review-card {
   background: var(--bg-card);
   border: 1px solid var(--line-light);
-  padding: clamp(56px, 7vw, 96px) clamp(40px, 6vw, 80px);
   max-width: 900px;
-  min-height: clamp(360px, 42vw, 520px);
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 36px;
+  gap: 32px;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
   transition: box-shadow 0.35s var(--ease-gold);
+  /* паддинг карточки — не слайда */
+  padding: clamp(40px, 5vw, 64px) clamp(36px, 5vw, 64px);
 }
 
 .review-card:hover {
@@ -128,7 +130,7 @@
   margin-top: 3px;
 }
 
-/* --- Стрелки --- */
+/* --- Стрелки (базово — видны) --- */
 .rev-arrow {
   background: none;
   border: none;
@@ -151,17 +153,12 @@
   pointer-events: none;
 }
 
-/* На touch-устройствах стрелки скрыты */
-@media (pointer: coarse) {
-  .rev-arrow { display: none; }
-}
-
 /* --- Точки навигации --- */
 .reviews-dots {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 40px;
+  margin-top: 32px;
   padding: 0 var(--pad-x);
 }
 
@@ -180,57 +177,61 @@
   border-color: var(--gold);
 }
 
-/* ========================================
-   МОБИЛЬ (≤768px) — ПК НЕ ТРОГАТЬ
-   ======================================== */
-@media (max-width: 768px) {
+/* -----------------------------------------------
+   СЦЕНАРИЙ 2: ПК — сужение браузера (pointer: fine, max-width: 900px)
+   ----------------------------------------------- */
+@media (max-width: 900px) and (pointer: fine) {
+  .review-slide {
+    padding: 36px 40px;
+  }
 
-  /* 1. Секция на весь экран телефона */
+  .review-quote {
+    font-size: clamp(16px, 2.5vw, 22px);
+  }
+}
+
+/* -----------------------------------------------
+   СЦЕНАРИЙ 3: СМАРТФОН И ПЛАНШЕТ (pointer: coarse)
+   ----------------------------------------------- */
+@media (pointer: coarse) {
+  /* Стрелки скрыты — только свайп и точки */
+  .rev-arrow {
+    display: none !important;
+  }
+
   #reviews {
     min-height: 100svh;
     padding: 32px 0 28px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  /* 2. Заголовок */
-  .reviews-heading {
-    font-size: clamp(28px, 7vw, 36px);
-    margin-bottom: 0;
   }
 
   .reviews-header {
     margin-bottom: 24px;
   }
 
-  /* 3. Слайд — без боковых отступов, контент по центру */
+  .reviews-heading {
+    font-size: clamp(28px, 7vw, 36px);
+  }
+
+  /* Слайд без горизонтальных отступов */
   .review-slide {
     padding: 0 8px;
-    align-items: center;
   }
 
-  /* 4. Карточка */
+  /* Карточка: паддинг по заданию, высота auto */
   .review-card {
-    padding: 40px 24px;
-    min-height: 60vh;
+    padding: 28px 24px;
+    min-height: unset;
     max-width: 100%;
-    gap: 24px;
-    justify-content: center;
+    gap: 20px;
   }
 
-  /* 5. Цитата */
+  /* Цитата */
   .review-quote {
-    font-size: clamp(18px, 5vw, 22px);
+    font-size: 18px;
     line-height: 1.65;
   }
 
-  /* 6. Стрелки — полностью скрыты на touch */
-  .rev-arrow {
-    display: none;
-  }
-
-  /* 7. Точки — крупнее, зона касания 44×44px */
+  /* Точки — крупнее, зона касания 44×44px */
   .reviews-dots {
     margin-top: 20px;
     gap: 12px;
@@ -239,8 +240,7 @@
   .rev-dot {
     width: 10px;
     height: 10px;
-    border-radius: 50%;
-    /* зона касания через padding */
+    /* зона касания 44px через padding + отрицательный margin */
     padding: 17px;
     margin: -17px;
     box-sizing: content-box;
