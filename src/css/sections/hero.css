@@ -156,25 +156,19 @@
 
 /* --- Мобиль --- */
 @media (max-width: 767px) {
+  /* Высота подстраивается под точное соотношение сторон фото (2752×1536) */
   #hero {
-    height: 100svh;
+    height: auto;
+    aspect-ratio: 2752 / 1536;
   }
 
-  /* Blurred-фон заполняет пустые полосы от contain */
-  .hero-slide::before {
-    content: '';
-    position: absolute;
-    inset: -40px; /* выходим за края — overflow:hidden обрежет blur-артефакты */
-    background-size: cover;
-    background-position: center;
-    filter: blur(30px) brightness(0.45);
-  }
-  .hero-slide:nth-child(1)::before { background-image: url('../../../assets/images/hero-bg.jpg'); }
-  .hero-slide:nth-child(2)::before { background-image: url('../../../assets/images/hero-bg2.jpg'); }
-  .hero-slide:nth-child(3)::before { background-image: url('../../../assets/images/hero-bg3.jpg'); }
-  .hero-slide:nth-child(4)::before { background-image: url('../../../assets/images/hero-bg4.jpg'); }
+  /* Фон под цвет краёв каждой фотографии */
+  .hero-slide:nth-child(1) { background: #0D0B09; } /* ингредиенты — тёмный тёплый */
+  .hero-slide:nth-child(2) { background: #030303; } /* спрей — чёрный */
+  .hero-slide:nth-child(3) { background: #060504; } /* Дубай ночь — чёрный */
+  .hero-slide:nth-child(4) { background: #C8873A; } /* пустыня — тёплый золотой */
 
-  /* Вся картинка целиком — img стакается поверх ::before по порядку DOM */
+  /* Вся картинка целиком без обрезки */
   .hero-slide-img {
     object-fit: contain;
     object-position: center center;
