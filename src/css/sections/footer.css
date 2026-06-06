@@ -121,6 +121,8 @@
 
 /* ===== FLOATING ЗАПИСАТЬСЯ BUTTON ===== */
 #btn-zapisat {
+  opacity: 0;
+  transform: scale(0);
   position: fixed;
   right: 24px;
   bottom: calc(24px + env(safe-area-inset-bottom));

@@ -106,8 +106,8 @@ function startSite() {
     delay: 0.4
   });
 
-  /* Кнопка записаться появляется */
-  gsap.from('#btn-zapisat', { scale: 0, opacity: 0, duration: 0.5, ease: 'back.out(1.5)', delay: 1 });
+  /* Кнопка записаться появляется сразу после preloader */
+  gsap.to('#btn-zapisat', { scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(1.5)', delay: 0.3 });
 }
 
 /* --- Точка входа --- */

@@ -44,6 +44,11 @@ export function initContact() {
       utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@23.8.1/build/js/utils.js',
       separateDialCode: true,
     });
+
+    /* Убираем placeholder когда страна выбрана — код уже виден в отдельном блоке */
+    phoneInput.addEventListener('countrychange', () => {
+      phoneInput.placeholder = '';
+    });
   }
 
   /* intl-tel-input грузится defer — ждём */
