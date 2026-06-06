@@ -170,11 +170,12 @@
 }
 
 .nav-burger-line {
-  width: 22px;
-  height: 0.5px;
+  width: 24px;
+  height: 2px;
   background: var(--gold);
   transition: transform 0.35s var(--ease-gold), opacity 0.35s;
   transform-origin: center;
+  border-radius: 1px;
 }
 
 /* Гамбургер активен */
@@ -258,8 +259,13 @@
   .nav-burger { display: flex; }
 
   #nav {
-    padding: 20px clamp(16px, 4vw, 32px);
-    padding-top: max(20px, env(safe-area-inset-top));
+    padding: 12px clamp(16px, 4vw, 24px);
+    padding-top: max(12px, env(safe-area-inset-top));
+  }
+
+  .nav-logo-latin {
+    font-size: 11px;
+    letter-spacing: 0.14em;
   }
 }
 
