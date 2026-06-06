@@ -66,7 +66,7 @@ test('кнопка переключения языка RU→EN работает'
   await switchLang(page);
 
   await expect(page.locator('[data-i18n="nav_about"]').first()).toHaveText('About');
-  await expect(page.locator('[data-i18n="nav_cta"]').first()).toHaveText('Book');
+  await expect(page.locator('[data-i18n="nav_catalog"]').first()).toHaveText('Collection');
 });
 
 test('переключение EN→RU возвращает русский текст', async ({ page }) => {
