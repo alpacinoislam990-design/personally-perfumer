@@ -120,9 +120,9 @@
 }
 
 .services-cta-btn:hover {
-  background: var(--gold);
-  color: var(--ink);
-  border-color: var(--gold);
+  background: #860d12;
+  color: #ffffff;
+  border-color: #860d12;
 }
 
 /* --- Мобиль --- */

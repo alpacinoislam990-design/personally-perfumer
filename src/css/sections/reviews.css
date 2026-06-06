@@ -139,7 +139,7 @@
   line-height: 1;
 }
 
-.rev-arrow:hover { opacity: 1; }
+.rev-arrow:hover { opacity: 1; color: #860d12; }
 
 .rev-arrow.is-hidden {
   opacity: 0;

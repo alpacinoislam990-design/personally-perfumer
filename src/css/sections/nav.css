@@ -36,12 +36,12 @@
 }
 
 .nav-logo-latin {
-  font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 300;
-  font-style: italic;
-  letter-spacing: 0.1em;
-  text-transform: none;
+  font-family: 'Poiret One', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   color: var(--on-dark);
   display: block;
 }

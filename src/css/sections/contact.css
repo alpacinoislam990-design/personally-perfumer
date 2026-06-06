@@ -180,9 +180,9 @@
 }
 
 .form-submit:hover {
-  background: var(--text);
-  color: var(--bg);
-  border-color: var(--text);
+  background: #860d12;
+  color: #ffffff;
+  border-color: #860d12;
 }
 
 .form-submit:active {

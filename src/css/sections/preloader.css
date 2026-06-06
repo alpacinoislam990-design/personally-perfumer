@@ -3,7 +3,7 @@
   position: fixed;
   inset: 0;
   z-index: 1900;
-  background: #0D0B09;
+  background: #860d12;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,7 +19,7 @@
   left: 0;
   right: 0;
   height: 50%;
-  background: #0D0B09;
+  background: #860d12;
   z-index: 1;
 }
 
@@ -36,11 +36,11 @@
   gap: 16px;
 }
 
-/* Арабское шукран — крупное белое */
+/* SVG монограмма PP */
 .preloader-arabic {
-  font-family: var(--font-arabic);
-  font-size: clamp(120px, 18vw, 200px);
-  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   line-height: 1;
   opacity: 0;
   transform: translateY(-20px);
@@ -48,11 +48,11 @@
 
 /* UAE подпись */
 .preloader-uae {
-  font-family: var(--font-display);
-  font-size: clamp(22px, 3vw, 32px);
-  letter-spacing: 0.45em;
+  font-family: 'Poiret One', sans-serif;
+  font-size: clamp(16px, 2.5vw, 22px);
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
+  color: #e2be6e;
   opacity: 0;
 }
 
@@ -69,6 +69,5 @@
 .preloader-line-fill {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, var(--gold-deep), var(--gold-light), var(--gold-deep));
-  box-shadow: 0 0 12px var(--gold-glow);
+  background: #e2be6e;
 }
