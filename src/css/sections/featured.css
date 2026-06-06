@@ -167,6 +167,11 @@
     margin: 0 auto;
   }
 
+  /* Дополнительный отступ сверху — "PERSONALLY PERFUMER" ниже от фото */
+  .featured-text {
+    margin-top: 24px;
+  }
+
   .featured-arabic-bg,
   .featured-number-bg {
     display: none;

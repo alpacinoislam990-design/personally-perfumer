@@ -5,7 +5,7 @@
   left: 0;
   right: 0;
   z-index: 900;
-  padding: 20px var(--pad-x);
+  padding: 14px var(--pad-x);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -15,7 +15,7 @@
   border-bottom: 0.5px solid rgba(201, 162, 84, 0.18);
   transition: padding 0.4s var(--ease-gold);
   /* Безопасная зона iOS */
-  padding-top: max(20px, env(safe-area-inset-top));
+  padding-top: max(14px, env(safe-area-inset-top));
 }
 
 /* Лого */
@@ -248,8 +248,8 @@
 
 /* Nav scrolled — чуть компактнее */
 #nav.is-scrolled {
-  padding-top: max(14px, env(safe-area-inset-top));
-  padding-bottom: 14px;
+  padding-top: max(10px, env(safe-area-inset-top));
+  padding-bottom: 10px;
 }
 
 /* --- Мобиль --- */
@@ -259,8 +259,8 @@
   .nav-burger { display: flex; }
 
   #nav {
-    padding: 12px clamp(16px, 4vw, 24px);
-    padding-top: max(12px, env(safe-area-inset-top));
+    padding: 8px clamp(16px, 4vw, 24px);
+    padding-top: max(8px, env(safe-area-inset-top));
   }
 
   .nav-logo-latin {
@@ -279,10 +279,14 @@
 
 /* --- Планшет --- */
 @media (min-width: 768px) and (max-width: 1023px) {
+  #nav {
+    padding: 10px var(--pad-x);
+    padding-top: max(10px, env(safe-area-inset-top));
+  }
   .nav-links      { gap: 16px; }
-  .nav-link       { font-size: 11px; letter-spacing: 0.2em; padding: 12px 2px; }
+  .nav-link       { font-size: 11px; letter-spacing: 0.2em; padding: 10px 2px; }
   .nav-logo-arabic { font-size: 24px; }
   .nav-logo-latin { font-size: 17px; }
-  .nav-cta        { font-size: 10px; padding: 10px 14px; letter-spacing: 0.25em; }
+  .nav-cta        { font-size: 10px; padding: 8px 14px; letter-spacing: 0.25em; }
   .lang-toggle    { font-size: 10px; }
 }
