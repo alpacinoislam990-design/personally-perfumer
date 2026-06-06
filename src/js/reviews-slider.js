@@ -101,9 +101,18 @@ export function initReviewsSlider() {
 
   /* Touch swipe */
   let touchStartX = 0;
+  let touchStartY = 0;
   viewport.addEventListener('touchstart', e => {
     touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
   }, { passive: true });
+
+  /* Блокируем скролл страницы при горизонтальном свайпе по слайдеру */
+  viewport.addEventListener('touchmove', e => {
+    const dx = Math.abs(e.touches[0].clientX - touchStartX);
+    const dy = Math.abs(e.touches[0].clientY - touchStartY);
+    if (dx > dy && dx > 8) e.preventDefault();
+  }, { passive: false });
 
   viewport.addEventListener('touchend', e => {
     const delta = e.changedTouches[0].clientX - touchStartX;

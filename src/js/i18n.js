@@ -17,7 +17,7 @@ const STRINGS = {
     /* About */
     about_label:    'Perfumer',
     about_heading:  'Muhammad —\narchitect of perfume\nand transformations',
-    about_quote:    '"I don\'t sell a scent. I create a tool — something that helps a person become who they want to be."',
+    about_quote:    'I don\'t sell fragrances. I create a tool — something that will help a person become who they want to be.',
     about_stat1_num: '16+',
     about_stat1:    'years of experience',
     about_stat2_num: '28',
@@ -139,7 +139,7 @@ const STRINGS = {
     /* About */
     about_label:    'Парфюмер',
     about_heading:  'Мухаммад —\nархитектор парфюма\nи трансформаций',
-    about_quote:    '«Я не продаю запах. Я создаю инструмент — то что помогает человеку стать тем, кем он хочет быть.»',
+    about_quote:    'я не продаю ароматы. я создаю инструмент — то, что поможет человеку стать тем, кем он хочет быть.',
     about_stat1_num: '16+',
     about_stat1:    'лет опыта',
     about_stat2_num: '28',

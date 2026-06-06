@@ -160,14 +160,25 @@
     height: 100svh;
   }
 
-  /* slide 1: ингредиенты — центр, чуть вверх чтобы флакон не отрезался снизу */
-  .hero-slide:nth-child(1) .hero-slide-img { object-position: 50% 20%; }
-  /* slide 2: спрей — флакон слева */
-  .hero-slide:nth-child(2) .hero-slide-img { object-position: 18% 30%; }
-  /* slide 3: Дубай ночь — флакон ближе к центру */
-  .hero-slide:nth-child(3) .hero-slide-img { object-position: 35% 20%; }
-  /* slide 4: пустыня — по центру, чуть вверх */
-  .hero-slide:nth-child(4) .hero-slide-img { object-position: 50% 25%; }
+  /* Blurred-фон заполняет пустые полосы от contain */
+  .hero-slide::before {
+    content: '';
+    position: absolute;
+    inset: -40px; /* выходим за края — overflow:hidden обрежет blur-артефакты */
+    background-size: cover;
+    background-position: center;
+    filter: blur(30px) brightness(0.45);
+  }
+  .hero-slide:nth-child(1)::before { background-image: url('../../../assets/images/hero-bg.jpg'); }
+  .hero-slide:nth-child(2)::before { background-image: url('../../../assets/images/hero-bg2.jpg'); }
+  .hero-slide:nth-child(3)::before { background-image: url('../../../assets/images/hero-bg3.jpg'); }
+  .hero-slide:nth-child(4)::before { background-image: url('../../../assets/images/hero-bg4.jpg'); }
+
+  /* Вся картинка целиком — img стакается поверх ::before по порядку DOM */
+  .hero-slide-img {
+    object-fit: contain;
+    object-position: center center;
+  }
 
   .hero-text-left {
     top: clamp(70px, 14vh, 110px);

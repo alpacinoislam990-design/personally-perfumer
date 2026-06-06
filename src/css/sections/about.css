@@ -123,6 +123,10 @@
     min-height: auto;
   }
 
+  /* На мобиле: текст наверху, фото снизу */
+  .about-text  { order: 1; }
+  .about-photo { order: 2; }
+
   .about-photo {
     aspect-ratio: 3 / 4;
     width: 100vw;
