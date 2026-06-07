@@ -115,13 +115,17 @@
 
 /* --- Мобиль --- */
 @media (max-width: 767px) {
+  /* padding-top убран — высота "полосы" задаётся самим лейблом */
   #about {
-    padding: clamp(80px, 12vw, 120px) clamp(24px, 6vw, 40px) clamp(64px, 10vw, 96px);
+    padding: 0 clamp(24px, 6vw, 40px) clamp(64px, 10vw, 96px);
   }
 
-  /* Мобильный лейбл: показать над фото, по центру */
+  /* Лейбл — flex-полоса с центрированием по вертикали и горизонтали */
   .about-label-mobile {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
     order: 1;
     text-align: center;
   }
@@ -133,7 +137,7 @@
 
   .about-inner {
     grid-template-columns: 1fr;
-    gap: clamp(24px, 5vw, 36px);
+    gap: 0;
     min-height: auto;
   }
 
@@ -158,7 +162,7 @@
   }
 
   .about-text {
-    padding: 0; /* секция уже даёт padding */
+    padding: clamp(32px, 8vw, 48px) 0 0; /* отступ сверху после фото */
     text-align: center;
     gap: 20px;
   }
