@@ -22,7 +22,9 @@ function getSlides() {
 }
 
 export function initHeroFlip() {
-  const slides      = document.querySelectorAll('.hero-slide');
+  /* Фильтруем скрытые слайды (display:none на мобиле) — JS не знает о CSS */
+  const slides = Array.from(document.querySelectorAll('.hero-slide'))
+    .filter(s => getComputedStyle(s).display !== 'none');
   const textEl      = document.querySelector('.hero-text-left');
   const dotsWrap    = document.querySelector('.hero-dots');
   const prevBtn     = document.querySelector('.hero-prev');
