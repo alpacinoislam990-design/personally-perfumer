@@ -114,39 +114,71 @@
 /* --- Мобиль --- */
 @media (max-width: 767px) {
   #about {
-    padding: 0;
+    padding: clamp(64px, 10vw, 96px) clamp(24px, 6vw, 40px);
   }
 
   .about-inner {
     grid-template-columns: 1fr;
-    gap: 0;
+    gap: clamp(32px, 6vw, 48px);
     min-height: auto;
   }
 
-  /* На мобиле: текст наверху, фото снизу */
-  .about-text  { order: 1; }
-  .about-photo { order: 2; }
+  /* Фото первым — лицо = доверие (как у zarinamakenova.com) */
+  .about-photo { order: 1; }
+  .about-text  { order: 2; }
 
   .about-photo {
     aspect-ratio: 3 / 4;
-    width: 100vw;
-    max-width: 100vw;
+    width: 78vw;
+    max-width: 340px;
     max-height: none;
-    /* full-bleed: вырываем из контейнера на всю ширину viewport */
-    margin-left: 50%;
-    transform: translateX(-50%);
+    margin: 0 auto; /* центрирование с отступами по бокам */
+    transform: none; /* убрать full-bleed translateX(-50%) */
+    justify-self: center; /* явно для grid-child */
   }
 
   .about-photo-img {
+    object-fit: cover;
     object-position: center 8%;
   }
 
   .about-text {
-    padding: 40px clamp(20px, 5vw, 40px);
+    padding: 0; /* секция уже даёт padding */
+    text-align: center;
+    gap: 20px;
+  }
+
+  .about-heading {
+    font-size: clamp(24px, 6vw, 34px);
+    text-align: center;
+  }
+
+  /* Цитата — на мобиле border-left выглядит случайным при центрированном блоке */
+  .about-quote {
+    border-left: none;
+    border-top: 1px solid var(--line-light-solid);
+    padding-left: 0;
+    padding-top: 20px;
+    text-align: left;
+    margin: 0 auto;
+    max-width: 320px;
   }
 
   .about-stats {
     gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Oldstyle numerals — Cormorant поддерживает, цифры как гравюра */
+  .about-stat-num {
+    font-variant-numeric: oldstyle-nums;
+  }
+
+  /* Label над заголовком — чуть больше воздуха */
+  .about-label {
+    letter-spacing: 0.45em;
+    margin-bottom: 4px;
   }
 }
 

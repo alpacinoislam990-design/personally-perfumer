@@ -180,15 +180,16 @@ section {
 
 /* --- Мобиль базовые правки --- */
 @media (max-width: 767px) {
+  /* +25% воздуха к section padding — luxury требует дыхания */
   section {
-    padding: clamp(60px, 8vw, 100px) clamp(20px, 5vw, 40px);
+    padding: clamp(72px, 10vw, 120px) clamp(24px, 6vw, 40px);
   }
 }
 
 /* --- 320px — самые маленькие экраны --- */
 @media (max-width: 374px) {
   section {
-    padding: 48px 16px;
+    padding: 56px 20px;
   }
 
   .btn-outline {

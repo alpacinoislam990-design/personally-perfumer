@@ -156,37 +156,38 @@
 
 /* --- Мобиль --- */
 @media (max-width: 767px) {
-  /* Высота подстраивается под точное соотношение сторон фото (2752×1536) */
+  /* Полноэкранный hero — заполняет весь viewport */
   #hero {
-    height: auto;
-    aspect-ratio: 2752 / 1536;
+    height: 100svh;
+    aspect-ratio: unset;
   }
 
-  /* Фон под цвет краёв каждой фотографии */
-  .hero-slide:nth-child(1) { background: #0D0B09; } /* ингредиенты — тёмный тёплый */
-  .hero-slide:nth-child(2) { background: #030303; } /* спрей — чёрный */
-  .hero-slide:nth-child(3) { background: #060504; } /* Дубай ночь — чёрный */
-  .hero-slide:nth-child(4) { background: #C8873A; } /* пустыня — тёплый золотой */
+  /* Убрать per-slide фоны — cover теперь заполняет кадр */
+  .hero-slide:nth-child(1) { background: var(--ink); }
+  .hero-slide:nth-child(2) { background: var(--ink); }
+  .hero-slide:nth-child(3) { background: var(--ink); }
+  .hero-slide:nth-child(4) { background: var(--ink); }
 
-  /* Вся картинка целиком без обрезки */
+  /* Cover: заполнить кадр, per-slide позиция под портретный формат */
   .hero-slide-img {
-    object-fit: contain;
-    object-position: center center;
+    object-fit: cover;
   }
+  .hero-slide:nth-child(1) .hero-slide-img { object-position: 50% 20%; }
+  .hero-slide:nth-child(2) .hero-slide-img { object-position: 30% 20%; }
+  .hero-slide:nth-child(3) .hero-slide-img { object-position: 42% 20%; }
+  .hero-slide:nth-child(4) .hero-slide-img { object-position: 50% 30%; }
 
+  /* Текст — editorial: прибить к низу над точками */
   .hero-text-left {
-    top: clamp(70px, 14vh, 110px);
-    left: clamp(16px, 4vw, 24px);
-    right: clamp(16px, 4vw, 24px);
+    top: auto;
+    bottom: clamp(88px, 18vh, 136px);
+    left: clamp(24px, 6vw, 40px);
+    right: clamp(24px, 6vw, 40px);
   }
 
   .text-line.main {
-    font-size: clamp(22px, 6vw, 32px);
-  }
-
-  .text-line.sub {
-    font-size: clamp(9px, 2.2vw, 11px);
-    letter-spacing: 0.3em;
+    font-size: clamp(28px, 8vw, 42px);
+    line-height: 1.25; /* descender clearance для italic */
   }
 
   .hero-arrow {
@@ -201,6 +202,27 @@
 
   .hero-prev { left: clamp(12px, 3vw, 20px); }
   .hero-next { right: clamp(12px, 3vw, 20px); }
+
+  /* Градиент снизу — текст читается, лицо/флакон не темнеет */
+  .hero-overlay {
+    background: linear-gradient(
+      to top,
+      rgba(13, 11, 9, 0.72) 0%,
+      rgba(13, 11, 9, 0.18) 45%,
+      transparent 100%
+    );
+  }
+
+  /* Dots — выше от нижнего края (gesture zone на iPhone) */
+  .hero-dots {
+    bottom: clamp(32px, 5vw, 48px);
+  }
+
+  /* Sub-text — чуть меньше opacity, больше трекинг = иерархия */
+  .text-line.sub {
+    opacity: 0.55;
+    letter-spacing: 0.4em;
+  }
 }
 
 /* --- Очень узкий (320px) --- */
@@ -210,5 +232,6 @@
   }
   .hero-text-left {
     top: 64px;
+    bottom: auto; /* сброс bottom из 767px-правила — иначе блок сжат между двумя якорями */
   }
 }

@@ -76,29 +76,95 @@
   line-height: 1.7;
 }
 
-/* --- Мобиль: вертикальный стек --- */
+/* --- Мобиль: editorial timeline --- */
 @media (max-width: 767px) {
+  #process {
+    padding: clamp(64px, 10vw, 96px) clamp(24px, 6vw, 40px);
+  }
+
   .process-steps {
     flex-direction: column;
     align-items: stretch;
     gap: 0;
+    position: relative;
+    padding-left: 28px; /* место для золотой линии */
   }
 
-  .process-connector {
+  /* Непрерывная золотая вертикальная линия — editorial luxury */
+  /* left: 14px = середина 28px-паддинга; совпадает с центрами точек (step.left=28px + dot.left=-14px → center=14px) */
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 10px;
+    bottom: 14px; /* заканчивается у центра последней точки, не свисает */
     width: 1px;
-    height: 32px;
-    min-width: unset;
-    margin-top: 0;
-    margin-left: 0;
-    background: linear-gradient(180deg, transparent, var(--line-light-solid), transparent);
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      var(--logo-gold) 10%,
+      var(--logo-gold) 90%,
+      transparent 100%
+    );
+  }
+
+  /* Убрать старые разрывы между шагами */
+  .process-connector {
+    display: none;
   }
 
   .process-step {
     width: 100%;
+    position: relative;
+    padding: 0 0 48px 20px;
+  }
+
+  /* Точка-маркер на линии — с золотым ореолом (ювелирный штрих) */
+  .process-step::before {
+    content: '';
+    position: absolute;
+    left: -14px;
+    top: 11px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--logo-gold);
+    transform: translateX(-50%);
+    z-index: 1;
+    box-shadow: 0 0 0 3px rgba(201, 162, 84, 0.18);
+  }
+
+  .process-step:last-child {
+    padding-bottom: 0;
+  }
+
+  /* Убрать красную верхнюю линию каждого шага */
+  .process-step-content {
+    border-top: none;
+    padding-top: 0;
+    gap: 10px;
+  }
+
+  /* Номера скрыты — точка на линии уже даёт порядок */
+  .process-step-num {
+    display: none;
+  }
+
+  .process-step-title {
+    font-size: clamp(20px, 5vw, 26px);
+    font-weight: 300;
+    font-style: italic; /* согласованность с остальными h3 на сайте */
+    margin-bottom: 6px;
+  }
+
+  .process-step-body {
+    font-size: clamp(14px, 3.5vw, 16px);
+    line-height: 1.7;
+    color: var(--text-muted);
   }
 }
 
-/* --- Планшет --- */
+/* --- Планшет: timeline сохраняется --- */
 @media (min-width: 768px) and (max-width: 1023px) {
   .process-step {
     width: clamp(160px, 22vw, 240px);
