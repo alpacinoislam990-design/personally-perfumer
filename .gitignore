@@ -3,5 +3,4 @@ Thumbs.db
 node_modules/
 .vercel
 *.log
-
-.vercel
+.design-review/

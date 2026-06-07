@@ -145,9 +145,9 @@
 }
 
 .featured-order-btn:hover {
-  background: #860d12;
+  background: var(--gold);
   color: #ffffff;
-  border-color: #860d12;
+  border-color: var(--gold);
 }
 
 .featured-order-btn:active {
@@ -158,18 +158,22 @@
 @media (max-width: 767px) {
   #featured {
     grid-template-columns: 1fr;
-    gap: clamp(20px, 4vw, 32px);
-    padding: clamp(28px, 5vw, 44px) clamp(20px, 5vw, 40px);
+    gap: 0;
+    padding: 0; /* убираем — padding даётся только тексту, фото идёт край-в-край */
+    overflow: visible; /* снимаем десктопный hidden чтобы не обрезал вылет */
   }
 
+  /* Full-bleed без хаков: padding убран у секции, image заполняет 100% */
   .featured-img-wrap {
-    max-width: 72vw;
-    margin: 0 auto;
+    width: 100%;
+    margin-left: 0;
+    max-width: none;
   }
 
-  /* Дополнительный отступ сверху — "PERSONALLY PERFUMER" ниже от фото */
+  /* Отступы только у текстового блока */
   .featured-text {
-    margin-top: 24px;
+    padding: clamp(28px, 6vw, 40px) clamp(24px, 6vw, 40px) clamp(64px, 10vw, 96px);
+    margin-top: 0;
   }
 
   .featured-arabic-bg,
