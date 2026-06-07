@@ -172,10 +172,16 @@
   .hero-slide-img {
     object-fit: cover;
   }
-  .hero-slide:nth-child(1) .hero-slide-img { object-position: 50% 20%; }
-  .hero-slide:nth-child(2) .hero-slide-img { object-position: 30% 20%; }
+  /* слайд 1: hero-mobile.jpg — флакон слева, центрируем на бутылке */
+  .hero-slide:nth-child(1) .hero-slide-img { object-position: 35% 50%; }
+  /* слайд 2: hero-mobile-2.jpg — флакон слева + коробка справа, Dubai skyline фон */
+  .hero-slide:nth-child(2) .hero-slide-img { object-position: 40% 40%; }
   .hero-slide:nth-child(3) .hero-slide-img { object-position: 42% 20%; }
   .hero-slide:nth-child(4) .hero-slide-img { object-position: 50% 30%; }
+
+  /* Слайды 3-4 скрыты — мобильные фото ещё не загружены */
+  .hero-slide:nth-child(3),
+  .hero-slide:nth-child(4) { display: none; }
 
   /* Текст — editorial: прибить к низу над точками */
   .hero-text-left {
@@ -223,6 +229,15 @@
     opacity: 0.55;
     letter-spacing: 0.4em;
   }
+}
+
+/* --- Планшет: hero-mobile.jpg тоже на планшете --- */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-slide:nth-child(1) .hero-slide-img { object-position: 35% 50%; }
+
+  /* Слайды 3-4 скрыты — мобильные фото ещё не загружены */
+  .hero-slide:nth-child(3),
+  .hero-slide:nth-child(4) { display: none; }
 }
 
 /* --- Очень узкий (320px) --- */

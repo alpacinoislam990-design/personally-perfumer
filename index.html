@@ -172,12 +172,22 @@
     <!-- Слайды -->
     <div class="hero-slides" aria-hidden="true">
       <div class="hero-slide">
-        <img class="hero-slide-img" src="assets/images/hero-bg.jpg"
-             alt="" width="2752" height="1536" loading="eager" fetchpriority="high">
+        <picture>
+          <!-- мобиль + планшет (≤1023px): портретный флакон со спреем -->
+          <source media="(max-width: 1023px)" srcset="assets/images/hero-mobile.jpg">
+          <!-- десктоп: оригинальный landscape-кадр -->
+          <img class="hero-slide-img" src="assets/images/hero-bg.jpg"
+               alt="" width="2752" height="1536" loading="eager" fetchpriority="high">
+        </picture>
       </div>
       <div class="hero-slide">
-        <img class="hero-slide-img" src="assets/images/hero-bg2.jpg"
-             alt="" width="2752" height="1536" loading="lazy">
+        <picture>
+          <!-- мобиль + планшет (≤1023px): флакон + коробка на фоне Дубая -->
+          <source media="(max-width: 1023px)" srcset="assets/images/hero-mobile-2.jpg">
+          <!-- десктоп: оригинальный landscape-кадр -->
+          <img class="hero-slide-img" src="assets/images/hero-bg2.jpg"
+               alt="" width="2752" height="1536" loading="lazy">
+        </picture>
       </div>
       <div class="hero-slide">
         <img class="hero-slide-img" src="assets/images/hero-bg3.jpg"
