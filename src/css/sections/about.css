@@ -129,12 +129,12 @@
 
   .about-photo {
     aspect-ratio: 3 / 4;
-    width: 78vw;
-    max-width: 340px;
+    width: 100%;    /* заполняет content-area секции (~88vw) — как на референсе zarinamakenova.com */
+    max-width: none;
     max-height: none;
-    margin: 0 auto; /* центрирование с отступами по бокам */
-    transform: none; /* убрать full-bleed translateX(-50%) */
-    justify-self: center; /* явно для grid-child */
+    margin: 0;
+    transform: none;
+    justify-self: stretch;
   }
 
   .about-photo-img {

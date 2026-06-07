@@ -344,5 +344,6 @@
 
   .rev-dot.active {
     background-color: var(--gold);
+    background-clip: content-box; /* десктопный background:shorthand сбрасывал clip — явно переопределяем */
   }
 }
