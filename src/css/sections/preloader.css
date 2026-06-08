@@ -46,14 +46,11 @@
   transform: translateY(-20px);
 }
 
-/* UAE подпись */
-.preloader-uae {
-  font-family: 'Poiret One', sans-serif;
-  font-size: clamp(16px, 2.5vw, 22px);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #e2be6e;
-  opacity: 0;
+/* Логотип дизайнера */
+.preloader-logo-img {
+  width: clamp(200px, 38vw, 320px);
+  height: auto;
+  display: block;
 }
 
 /* Прогресс-линия — 3px широкая */

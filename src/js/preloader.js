@@ -2,8 +2,7 @@
 
 export function runPreloader(onComplete) {
   const el       = document.getElementById('preloader');
-  const monogram = el.querySelector('.preloader-arabic'); /* P·P */
-  const name     = el.querySelector('.preloader-uae');    /* Personally Perfumer */
+  const monogram = el.querySelector('.preloader-arabic'); /* логотип */
   const lineWrap = el.querySelector('.preloader-line-wrap');
   const lineFill = el.querySelector('.preloader-line-fill');
   const topHalf  = document.getElementById('preloader-top');
@@ -19,10 +18,7 @@ export function runPreloader(onComplete) {
   /* 1. Монограмма P·P */
   tl.to(monogram, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, 0.1);
 
-  /* 2. Название */
-  tl.to(name, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 0.7);
-
-  /* 3. Линия появляется */
+  /* 2. Линия появляется */
   tl.to(lineWrap, { opacity: 1, duration: 0.2 }, 1.2);
 
   /* 4. Линия заполняется */

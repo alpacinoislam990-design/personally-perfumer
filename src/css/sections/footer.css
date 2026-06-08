@@ -23,16 +23,11 @@
 }
 
 
-.footer-logo-latin {
-  font-family: 'Poiret One', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  font-style: normal;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #e2be6e;
-  line-height: 1.5;
-  text-align: center;
+/* Логотип дизайнера */
+.footer-logo-img {
+  width: clamp(160px, 24vw, 240px);
+  height: auto;
+  display: block;
 }
 
 /* Навигация */

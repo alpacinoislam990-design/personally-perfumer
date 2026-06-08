@@ -36,12 +36,10 @@
 }
 
 .nav-logo-latin {
-  font-family: 'Poiret One', sans-serif;
-  font-size: 13px;
+  font-family: 'HighBillionSans', sans-serif;
+  font-size: 40px;
   font-weight: 400;
   font-style: normal;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
   color: var(--on-dark);
   display: block;
 }
@@ -264,8 +262,7 @@
   }
 
   .nav-logo-latin {
-    font-size: 11px;
-    letter-spacing: 0.14em;
+    font-size: 28px;
   }
 }
 
@@ -286,7 +283,7 @@
   .nav-links      { gap: 16px; }
   .nav-link       { font-size: 11px; letter-spacing: 0.2em; padding: 10px 2px; }
   .nav-logo-arabic { font-size: 24px; }
-  .nav-logo-latin { font-size: 17px; }
+  .nav-logo-latin { font-size: 20.2234px; }
   .nav-cta        { font-size: 10px; padding: 8px 14px; letter-spacing: 0.25em; }
   .lang-toggle    { font-size: 10px; }
 }

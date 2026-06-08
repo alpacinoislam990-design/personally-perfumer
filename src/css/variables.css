@@ -1,3 +1,12 @@
+/* ===== ШРИФТ ЛОГОТИПА ===== */
+@font-face {
+  font-family: 'HighBillionSans';
+  src: url('../../assets/fonts/HighBillionSans.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ===== ДИЗАЙН-СИСТЕМА SHUKRAN UAE ===== */
 :root {
   /* --- Фоны --- */
