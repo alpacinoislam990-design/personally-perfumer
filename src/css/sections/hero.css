@@ -174,7 +174,7 @@
   }
   /* слайд 1: hero-mobile.jpg — флакон слева, центрируем на бутылке */
   .hero-slide:nth-child(1) .hero-slide-img { object-position: 35% 50%; }
-  .hero-slide:nth-child(2) .hero-slide-img { object-fit: cover; object-position: center center; }
+  .hero-slide:nth-child(2) .hero-slide-img { object-fit: contain; object-position: center bottom; }
   .hero-slide:nth-child(3) .hero-slide-img { object-position: 42% 20%; }
   .hero-slide:nth-child(4) .hero-slide-img { object-position: 50% 30%; }
 
