@@ -1,6 +1,6 @@
 /* ===== КОНТАКТНАЯ ФОРМА ===== */
 
-const FORMSPREE_URL = 'https://formspree.io/f/YOUR_FORM_ID';
+const CONTACT_URL = '/.netlify/functions/contact';
 
 const RATE = { max: 3, window: 10 * 60 * 1000 };
 
@@ -101,9 +101,9 @@ export function initContact() {
     btn.setAttribute('aria-busy', 'true');
 
     try {
-      const res = await fetch(FORMSPREE_URL, {
+      const res = await fetch(CONTACT_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, phone })
       });
 
