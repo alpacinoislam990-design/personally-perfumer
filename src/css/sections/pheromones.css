@@ -279,25 +279,47 @@
   position: absolute;
   inset: 0;
   background: var(--pher-bg-overlay);
+  background-size: cover;
+  background-position: center;
   opacity: 0;
-  filter: blur(10px);
-  transform: scale(1.05);
-  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-              filter 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  filter: blur(6px);
+  transform: scale(1.08);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.7s ease;
+  will-change: transform, opacity;
   pointer-events: none;
 }
 
+/* Карточка 1 — ботаническая иллюстрация (корица, дуб, мускатный орех) с золотым тонированием */
+.pher-card-bg--scent-1 {
+  background-image: url('../../../assets/images/pher-scent-1-bg.webp');
+}
+
+.pher-card-bg--scent-1::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--logo-gold);
+  mix-blend-mode: multiply;
+  opacity: 0.35;
+}
+
 @media (hover: hover) and (pointer: fine) {
+  /* Медленный наезд (Ken Burns): фон проявляется и плавно увеличивается до 100% за 8с */
   .pher-card:hover .pher-card-bg {
     opacity: 1;
     filter: blur(0);
-    transform: scale(1);
+    animation: pher-bg-ken-burns 8s ease-out forwards;
   }
 
   .pher-card:hover .pher-card-face--front {
     box-shadow: 0 24px 60px -20px var(--gold-pheromone-glow);
   }
+}
+
+@keyframes pher-bg-ken-burns {
+  from { transform: scale(1.08); }
+  to   { transform: scale(1.0); }
 }
 
 .pher-card-num {
@@ -322,8 +344,9 @@
 }
 
 .pher-card-bottle {
-  width: 100%;
-  max-width: 70%;
+  max-width: 40%;
+  max-height: 65%;
+  width: auto;
   height: auto;
   object-fit: contain;
   display: block;
