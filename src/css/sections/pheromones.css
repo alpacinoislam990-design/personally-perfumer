@@ -255,10 +255,11 @@
   overflow: hidden;
   background: var(--pher-card-bg);
   /* Safari iOS не всегда прячет обратную сторону через backface-visibility —
-     дублируем скрытие через visibility с задержкой до середины анимации
-     флипа (0.8s / 2 = 0.4s), чтобы стороны не "просвечивали" друг сквозь друга */
-  visibility: visible;
-  transition: visibility 0s linear 0.4s;
+     дублируем скрытие через visibility. Задержка 0.58s подобрана под
+     кривую transform 0.8s cubic-bezier(0.75,0,0.85,1): именно в этот
+     момент карточка повёрнута ровно на 90° (видна "ребром"), поэтому
+     обе стороны переключаются одновременно — без паузы, когда не видно ни одной */
+  transition: visibility 0s linear 0.58s;
 }
 
 .pher-card-face--back {
@@ -279,6 +280,7 @@
 
 /* --- Лицевая сторона --- */
 .pher-card-face--front {
+  visibility: visible;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -295,6 +297,8 @@
 }
 
 /* Скрытый фон (scent-иллюстрация) — проявляется на hover, десктоп */
+/* Без filter: filter на потомке внутри preserve-3d ломает 3D-рендер
+   флипа в Safari iOS (чёрный экран и зеркальный текст при перевороте) */
 .pher-card-bg {
   position: absolute;
   inset: 0;
@@ -302,10 +306,8 @@
   background-size: cover;
   background-position: center;
   opacity: 0;
-  filter: blur(6px);
   transform: scale(1.08);
-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-              filter 0.7s ease;
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform, opacity;
   pointer-events: none;
 }
@@ -328,7 +330,6 @@
   /* Медленный наезд (Ken Burns): фон проявляется и плавно увеличивается до 100% за 8с */
   .pher-card:hover .pher-card-bg {
     opacity: 1;
-    filter: blur(0);
     animation: pher-bg-ken-burns 8s ease-out forwards;
   }
 
@@ -359,7 +360,7 @@
   flex: 1;
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
 }
 
@@ -370,6 +371,7 @@
   height: auto;
   object-fit: contain;
   display: block;
+  margin: 0 auto;
 }
 
 .pher-card-accent {
