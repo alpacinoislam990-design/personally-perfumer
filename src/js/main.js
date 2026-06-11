@@ -3,7 +3,8 @@ import { getLang, applyLang }    from './i18n.js';
 import { runPreloader }           from './preloader.js';
 import { initHeroFlip }           from './hero-flip.js';
 import { initScrollReveals }      from './scroll-reveals.js';
-import { initCatalog }            from './catalog-scroll.js';
+// import { initCatalog }            from './catalog-scroll.js'; // OLD CATALOG — отключено (feature/v9, для отката раскомментировать)
+import { initPheromones }         from './pheromones.js';
 import { initContact }            from './contact.js';
 import { initNavSmart }           from './nav-smart.js';
 import { initReviewsSlider }      from './reviews-slider.js';
@@ -91,7 +92,8 @@ function startSite() {
   initNavSmart();
   initHeroFlip();
   initScrollReveals();
-  initCatalog();
+  // initCatalog(); // OLD CATALOG — отключено (feature/v9, для отката раскомментировать)
+  initPheromones();
   initReviewsSlider();
   /* initCursor() — отключено, используем стандартный курсор */
   initContact();

@@ -55,7 +55,8 @@
   <link rel="stylesheet" href="src/css/sections/hero.css">
   <link rel="stylesheet" href="src/css/sections/about.css">
   <link rel="stylesheet" href="src/css/sections/featured.css">
-  <link rel="stylesheet" href="src/css/sections/catalog.css">
+  <!-- <link rel="stylesheet" href="src/css/sections/catalog.css"> OLD CATALOG — DISABLED (feature/v9, для отката) -->
+  <link rel="stylesheet" href="src/css/sections/pheromones.css">
   <link rel="stylesheet" href="src/css/sections/services.css">
   <link rel="stylesheet" href="src/css/sections/process.css">
   <link rel="stylesheet" href="src/css/sections/reviews.css">
@@ -290,15 +291,15 @@
     </div>
   </section>
 
-  <!-- ==================== CATALOG ==================== -->
-  <section id="catalog">
+  <!-- ==================== OLD CATALOG — DISABLED (feature/v9, оставлено для отката) ====================
+  <section id="catalog-old-disabled">
     <div class="catalog-header">
       <h2 class="catalog-title" data-i18n="catalog_title">Коллекция Pheromones</h2>
       <p class="catalog-subtitle" data-i18n="catalog_subtitle">63 комбинации. Один точно твой.</p>
       <span class="catalog-hint" data-i18n="catalog_hint">Листайте →</span>
     </div>
 
-    <!-- Десктоп: горизонтальный pin-scroll -->
+    [Десктоп: горизонтальный pin-scroll]
     <div class="catalog-section">
       <div class="catalog-track">
 
@@ -341,7 +342,7 @@
       </div>
     </div>
 
-    <!-- Мобиль/планшет: Swiper -->
+    [Мобиль/планшет: Swiper]
     <div class="catalog-swiper swiper">
       <div class="swiper-wrapper">
 
@@ -369,6 +370,251 @@
           </div>
         </div>
 
+      </div>
+    </div>
+
+    [CTA под коллекцией]
+    <div class="catalog-cta">
+      <a href="#contact" class="catalog-cta-btn" data-i18n="catalog_cta">Записаться на подбор</a>
+    </div>
+  </section>
+  ==================== /OLD CATALOG ==================== -->
+
+  <!-- ==================== PHEROMONES COLLECTION ==================== -->
+  <section id="catalog">
+
+    <!-- Экран 1: интро-баннер -->
+    <div class="pher-intro">
+      <div class="pher-intro-visual">
+        <picture>
+          <source srcset="assets/images/shukran-bottle.webp" type="image/webp">
+          <img class="pher-intro-img" src="assets/images/shukran-bottle.jpg" alt="Pheromones Collection" loading="lazy" width="1347" height="1168">
+        </picture>
+      </div>
+      <div class="pher-intro-content">
+        <h2 class="pher-intro-title" data-i18n="pher_title">Pheromones Collection</h2>
+        <p class="pher-intro-text" data-i18n="pher_intro_text">Авторская коллекция эликсиров, созданных в нашей дубайской лаборатории парфюмером Мухаммадом. Каждый аромат — это жидкая память, нейро-код и инструмент управления состоянием. Одна молекула — целая вселенная ваших скрытых возможностей.</p>
+        <a href="#pher-showcase" class="pher-intro-btn" data-i18n="pher_intro_btn">Погрузиться в коллекцию</a>
+      </div>
+    </div>
+
+    <!-- Экран 2: витрина ароматов -->
+    <div class="pher-showcase" id="pher-showcase">
+      <div class="pher-showcase-header">
+        <div class="pher-showcase-titles">
+          <h3 class="pher-showcase-title" data-i18n="pher_showcase_title">Витрина ароматов</h3>
+          <p class="pher-showcase-hint" data-i18n="pher_showcase_hint">Нажмите на карточку, чтобы раскрыть аромат</p>
+        </div>
+        <div class="pher-arrows">
+          <button type="button" class="pher-arrow pher-arrow--prev" aria-label="Предыдущие ароматы">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+              <path d="M15 19l-7-7 7-7"/>
+            </svg>
+          </button>
+          <button type="button" class="pher-arrow pher-arrow--next" aria-label="Следующие ароматы">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+              <path d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="pher-track-wrap">
+        <ul class="pher-track">
+
+          <!-- Карточка 1 -->
+          <li class="pher-card" data-card="1" tabindex="0" role="button" aria-pressed="false">
+            <div class="pher-card-inner">
+              <div class="pher-card-face pher-card-face--front">
+                <div class="pher-card-bg pher-card-bg--scent-1" aria-hidden="true"></div>
+                <span class="pher-card-num">Pheromon · 01</span>
+                <div class="pher-card-bottle-wrap">
+                  <picture>
+                    <source srcset="assets/images/shukran-bottle.webp" type="image/webp">
+                    <img class="pher-card-bottle" src="assets/images/shukran-bottle.jpg" alt="" loading="lazy" width="1347" height="1168">
+                  </picture>
+                </div>
+                <span class="pher-card-accent" data-i18n="pher_1_accent">Уверенность</span>
+                <div class="pp-card-hint">
+                  <span data-i18n="pher_hint">Раскрыть аромат ↗</span>
+                </div>
+              </div>
+              <div class="pher-card-face pher-card-face--back">
+                <span class="pher-card-num">Pheromon · 01</span>
+                <h4 class="pher-card-name" data-i18n="pher_1_name">Власть и Авторитет</h4>
+                <p class="pher-card-meaning" data-i18n="pher_1_meaning">Элегантность, уверенность, благородство</p>
+                <hr class="pher-card-divider">
+                <p class="pher-card-neuro" data-i18n="pher_1_neuro">Усиливает ощущение внутренней силы, лидерства и непоколебимого статуса на переговорах.</p>
+                <p class="pher-card-profile" data-i18n="pher_1_profile">Смелый лидер в безупречном костюме. Оставляет после себя шлейф восхищения и престижа.</p>
+                <div class="pher-card-notes">
+                  <span class="pher-card-notes-label" data-i18n="pher_notes_label">Ключевые ноты</span>
+                  <p class="pher-card-notes-list" data-i18n="pher_1_notes">Корица, ладан, мускатный орех, глубокий дуб, мирра</p>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Карточка 2 -->
+          <li class="pher-card" data-card="2" tabindex="0" role="button" aria-pressed="false">
+            <div class="pher-card-inner">
+              <div class="pher-card-face pher-card-face--front">
+                <div class="pher-card-bg pher-card-bg--scent-2" aria-hidden="true"></div>
+                <span class="pher-card-num">Pheromon · 02</span>
+                <div class="pher-card-bottle-wrap">
+                  <picture>
+                    <source srcset="assets/images/shukran-bottle.webp" type="image/webp">
+                    <img class="pher-card-bottle" src="assets/images/shukran-bottle.jpg" alt="" loading="lazy" width="1347" height="1168">
+                  </picture>
+                </div>
+                <span class="pher-card-accent" data-i18n="pher_2_accent">Магнетизм</span>
+                <div class="pp-card-hint">
+                  <span data-i18n="pher_hint">Раскрыть аромат ↗</span>
+                </div>
+              </div>
+              <div class="pher-card-face pher-card-face--back">
+                <span class="pher-card-num">Pheromon · 02</span>
+                <h4 class="pher-card-name" data-i18n="pher_2_name">Чистая Страсть</h4>
+                <p class="pher-card-meaning" data-i18n="pher_2_meaning">Сексуальный темперамент, магнетизм, глубина чувств</p>
+                <hr class="pher-card-divider">
+                <p class="pher-card-neuro" data-i18n="pher_2_neuro">Раскрывает чувственность, снимает внутренние барьеры, включает абсолютное притяжение.</p>
+                <p class="pher-card-profile" data-i18n="pher_2_profile">Эликсир для особенных встреч. Искры искреннего влечения, пойманные во флакон.</p>
+                <div class="pher-card-notes">
+                  <span class="pher-card-notes-label" data-i18n="pher_notes_label">Ключевые ноты</span>
+                  <p class="pher-card-notes-list" data-i18n="pher_2_notes">Спелая вишня, амброксан, иланг-иланг, сандал</p>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Карточка 3 -->
+          <li class="pher-card" data-card="3" tabindex="0" role="button" aria-pressed="false">
+            <div class="pher-card-inner">
+              <div class="pher-card-face pher-card-face--front">
+                <div class="pher-card-bg pher-card-bg--scent-3" aria-hidden="true"></div>
+                <span class="pher-card-num">Pheromon · 03</span>
+                <div class="pher-card-bottle-wrap">
+                  <picture>
+                    <source srcset="assets/images/shukran-bottle.webp" type="image/webp">
+                    <img class="pher-card-bottle" src="assets/images/shukran-bottle.jpg" alt="" loading="lazy" width="1347" height="1168">
+                  </picture>
+                </div>
+                <span class="pher-card-accent" data-i18n="pher_3_accent">Харизма</span>
+                <div class="pp-card-hint">
+                  <span data-i18n="pher_hint">Раскрыть аромат ↗</span>
+                </div>
+              </div>
+              <div class="pher-card-face pher-card-face--back">
+                <span class="pher-card-num">Pheromon · 03</span>
+                <h4 class="pher-card-name" data-i18n="pher_3_name">Магнетическая Сила</h4>
+                <p class="pher-card-meaning" data-i18n="pher_3_meaning">Харизма, экстравагантность, наркотический шлейф</p>
+                <hr class="pher-card-divider">
+                <p class="pher-card-neuro" data-i18n="pher_3_neuro">Усиливает эмоциональную глубину, притягивает взгляды, завораживает окружение.</p>
+                <p class="pher-card-profile" data-i18n="pher_3_profile">Загадочный и мощный код женской проявленности. Аромат, который не отпускает подсознание.</p>
+                <div class="pher-card-notes">
+                  <span class="pher-card-notes-label" data-i18n="pher_notes_label">Ключевые ноты</span>
+                  <p class="pher-card-notes-list" data-i18n="pher_3_notes">Личи, сочный персик, бергамот, пион, белый мускус</p>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Карточка 4 -->
+          <li class="pher-card" data-card="4" tabindex="0" role="button" aria-pressed="false">
+            <div class="pher-card-inner">
+              <div class="pher-card-face pher-card-face--front">
+                <div class="pher-card-bg pher-card-bg--scent-4" aria-hidden="true"></div>
+                <span class="pher-card-num">Pheromon · 04</span>
+                <div class="pher-card-bottle-wrap">
+                  <picture>
+                    <source srcset="assets/images/shukran-bottle.webp" type="image/webp">
+                    <img class="pher-card-bottle" src="assets/images/shukran-bottle.jpg" alt="" loading="lazy" width="1347" height="1168">
+                  </picture>
+                </div>
+                <span class="pher-card-accent" data-i18n="pher_4_accent">Свобода</span>
+                <div class="pp-card-hint">
+                  <span data-i18n="pher_hint">Раскрыть аромат ↗</span>
+                </div>
+              </div>
+              <div class="pher-card-face pher-card-face--back">
+                <span class="pher-card-num">Pheromon · 04</span>
+                <h4 class="pher-card-name" data-i18n="pher_4_name">Свобода и Сияние</h4>
+                <p class="pher-card-meaning" data-i18n="pher_4_meaning">Свежесть, многогранность, экзотика</p>
+                <hr class="pher-card-divider">
+                <p class="pher-card-neuro" data-i18n="pher_4_neuro">Добавляет лёгкости, дарит ощущение безграничной свободы и наполняет энергией.</p>
+                <p class="pher-card-profile" data-i18n="pher_4_profile">Яркий и сияющий эликсир. Звучит множеством граней, словно драгоценный камень под дубайским солнцем.</p>
+                <div class="pher-card-notes">
+                  <span class="pher-card-notes-label" data-i18n="pher_notes_label">Ключевые ноты</span>
+                  <p class="pher-card-notes-list" data-i18n="pher_4_notes">Красное яблоко, жасмин, амбра, пачули</p>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Карточка 5 -->
+          <li class="pher-card" data-card="5" tabindex="0" role="button" aria-pressed="false">
+            <div class="pher-card-inner">
+              <div class="pher-card-face pher-card-face--front">
+                <div class="pher-card-bg pher-card-bg--scent-5" aria-hidden="true"></div>
+                <span class="pher-card-num">Pheromon · 05</span>
+                <div class="pher-card-bottle-wrap">
+                  <picture>
+                    <source srcset="assets/images/shukran-bottle.webp" type="image/webp">
+                    <img class="pher-card-bottle" src="assets/images/shukran-bottle.jpg" alt="" loading="lazy" width="1347" height="1168">
+                  </picture>
+                </div>
+                <span class="pher-card-accent" data-i18n="pher_5_accent">Гармония</span>
+                <div class="pp-card-hint">
+                  <span data-i18n="pher_hint">Раскрыть аромат ↗</span>
+                </div>
+              </div>
+              <div class="pher-card-face pher-card-face--back">
+                <span class="pher-card-num">Pheromon · 05</span>
+                <h4 class="pher-card-name" data-i18n="pher_5_name">Восточная Тайна</h4>
+                <p class="pher-card-meaning" data-i18n="pher_5_meaning">Сказочный чарующий шлейф, гармония</p>
+                <hr class="pher-card-divider">
+                <p class="pher-card-neuro" data-i18n="pher_5_neuro">Создаёт внутренний баланс, мягкость и окутывает аурой загадочности.</p>
+                <p class="pher-card-profile" data-i18n="pher_5_profile">Магия Востока. Невероятно притягательный, убаюкивающий сон, превращённый в парфюм.</p>
+                <div class="pher-card-notes">
+                  <span class="pher-card-notes-label" data-i18n="pher_notes_label">Ключевые ноты</span>
+                  <p class="pher-card-notes-list" data-i18n="pher_5_notes">Пряный имбирь, кардамон, бергамот, кофе, табак, ваниль</p>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Карточка 6 -->
+          <li class="pher-card" data-card="6" tabindex="0" role="button" aria-pressed="false">
+            <div class="pher-card-inner">
+              <div class="pher-card-face pher-card-face--front">
+                <div class="pher-card-bg pher-card-bg--scent-6" aria-hidden="true"></div>
+                <span class="pher-card-num">Pheromon · 06</span>
+                <div class="pher-card-bottle-wrap">
+                  <picture>
+                    <source srcset="assets/images/shukran-bottle.webp" type="image/webp">
+                    <img class="pher-card-bottle" src="assets/images/shukran-bottle.jpg" alt="" loading="lazy" width="1347" height="1168">
+                  </picture>
+                </div>
+                <span class="pher-card-accent" data-i18n="pher_6_accent">Успех</span>
+                <div class="pp-card-hint">
+                  <span data-i18n="pher_hint">Раскрыть аромат ↗</span>
+                </div>
+              </div>
+              <div class="pher-card-face pher-card-face--back">
+                <span class="pher-card-num">Pheromon · 06</span>
+                <h4 class="pher-card-name" data-i18n="pher_6_name">Код Успеха</h4>
+                <p class="pher-card-meaning" data-i18n="pher_6_meaning">Чарующий магнетизм, богатство и деньги</p>
+                <hr class="pher-card-divider">
+                <p class="pher-card-neuro" data-i18n="pher_6_neuro">Приносит ощущение тонкой магии, праздничной атмосферы и триумфа.</p>
+                <p class="pher-card-profile" data-i18n="pher_6_profile">Символ роскоши и побед. Звонкий, притягательный магнит для финансового успеха и признания.</p>
+                <div class="pher-card-notes">
+                  <span class="pher-card-notes-label" data-i18n="pher_notes_label">Ключевые ноты</span>
+                  <p class="pher-card-notes-list" data-i18n="pher_6_notes">Авторский молекулярный комплекс, благородные специи, ценные древесные масла</p>
+                </div>
+              </div>
+            </div>
+          </li>
+
+        </ul>
       </div>
     </div>
 

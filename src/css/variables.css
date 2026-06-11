@@ -75,4 +75,18 @@
   /* --- Брейкпоинты (только для JS) --- */
   --bp-mobile:  767;
   --bp-tablet:  1023;
+
+  /* --- Pheromones Collection (новый блок, feature/v9) --- */
+  --gold-pheromone:      #CF8C58;
+  --gold-pheromone-line: rgba(207, 140, 88, 0.12);
+  --gold-pheromone-glow: rgba(207, 140, 88, 0.35);
+  --pher-text-back:      rgba(245, 239, 228, 0.65);
+  --pher-bg-overlay:     rgba(207, 140, 88, 0.12);
+
+  /* --- Карточки Pheromones: светлая тема (feature/v9, обновление) --- */
+  --pher-card-bg:     var(--bg-soft);   /* #F7F4F0 */
+  --pher-card-border: var(--line-light);
+  --pher-card-text:   var(--text);      /* #111111 */
+  --pher-card-text-mid: var(--text-mid); /* #5C4A36 */
+  --pher-gold-dark:   #9C5A28;          /* gold-pheromone, затемнённый для AA на светлом фоне */
 }

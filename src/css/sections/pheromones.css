@@ -1,0 +1,504 @@
+/* ===== PHEROMONES COLLECTION (feature/v9) ===== */
+#catalog {
+  background: var(--ink);
+  overflow: hidden;
+  /* Сбрасываем общий section-padding из base.css — Экран 1/2 управляют отступами сами */
+  padding: 0;
+}
+
+/* ===== Экран 1 — интро-баннер ===== */
+.pher-intro {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  padding: clamp(96px, 14vw, 160px) clamp(16px, 3vw, 48px) 0;
+  gap: clamp(32px, 5vw, 64px);
+  justify-content: center;
+}
+
+.pher-intro-visual {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pher-intro-img {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.pher-intro-content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.pher-intro-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 8vw, 72px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--on-dark);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.pher-intro-text {
+  font-family: var(--font-display);
+  font-size: clamp(17px, 2.2vw, 22px);
+  color: var(--on-dark-mid);
+  line-height: 1.7;
+  max-width: 56ch;
+}
+
+.pher-intro-btn {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--logo-gold);
+  border: 0.5px solid var(--gold-pheromone-line);
+  padding: 18px 40px;
+  transition: background 0.3s var(--ease-gold), color 0.3s, border-color 0.3s;
+}
+
+.pher-intro-btn:hover {
+  background: var(--gold);
+  color: var(--on-dark);
+  border-color: var(--gold);
+}
+
+/* ===== Экран 2 — витрина ===== */
+.pher-showcase {
+  --pher-pad-x: clamp(16px, 3vw, 32px);
+  padding: clamp(16px, 2vw, 40px) 0 clamp(24px, 3vw, 40px);
+}
+
+.pher-showcase-header {
+  padding: 0 var(--pher-pad-x);
+  margin-bottom: clamp(16px, 2vw, 24px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pher-showcase-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--on-dark);
+  letter-spacing: -0.02em;
+}
+
+.pher-showcase-hint {
+  font-family: var(--font-display);
+  font-size: clamp(12px, 1.3vw, 15px);
+  font-style: italic;
+  color: var(--logo-gold);
+  letter-spacing: 0.05em;
+}
+
+/* Стрелки навигации — только десктоп */
+.pher-arrows {
+  display: none;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.pher-arrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 0.5px solid var(--gold-pheromone-line);
+  background: transparent;
+  color: var(--logo-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.3s, color 0.3s, opacity 0.3s;
+}
+
+.pher-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+.pher-arrow:hover {
+  border-color: var(--logo-gold);
+  color: var(--on-dark);
+}
+
+.pher-arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* ===== Лента карточек ===== */
+.pher-track-wrap {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--pher-pad-x);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.pher-track-wrap::-webkit-scrollbar {
+  display: none;
+}
+
+.pher-track {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0 var(--pher-pad-x);
+  gap: 2px;
+  --pher-card-gap: 2px;
+}
+
+.pher-card {
+  scroll-snap-align: start;
+}
+
+/* Мобиль (≤767px) — 1 карточка + подглядывание следующей */
+@media (max-width: 767px) {
+  .pher-card {
+    width: 78vw;
+    height: clamp(420px, 117vw, 480px);
+  }
+}
+
+/* Планшет (768–1023px) — ~2.2 карточки */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .pher-card {
+    width: 42vw;
+    height: clamp(440px, 56vw, 520px);
+  }
+}
+
+/* Десктоп (≥1024px) — лента со стрелками, ровно 4 карточки в ряд */
+@media (min-width: 1024px) {
+  .pher-arrows {
+    display: flex;
+  }
+
+  .pher-showcase-header {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .pher-card {
+    width: calc((100% - 3 * var(--pher-card-gap) + var(--pher-pad-x)) / 4);
+    height: clamp(380px, 34vw, 480px);
+  }
+}
+
+/* ===== Карточка: 3D-флип ===== */
+.pher-card {
+  flex-shrink: 0;
+  perspective: 1500px;
+  cursor: pointer;
+  outline: none;
+  transition: opacity 0.5s ease;
+}
+
+.pher-card:focus-visible {
+  outline: 1px solid var(--logo-gold);
+  outline-offset: 4px;
+}
+
+.pher-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: translateZ(0.01px);
+  transition: transform 0.8s cubic-bezier(0.75, 0, 0.85, 1);
+}
+
+.pher-card.is-flipped {
+  position: relative;
+  z-index: 5;
+}
+
+.pher-card.is-flipped .pher-card-inner {
+  transform: rotateY(180deg) translateZ(0.01px);
+}
+
+/* Соседние карточки слегка затемняются, пока одна развёрнута */
+.pher-track:has(.pher-card.is-flipped) .pher-card:not(.is-flipped) {
+  opacity: 0.6;
+  transition: opacity 0.5s ease;
+}
+
+.pher-card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border: 0.5px solid var(--pher-card-border);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--pher-card-bg);
+}
+
+.pher-card-face--back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  padding: clamp(20px, 3vw, 28px);
+  overflow-y: auto;
+  scrollbar-width: none;
+  background: var(--bg);
+}
+
+.pher-card-face--back::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- Лицевая сторона --- */
+.pher-card-face--front {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(20px, 3vw, 28px) clamp(20px, 3vw, 28px) clamp(48px, 5vw, 60px);
+  gap: 16px;
+}
+
+/* Скрытый фон (scent-иллюстрация) — проявляется на hover, десктоп */
+.pher-card-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--pher-bg-overlay);
+  opacity: 0;
+  filter: blur(10px);
+  transform: scale(1.05);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pher-card:hover .pher-card-bg {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+
+  .pher-card:hover .pher-card-face--front {
+    box-shadow: 0 24px 60px -20px var(--gold-pheromone-glow);
+  }
+}
+
+.pher-card-num {
+  position: relative;
+  z-index: 1;
+  align-self: flex-start;
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.pher-card-bottle-wrap {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pher-card-bottle {
+  width: 100%;
+  max-width: 70%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.pher-card-accent {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  color: var(--pher-card-text);
+}
+
+/* --- Подсказка «Раскрыть аромат» на лицевой стороне --- */
+.pp-card-hint {
+  position: absolute;
+  z-index: 3;
+  bottom: 1.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  white-space: nowrap;
+  animation: pp-hint-fade 3.5s ease-in-out infinite;
+}
+
+.pp-card-hint span {
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--pher-gold-dark);
+}
+
+.pp-card-hint::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--pher-gold-dark), transparent);
+  animation: pp-hint-line 3.5s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes pp-hint-fade {
+  0%   { opacity: 0; }
+  20%  { opacity: 1; }
+  70%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes pp-hint-line {
+  0%   { opacity: 0; transform: scaleX(0.3); }
+  20%  { opacity: 1; transform: scaleX(1); }
+  70%  { opacity: 1; transform: scaleX(1); }
+  100% { opacity: 0; transform: scaleX(0.3); }
+}
+
+/* --- Оборотная сторона --- */
+.pher-card-face--back .pher-card-num {
+  margin-bottom: 12px;
+}
+
+.pher-card-name {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.6vw, 30px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--pher-card-text);
+  line-height: 1.2;
+  margin: 0 0 8px;
+}
+
+.pher-card-meaning {
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  color: var(--gold);
+  margin: 0 0 16px;
+}
+
+.pher-card-divider {
+  border: none;
+  height: 1px;
+  background: var(--line-light-solid);
+  margin: 0 0 16px;
+}
+
+.pher-card-neuro {
+  font-family: var(--font-display);
+  font-size: clamp(15px, 1.6vw, 18px);
+  color: var(--pher-card-text);
+  line-height: 1.6;
+  margin: 0 0 12px;
+}
+
+.pher-card-profile {
+  font-family: var(--font-display);
+  font-size: clamp(14px, 1.5vw, 17px);
+  font-style: italic;
+  color: var(--pher-card-text);
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+
+.pher-card-notes {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 0.5px solid var(--line-light-solid);
+}
+
+.pher-card-notes-label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.pher-card-notes-list {
+  font-family: var(--font-display);
+  font-size: 14px;
+  color: var(--pher-card-text-mid);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ===== CTA под витриной ===== */
+#catalog .catalog-cta {
+  padding: clamp(48px, 6vw, 80px) var(--pad-x) clamp(60px, 8vw, 100px);
+  text-align: center;
+}
+
+#catalog .catalog-cta-btn {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--logo-gold);
+  border: 0.5px solid var(--gold-pheromone-line);
+  padding: 18px 40px;
+  transition: background 0.3s var(--ease-gold), color 0.3s, border-color 0.3s;
+}
+
+#catalog .catalog-cta-btn:hover {
+  background: var(--gold);
+  color: var(--on-dark);
+  border-color: var(--gold);
+}
+
+/* ===== Десктоп (≥1024px) — интро в две колонки ===== */
+@media (min-width: 1024px) {
+  .pher-intro {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .pher-intro-visual {
+    flex: 1 1 50%;
+  }
+
+  .pher-intro-content {
+    flex: 1 1 50%;
+  }
+
+  .pher-intro-img {
+    max-width: 100%;
+  }
+}
