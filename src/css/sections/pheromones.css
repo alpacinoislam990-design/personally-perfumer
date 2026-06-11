@@ -207,6 +207,7 @@
 .pher-card {
   flex-shrink: 0;
   perspective: 1500px;
+  -webkit-perspective: 1500px;
   cursor: pointer;
   outline: none;
   transition: opacity 0.5s ease;
@@ -222,7 +223,9 @@
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   transform: translateZ(0.01px);
+  -webkit-transform: translateZ(0.01px);
   transition: transform 0.8s cubic-bezier(0.75, 0, 0.85, 1);
 }
 
@@ -233,6 +236,7 @@
 
 .pher-card.is-flipped .pher-card-inner {
   transform: rotateY(180deg) translateZ(0.01px);
+  -webkit-transform: rotateY(180deg) translateZ(0.01px);
 }
 
 /* Соседние карточки слегка затемняются, пока одна развёрнута */
@@ -245,14 +249,22 @@
   position: absolute;
   inset: 0;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   border: 0.5px solid var(--pher-card-border);
   border-radius: 4px;
   overflow: hidden;
   background: var(--pher-card-bg);
+  /* Safari iOS не всегда прячет обратную сторону через backface-visibility —
+     дублируем скрытие через visibility с задержкой до середины анимации
+     флипа (0.8s / 2 = 0.4s), чтобы стороны не "просвечивали" друг сквозь друга */
+  visibility: visible;
+  transition: visibility 0s linear 0.4s;
 }
 
 .pher-card-face--back {
   transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  visibility: hidden;
   display: flex;
   flex-direction: column;
   padding: clamp(20px, 3vw, 28px);
@@ -272,6 +284,14 @@
   align-items: center;
   padding: clamp(20px, 3vw, 28px) clamp(20px, 3vw, 28px) clamp(48px, 5vw, 60px);
   gap: 16px;
+}
+
+.pher-card.is-flipped .pher-card-face--front {
+  visibility: hidden;
+}
+
+.pher-card.is-flipped .pher-card-face--back {
+  visibility: visible;
 }
 
 /* Скрытый фон (scent-иллюстрация) — проявляется на hover, десктоп */
@@ -344,8 +364,8 @@
 }
 
 .pher-card-bottle {
-  max-width: 40%;
-  max-height: 65%;
+  max-width: 36%;
+  max-height: 60%;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -384,7 +404,7 @@
   font-size: 14px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--pher-gold-dark);
+  color: var(--logo-gold);
 }
 
 .pp-card-hint::after {
@@ -392,7 +412,7 @@
   display: block;
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--pher-gold-dark), transparent);
+  background: linear-gradient(90deg, transparent, var(--logo-gold), transparent);
   animation: pp-hint-line 3.5s ease-in-out infinite;
   transform-origin: center;
 }
