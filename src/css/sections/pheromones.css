@@ -374,15 +374,29 @@
   margin: 0 auto;
 }
 
+/* Название аромата на лицевой стороне (перенесено с обратной по фидбэку) */
+.pher-card-title {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  color: var(--pher-card-text);
+  text-align: center;
+}
+
 .pher-card-accent {
   position: relative;
   z-index: 1;
   font-family: var(--font-display);
-  font-size: clamp(18px, 2vw, 24px);
+  font-size: clamp(12px, 1.2vw, 14px);
   font-weight: 300;
-  font-style: italic;
-  letter-spacing: 0.06em;
-  color: var(--pher-card-text);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
 }
 
 /* --- Подсказка «Раскрыть аромат» на лицевой стороне --- */
@@ -401,12 +415,25 @@
   animation: pp-hint-fade 3.5s ease-in-out infinite;
 }
 
+.pp-card-hint-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .pp-card-hint span {
   font-family: var(--font-display);
   font-size: 14px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--logo-gold);
+}
+
+.pp-card-hint-icon {
+  width: 13px;
+  height: 13px;
+  color: var(--logo-gold);
+  flex-shrink: 0;
 }
 
 .pp-card-hint::after {
@@ -436,16 +463,6 @@
 /* --- Оборотная сторона --- */
 .pher-card-face--back .pher-card-num {
   margin-bottom: 12px;
-}
-
-.pher-card-name {
-  font-family: var(--font-display);
-  font-size: clamp(22px, 2.6vw, 30px);
-  font-weight: 300;
-  font-style: italic;
-  color: var(--pher-card-text);
-  line-height: 1.2;
-  margin: 0 0 8px;
 }
 
 .pher-card-meaning {

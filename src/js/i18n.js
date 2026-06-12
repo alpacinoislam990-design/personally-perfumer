@@ -74,7 +74,7 @@ const STRINGS = {
     pher_showcase_title:  'Fragrance Showcase',
     pher_showcase_hint:   'Tap a card to reveal the fragrance',
     pher_notes_label:     'Key Notes',
-    pher_hint:            'Reveal the scent ↗',
+    pher_hint:            'Reveal the scent',
 
     pher_1_accent:  'Confidence',
     pher_1_name:    'Power & Authority',
@@ -263,7 +263,7 @@ const STRINGS = {
     pher_showcase_title:  'Витрина ароматов',
     pher_showcase_hint:   'Нажмите на карточку, чтобы раскрыть аромат',
     pher_notes_label:     'Ключевые ноты',
-    pher_hint:            'Раскрыть аромат ↗',
+    pher_hint:            'Раскрыть аромат',
 
     pher_1_accent:  'Уверенность',
     pher_1_name:    'Власть и Авторитет',
