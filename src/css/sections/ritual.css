@@ -1,0 +1,249 @@
+/* ===== RITUAL — РИТУАЛ НАНЕСЕНИЯ ===== */
+#ritual {
+  background: var(--bg);
+  padding: clamp(48px, 7vw, 88px) var(--pad-x) clamp(32px, 5vw, 56px);
+}
+
+/* Сокращаем "воздух" перед следующей секцией — она всегда #about */
+#ritual + #about {
+  padding-top: clamp(48px, 6vw, 80px);
+}
+
+/* --- Заголовок --- */
+.ritual-header {
+  max-width: var(--max-w);
+  margin: 0 auto clamp(32px, 4vw, 56px);
+  text-align: center;
+}
+
+.ritual-label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.ritual-heading {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+/* --- Сетка шагов: 3 колонки, hairline-границы (как services-grid) --- */
+.ritual-grid {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line-light);
+  border: 1px solid var(--line-light);
+}
+
+.ritual-step {
+  background: var(--bg);
+  padding: clamp(28px, 3vw, 44px) clamp(24px, 2.5vw, 36px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: background 0.3s var(--ease-gold);
+}
+
+.ritual-step:hover {
+  background: var(--bg-soft);
+}
+
+/* Крупный курсивный номер шага — акцент вместо иконки-медальона */
+.ritual-step-num {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1;
+  color: var(--gold);
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line-light-solid);
+  margin-bottom: 2px;
+}
+
+.ritual-step-title {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.25;
+}
+
+.ritual-step-body {
+  font-family: var(--font-display);
+  font-size: clamp(14px, 1.4vw, 17px);
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* --- Intention chips: компактный блок внутри Шага 1 --- */
+.ritual-intents-label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.ritual-intents {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-top: 8px;
+  list-style: none;
+}
+
+.ritual-intent {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: 1px solid var(--line-light-solid);
+  border-radius: 999px;
+  transition: border-color 0.25s var(--ease-gold), background 0.25s var(--ease-gold);
+}
+
+.ritual-intent:hover {
+  border-color: var(--gold);
+  background: var(--bg-soft);
+}
+
+.ritual-intent-icon {
+  width: 13px;
+  height: 13px;
+  color: var(--gold);
+  display: flex;
+  flex-shrink: 0;
+}
+
+.ritual-intent-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ritual-intent-label {
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+/* --- Манифест --- */
+.ritual-manifesto {
+  max-width: var(--max-w);
+  margin: clamp(20px, 3vw, 32px) auto 0;
+  padding-top: clamp(20px, 3vw, 32px);
+  border-top: 1px solid var(--line-light);
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.8vw, 32px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--gold);
+  line-height: 1.4;
+}
+
+/* ===========================================================
+   МОБИЛЬ (≤767px)
+   =========================================================== */
+@media (max-width: 767px) {
+  #ritual {
+    padding: clamp(40px, 9vw, 64px) clamp(24px, 6vw, 40px) clamp(28px, 6vw, 40px);
+  }
+
+  .ritual-header {
+    margin-bottom: clamp(28px, 6vw, 40px);
+  }
+
+  .ritual-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+    background: none;
+    border: none;
+  }
+
+  .ritual-step {
+    padding: 24px 0;
+    border-top: 1px solid var(--line-light);
+    gap: 10px;
+  }
+
+  .ritual-step:last-child {
+    border-bottom: 1px solid var(--line-light);
+  }
+
+  .ritual-step-num {
+    font-size: clamp(32px, 9vw, 44px);
+    padding-bottom: 10px;
+  }
+
+  .ritual-step-title {
+    font-size: clamp(20px, 5.5vw, 24px);
+  }
+
+  .ritual-step-body {
+    font-size: clamp(14px, 3.5vw, 16px);
+  }
+
+  /* Чипы — сеткой 2×2, крупнее, под текстом Шага 1 */
+  .ritual-intents-label {
+    margin-top: 12px;
+  }
+
+  .ritual-intents {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .ritual-intent {
+    justify-content: center;
+    padding: 12px 16px;
+  }
+
+  .ritual-manifesto {
+    font-size: clamp(19px, 5.5vw, 24px);
+    margin-top: clamp(24px, 6vw, 32px);
+    padding-top: clamp(24px, 6vw, 32px);
+  }
+}
+
+/* ===========================================================
+   ПЛАНШЕТ (768–1023px)
+   =========================================================== */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .ritual-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+    background: none;
+    border: none;
+  }
+
+  .ritual-step {
+    padding: 28px 0;
+    border-top: 1px solid var(--line-light);
+  }
+
+  .ritual-step:last-child {
+    border-bottom: 1px solid var(--line-light);
+  }
+}

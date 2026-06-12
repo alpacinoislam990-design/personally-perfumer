@@ -6,7 +6,7 @@ export function initScrollReveals() {
 
   /* --- Clip-path reveal для заголовков секций --- */
   document.querySelectorAll(
-    '.services-heading, .process-heading, .reviews-heading, .contact-title'
+    '.ritual-heading, .services-heading, .process-heading, .reviews-heading, .contact-title'
   ).forEach(el => {
     gsap.from(el, {
       clipPath: 'inset(100% 0 0 0)',
@@ -14,6 +14,35 @@ export function initScrollReveals() {
       ease:      'power3.out',
       scrollTrigger: { trigger: el, start: 'top 82%', once: true }
     });
+  });
+
+  /* --- Ritual — лейбл --- */
+  gsap.from('.ritual-label', {
+    opacity: 0, y: 16, duration: 0.5, ease: 'power2.out',
+    scrollTrigger: { trigger: '#ritual', start: 'top 80%', once: true }
+  });
+
+  /* --- Ritual — шаги сетки --- */
+  gsap.from('.ritual-step', {
+    opacity: 0, y: 32,
+    duration: 0.6, ease: 'power2.out',
+    stagger: 0.12,
+    scrollTrigger: { trigger: '#ritual', start: 'top 72%', once: true }
+  });
+
+  /* --- Ritual — intention chips --- */
+  gsap.from('.ritual-intent', {
+    opacity: 0, y: 12,
+    duration: 0.4, ease: 'power2.out',
+    stagger: 0.06,
+    scrollTrigger: { trigger: '.ritual-intents', start: 'top 90%', once: true }
+  });
+
+  /* --- Ritual — манифест --- */
+  gsap.from('.ritual-manifesto', {
+    opacity: 0, y: 20,
+    duration: 0.7, ease: 'power2.out',
+    scrollTrigger: { trigger: '.ritual-manifesto', start: 'top 90%', once: true }
   });
 
   /* --- "Разбуди инстинкты" — драматичный reveal по буквам --- */

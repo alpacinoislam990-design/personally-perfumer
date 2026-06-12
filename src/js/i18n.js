@@ -14,6 +14,22 @@ const STRINGS = {
     hero_btn_book:    'Book a consultation',
     hero_btn_catalog: 'View Collection',
 
+    /* Ritual */
+    ritual_label:          'Ritual',
+    ritual_heading:        'The Application Ritual',
+    ritual_1_title:        'Choose your intention',
+    ritual_1_body:         'Decide which state you want to activate today.',
+    ritual_intents_label:  'Choose your state',
+    ritual_intent_power:   'Power',
+    ritual_intent_passion: 'Passion',
+    ritual_intent_ease:    'Ease',
+    ritual_intent_success: 'Success',
+    ritual_2_title:        'Layer it on',
+    ritual_2_body:         'Spray the elixirs one by one onto your pulse points — wrists, neck, collarbones, or behind the ears. The composition unfolds gradually and stays alive.',
+    ritual_3_title:        'Master the concentration',
+    ritual_3_body:         'There is no limit to the number of drops. Adjust the proportions intuitively to match your mood, the time of day, or the occasion. You are the author of your own formula.',
+    ritual_manifesto:      '“One set of elixirs — a universe of states. Awaken your instincts.”',
+
     /* About */
     about_label:    'Perfumer',
     about_heading:  'Muhammad —\narchitect of perfume\nand transformations',
@@ -186,6 +202,22 @@ const STRINGS = {
     hero_heading:     'Разбуди инстинкты',
     hero_btn_book:    'Записаться на консультацию',
     hero_btn_catalog: 'Смотреть коллекцию',
+
+    /* Ritual */
+    ritual_label:          'Ритуал',
+    ritual_heading:        'Ритуал нанесения',
+    ritual_1_title:        'Выберите намерение',
+    ritual_1_body:         'Определите, какое состояние вы хотите активировать сегодня.',
+    ritual_intents_label:  'Выберите состояние',
+    ritual_intent_power:   'Власть',
+    ritual_intent_passion: 'Страсть',
+    ritual_intent_ease:    'Лёгкость',
+    ritual_intent_success: 'Успех',
+    ritual_2_title:        'Нанесите послойно',
+    ritual_2_body:         'Распыляйте эликсиры поочередно слоями на точки пульса: запястья, шею, ключицы или зону за ушами. Композиция будет раскрываться постепенно и останется живой.',
+    ritual_3_title:        'Управляйте концентрацией',
+    ritual_3_body:         'Количество капель не имеет ограничений. Меняйте пропорции интуитивно под ваше настроение, время суток или статус события. Вы — автор своей формулы.',
+    ritual_manifesto:      '«Один набор эликсиров — вселенная ваших состояний. Разбудите свои инстинкты.»',
 
     /* About */
     about_label:    'Парфюмер',
